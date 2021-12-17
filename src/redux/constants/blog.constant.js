@@ -1,0 +1,4 @@
+export const BLOG_ACTION = {
+  GET_BLOG_LIST: 'GET_BLOG_LIST',
+  GET_BLOG_DETAIL: 'GET_BLOG_DETAIL',
+};
