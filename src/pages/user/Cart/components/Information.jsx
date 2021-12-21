@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Card, Form, Button, Row, Col, Input, Select } from 'antd';
+import { Card, Form, Button, Row, Col, Input, Select, Tag } from 'antd';
 
 import {
   setOrderInfoAction,
@@ -14,9 +14,9 @@ const Information = ({ setCheckoutStep, userInfo }) => {
   const [informationForm] = Form.useForm();
 
   const dispatch = useDispatch();
-  const orderLocations = userInfo.data?.orderLocations;
+  const { orderLocations } = userInfo.data;
   const defaultOrderLocation = orderLocations.find(
-    location => location.default === true
+    location => location.defaultLocation === true || {}
   );
 
   const [wardOptions, setWardOptions] = useState([]);
@@ -35,7 +35,7 @@ const Information = ({ setCheckoutStep, userInfo }) => {
     dispatch(getCityListAction());
     dispatch(getDistrictListAction());
     dispatch(getWardListAction());
-  }, []);
+  }, [dispatch]);
 
   const handleConfirmInformation = values => {
     const city = cityList.data.find(city => city.code === values.city);
@@ -56,10 +56,11 @@ const Information = ({ setCheckoutStep, userInfo }) => {
   };
 
   const renderOrderLocations = () => {
-    return userInfo.data?.orderLocations.map(location => {
+    return userInfo.data.orderLocations?.map(location => {
       return (
         <Col span={12} key={location.id}>
-          <Card
+          <S.LocationCard
+            active={`${location.info?.address === orderLocationForm.address}`}
             size="small"
             onClick={() => {
               informationForm.setFieldsValue({ ...location.info });
@@ -73,11 +74,17 @@ const Information = ({ setCheckoutStep, userInfo }) => {
                 <S.H4>Điện thoại:</S.H4> {location.info.phoneNumber}
               </Col>
               <Col span={12}>
-                <S.H4>Địa chỉ:</S.H4>
-                {`${location.info.address}-${location.info.ward}-${location.info.district}-${location.info.city}`}
+                <Row>
+                  <S.H4>Địa chỉ:</S.H4>
+                  {`${location.info.address}-${location.info.ward}-${location.info.district}-${location.info.city}`}
+                </Row>
+
+                {location.defaultLocation && (
+                  <S.DefaultTag color="green">Mặc định</S.DefaultTag>
+                )}
               </Col>
             </Row>
-          </Card>
+          </S.LocationCard>
         </Col>
       );
     });
@@ -86,22 +93,20 @@ const Information = ({ setCheckoutStep, userInfo }) => {
   const renderSelectedCarts = () => {
     return selectedCarts.map((cartItem, cartIndex) => {
       return (
-        <Card bordered={false} size="small" key={cartIndex}>
-          <Row key={cartItem.id} justify="space-between">
-            <Col>
-              <S.H4>
-                {cartItem.name} x {cartItem.quantity}
-              </S.H4>
-              <S.Span>{cartItem.productOption?.name}</S.Span>
-            </Col>
-            <Col>
-              <S.P>{`${(
-                cartItem.quantity *
-                (cartItem.price + (cartItem.productOption?.price || 0))
-              ).toLocaleString()} ₫`}</S.P>
-            </Col>
-          </Row>
-        </Card>
+        <Row key={cartItem.id} justify="space-between">
+          <Col>
+            <S.H4>
+              {cartItem.name} x {cartItem.quantity}
+            </S.H4>
+            <S.Span>{cartItem.productOption?.name}</S.Span>
+          </Col>
+          <Col>
+            <S.P>{`${(
+              cartItem.quantity *
+              (cartItem.price + (cartItem.productOption?.price || 0))
+            ).toLocaleString()} ₫`}</S.P>
+          </Col>
+        </Row>
       );
     });
   };
@@ -254,14 +259,14 @@ const Information = ({ setCheckoutStep, userInfo }) => {
           <Card size="small">{renderInformationForm()}</Card>
         </Col>
         <Col span={8}>
-          <Card size="small" style={{ marginBottom: 16, minHeight: '12rem' }}>
+          <Card size="small" style={{ marginBottom: 16 }}>
             {renderSelectedCarts()}
             <Row justify="space-between">
               <S.H4>Giảm giá: </S.H4>
               <S.P>{`${orderCheckout.discountPrice.toLocaleString()} ₫`}</S.P>
             </Row>
             <Row
-              style={{ borderTop: '1px solid grey' }}
+              style={{ borderTop: '1px solid grey', paddingTop: 5 }}
               justify="space-between"
             >
               <Col>

@@ -1,4 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+import { Tag, Card } from 'antd';
 
 import { COLOR } from '../../../constants/theme';
 
@@ -6,6 +8,7 @@ export const CartContainer = styled.div`
   max-width: 1280px;
   width: 100%;
   margin: 0 auto;
+  padding: 32px;
 `;
 
 export const CartFooter = styled.div`
@@ -48,4 +51,21 @@ export const EmptyCart = styled.h1`
   align-items: center;
 
   width: 100%;
+`;
+
+export const DefaultTag = styled(Tag)`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+`;
+
+export const LocationCard = styled(Card)`
+  position: relative;
+  transition: all 0.2s;
+
+  ${({ active }) =>
+    active === 'true' &&
+    css`
+      border: 2px dashed ${COLOR.PRIMARY};
+    `}
 `;

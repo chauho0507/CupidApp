@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import {
   Card,
@@ -24,16 +25,18 @@ import {
   setSelectedCartsAction,
   checkDiscountAction,
   setCheckoutInfoAction,
-  getUserInfoAction,
 } from '../../../../redux/actions';
 
 import fallbackImg from '../../../../assets/img/fallback.png';
+import emptyCart from '../../../../assets/img/emptyCart.png';
+import { ROUTER } from '../../../../constants/router';
 import { COLOR } from '../../../../constants/theme';
 import * as S from '../styles';
 
 const Checkout = ({ setCheckoutStep, userInfo }) => {
   const [discountForm] = Form.useForm();
   const dispatch = useDispatch();
+  const history = useHistory();
   const { cartList, actionLoading, selectedCarts } = useSelector(
     state => state.cartReducer
   );
@@ -49,16 +52,12 @@ const Checkout = ({ setCheckoutStep, userInfo }) => {
 
   const handleSelectCart = (e, item) => {
     const { checked } = e.target;
-
-    console.log(item);
-
     if (checked) {
       dispatch(setSelectedCartsAction([...selectedCarts, item]));
     } else {
       const newSelectedCarts = selectedCarts.filter(
         selectedCart => selectedCart.id !== item.id
       );
-
       dispatch(setSelectedCartsAction(newSelectedCarts));
     }
   };
@@ -80,17 +79,6 @@ const Checkout = ({ setCheckoutStep, userInfo }) => {
       dispatch(setSelectedCartsAction([...newCartList]));
     } else {
       dispatch(setSelectedCartsAction([]));
-    }
-  };
-
-  const handleConfirmCart = () => {
-    if (!selectedCarts.length) {
-      notification.error({
-        message: 'Bạn chưa chọn sản phẩm để mua!',
-        placement: 'bottomRight',
-      });
-    } else {
-      setCheckoutStep(1);
     }
   };
 
@@ -122,7 +110,6 @@ const Checkout = ({ setCheckoutStep, userInfo }) => {
       render: (_, record) => (
         <Checkbox
           onChange={e => {
-            console.log(record);
             handleSelectCart(e, record);
           }}
           checked={
@@ -240,11 +227,11 @@ const Checkout = ({ setCheckoutStep, userInfo }) => {
       price: cart.product.price,
       quantity: cart.quantity,
       balance: cart.product.balance,
-      productOption: cart.productOption || false,
+      productOption: cart.productOption,
     };
   });
 
-  const RenderCartTableFooter = useMemo(() => {
+  const renderCartTableFooter = () => {
     return (
       <S.CartFooter>
         <Form
@@ -264,7 +251,7 @@ const Checkout = ({ setCheckoutStep, userInfo }) => {
         </Form>
       </S.CartFooter>
     );
-  }, [discountInfo.data.code]);
+  };
 
   const renderCartList = useMemo(() => {
     return (
@@ -279,16 +266,10 @@ const Checkout = ({ setCheckoutStep, userInfo }) => {
         columns={columns}
         dataSource={cartTable}
         pagination={{ defaultPageSize: 10 }}
-        footer={() => RenderCartTableFooter}
+        footer={() => renderCartTableFooter()}
       />
     );
-  }, [
-    cartList.data,
-    cartList.loading,
-    actionLoading,
-    selectedCarts,
-    discountInfo.data.code,
-  ]);
+  }, [cartList.data, actionLoading, selectedCarts, discountInfo.data.code]);
 
   const renderTotalPrice = useMemo(() => {
     let discountPrice = 0;
@@ -336,8 +317,9 @@ const Checkout = ({ setCheckoutStep, userInfo }) => {
         <Button
           block
           type="primary"
-          onClick={() => handleConfirmCart()}
+          onClick={() => setCheckoutStep(1)}
           style={{ marginTop: 10 }}
+          disabled={!selectedCarts.length}
         >
           Tiếp tục
         </Button>
@@ -347,14 +329,34 @@ const Checkout = ({ setCheckoutStep, userInfo }) => {
 
   return (
     <Row gutter={16}>
-      <Col span={18}>{renderCartList}</Col>
-      <Col span={6}>
-        <S.TotalWrapper>
-          <Card bordered={false} size="small">
-            {renderTotalPrice}
-          </Card>
-        </S.TotalWrapper>
-      </Col>
+      {!!cartList.data.length ? (
+        <>
+          <Col span={18}>{renderCartList}</Col>
+          <Col span={6}>
+            <S.TotalWrapper>
+              <Card bordered={false} size="small">
+                {renderTotalPrice}
+              </Card>
+            </S.TotalWrapper>
+          </Col>
+        </>
+      ) : (
+        <S.EmptyCart>
+          <Image
+            preview={false}
+            src={emptyCart}
+            alt="empty cart"
+            style={{ borderRadius: 4, height: '40vh', width: 'auto' }}
+          />
+          <S.H2 style={{ marginTop: -30, zIndex: 10 }}>Giỏ hàng trống</S.H2>
+          <Button
+            type="primary"
+            onClick={() => history.push(ROUTER.USER.PRODUCT_LIST)}
+          >
+            Mua Ngay
+          </Button>
+        </S.EmptyCart>
+      )}
     </Row>
   );
 };

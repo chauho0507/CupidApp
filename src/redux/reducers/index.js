@@ -8,6 +8,7 @@ import blogReducer from './blog.reducer';
 import orderReducer from './order.reducer';
 import discountReducer from './discount.reducer';
 import wishListsReducer from './wishLists.reducer';
+import orderLocationsReducer from './orderLocations.reducer';
 
 export {
   authReducer,
@@ -20,4 +21,5 @@ export {
   orderReducer,
   discountReducer,
   wishListsReducer,
+  orderLocationsReducer,
 };

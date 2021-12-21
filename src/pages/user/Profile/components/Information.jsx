@@ -97,23 +97,26 @@ const Information = ({ userInfo }) => {
                       layout="vertical"
                       onFinish={values => handleSubmitInfoForm(values)}
                     >
-                      <Form.Item name="fullName" label="Họ và tên:">
+                      <Form.Item name="fullName" label={<S.H3>Họ và tên</S.H3>}>
                         <Input />
                       </Form.Item>
                       <Row gutter={6}>
                         <Col span={12}>
-                          <Form.Item name="email" label="Email:">
+                          <Form.Item name="email" label={<S.H3>Email</S.H3>}>
                             <Input />
                           </Form.Item>
                         </Col>
                         <Col span={12}>
-                          <Form.Item name="phoneNumber" label="Số điện thoại:">
+                          <Form.Item
+                            name="phoneNumber"
+                            label={<S.H3>Số điện thoại</S.H3>}
+                          >
                             <Input />
                           </Form.Item>
                         </Col>
                       </Row>
 
-                      <Form.Item name="address" label="Địa chỉ:">
+                      <Form.Item name="address" label={<S.H3>Địa chỉ</S.H3>}>
                         <Input />
                       </Form.Item>
                     </Form>
@@ -140,7 +143,7 @@ const Information = ({ userInfo }) => {
                   onFinish={values => handleChangePassword(values)}
                 >
                   <Form.Item
-                    label="Mật khẩu cũ"
+                    label={<S.H3>Mật khẩu cũ</S.H3>}
                     name="oldPassword"
                     rules={[
                       { required: true, message: 'Bạn cần nhập mật khẩu!' },
@@ -149,7 +152,7 @@ const Information = ({ userInfo }) => {
                     <Input.Password />
                   </Form.Item>
                   <Form.Item
-                    label="Mật khẩu mới"
+                    label={<S.H3>Mật khẩu mới</S.H3>}
                     name="newPassword"
                     rules={[
                       {
@@ -163,7 +166,7 @@ const Information = ({ userInfo }) => {
                     <Input.Password />
                   </Form.Item>
                   <Form.Item
-                    label="Xác nhận mật khẩu"
+                    label={<S.H3>Xác nhận mật khẩu</S.H3>}
                     name="confirmPassword"
                     dependencies={['newPassword']}
                     rules={[

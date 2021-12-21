@@ -185,7 +185,7 @@ const ProductDetailPage = ({ match, ...props }) => {
 
   const handleAddToCart = () => {
     if (userInfo.data.email) {
-      if (productDetail.data.productOptions?.length) {
+      if (productDetail.data.productOptions?.length > 1) {
         if (!selectedOption) {
           notification.error({
             message: 'Hãy chọn một kích cỡ!',
@@ -248,7 +248,7 @@ const ProductDetailPage = ({ match, ...props }) => {
               quantity: productQuantity,
               productId: parseInt(id),
               userId: userInfo.data.id,
-              productOptionId: false,
+              productOptionId: productDetail.data.productOptions[0].id,
             })
           );
         }
@@ -336,13 +336,12 @@ const ProductDetailPage = ({ match, ...props }) => {
                     </p>
                   </div>
                   <S.PriceDetail>
-                    {productDetail.data.productOptions?.length > 0 && (
+                    {productDetail.data.productOptions?.length > 1 && (
                       <div>
                         Kích cỡ:
                         <div>
                           <Radio.Group
                             onChange={e => {
-                              console.log(e.target.value);
                               setSelectedOption(e.target.value);
                             }}
                             optionType="button"

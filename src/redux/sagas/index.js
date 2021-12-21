@@ -10,6 +10,7 @@ import { orderSaga } from './order.saga';
 import { discountSaga } from './discount.saga';
 import { wishListsSaga } from './wishLists.saga';
 import { commonSaga } from './common.saga';
+import { orderLocationsSaga } from './orderLocations.saga';
 
 export default function* rootSaga() {
   yield fork(authSaga);
@@ -22,4 +23,5 @@ export default function* rootSaga() {
   yield fork(discountSaga);
   yield fork(wishListsSaga);
   yield fork(commonSaga);
+  yield fork(orderLocationsSaga);
 }

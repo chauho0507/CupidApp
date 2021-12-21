@@ -62,19 +62,16 @@ function* addToCartSaga(action) {
 
 function* updateCartProductSaga(action) {
   try {
-    const { data } = action.payload;
+    const { data, callback } = action.payload;
     yield axios.patch(`http://localhost:4000/carts/${data.id}`, {
       quantity: data.quantity,
     });
+    yield callback.showSuccess();
     yield put({
       type: SUCCESS(CART_ACTION.UPDATE_CART_PRODUCT),
       payload: {
         data,
       },
-    });
-    notification.success({
-      message: 'Cập nhật số lượng thành công!',
-      placement: 'bottomRight',
     });
   } catch (e) {
     yield put({
@@ -87,8 +84,8 @@ function* updateCartProductSaga(action) {
 function* removeFromCartSaga(action) {
   try {
     const { cartId } = action.payload;
-    yield axios.delete(`http://localhost:4000/carts/${cartId}`);
-
+    const result = yield axios.delete(`http://localhost:4000/carts/${cartId}`);
+    yield console.log(result);
     yield put({
       type: SUCCESS(CART_ACTION.REMOVE_FROM_CART),
       payload: {

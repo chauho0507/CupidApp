@@ -8,3 +8,4 @@ export * from './discount.action';
 export * from './product.action';
 export * from './category.action';
 export * from './wishLists.action';
+export * from './orderLocations.action';

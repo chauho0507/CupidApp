@@ -2,34 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, generatePath } from 'react-router-dom';
 
-import {
-  Col,
-  Row,
-  Card,
-  Input,
-  Space,
-  Button,
-  Rate,
-  Image,
-  Typography,
-  Skeleton,
-  Select,
-  Checkbox,
-  Slider,
-  Spin,
-  notification,
-  Tabs,
-} from 'antd';
-import {
-  CloseOutlined,
-  HeartFilled,
-  HeartOutlined,
-  ShoppingCartOutlined,
-  UnorderedListOutlined,
-  ArrowsAltOutlined,
-  ArrowDownOutlined,
-  ArrowUpOutlined,
-} from '@ant-design/icons';
+import { Col, Row, Tabs, Rate } from 'antd';
+import { CloseOutlined } from '@ant-design/icons';
 
 import {
   getWishListAction,
@@ -67,7 +41,7 @@ const WishList = ({ userInfo }) => {
   const renderCakeList = () =>
     cakeList.map(cake => {
       return (
-        <Col xs={24} sm={12} md={12} lg={12} xl={12}>
+        <Col xs={24} sm={12} md={12} lg={12} xl={12} key={cake.id}>
           <S.ProductItemWrapper>
             <S.ProductItemContent>
               <S.ProductImageWrapper
@@ -114,7 +88,7 @@ const WishList = ({ userInfo }) => {
   const renderDrinkList = () =>
     drinkList.map(drink => {
       return (
-        <Col xs={24} sm={12} md={12} lg={12} xl={12}>
+        <Col xs={24} sm={12} md={12} lg={12} xl={12} key={drink.id}>
           <S.ProductItemWrapper>
             <S.ProductItemContent>
               <S.ProductImageWrapper

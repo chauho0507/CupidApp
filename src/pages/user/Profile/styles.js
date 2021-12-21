@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { Button } from 'antd';
+import { Button, Tag, Card } from 'antd';
 
 import { COLOR } from '../../../constants/theme';
 
@@ -77,6 +77,10 @@ export const H3 = styled.h3`
   color: ${COLOR.TERTIARY};
 `;
 
+export const H4 = styled.h4`
+  color: ${COLOR.TERTIARY};
+`;
+
 export const P = styled.p`
   color: red;
   font-weight: 500;
@@ -139,4 +143,27 @@ export const ProductDetailWrapper = styled.div`
 
   height: 100%;
   width: 40%;
+`;
+
+export const DefaultTag = styled(Tag)`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+`;
+
+export const LocationCard = styled(Card)`
+  position: relative;
+  transition: all 0.2s;
+
+  ${({ active }) =>
+    active === 'true' &&
+    css`
+      border: 2px dashed ${COLOR.PRIMARY};
+    `}
+`;
+
+export const EditButton = styled(Button)`
+  position: absolute;
+  bottom: 0;
+  right: 0;
 `;

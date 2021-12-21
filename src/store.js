@@ -12,6 +12,7 @@ import {
   orderReducer,
   discountReducer,
   wishListsReducer,
+  orderLocationsReducer,
 } from './redux/reducers';
 
 import rootSaga from './redux/sagas';
@@ -30,6 +31,7 @@ export const store = configureStore({
     orderReducer,
     discountReducer,
     wishListsReducer,
+    orderLocationsReducer,
   },
   middleware: getDefaultMiddleware => [
     ...getDefaultMiddleware({ thunk: false, serializableCheck: false }),

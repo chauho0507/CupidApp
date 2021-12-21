@@ -5,8 +5,8 @@ import { useHistory, generatePath } from 'react-router-dom';
 import { Card, Col, Row, Table, Descriptions, Tag } from 'antd';
 import { HistoryOutlined } from '@ant-design/icons';
 
-import { ROUTER } from '../../../../constants/router';
 import { COLOR } from '../../../../constants/theme';
+import { ROUTER } from '../../../../constants/router';
 
 import * as S from '../styles';
 
@@ -14,16 +14,12 @@ const OrderHistory = () => {
   const history = useHistory();
   const { orderList } = useSelector(state => state.orderReducer);
 
-  const randomOrderCode = id => {
-    return parseInt(id) * Math.trunc(Math.random() * 1000000);
-  };
-
   const orderColumns = [
     {
       title: 'Mã đơn hàng',
-      dataIndex: 'id',
-      key: 'id',
-      render: item => randomOrderCode(item),
+      dataIndex: 'orderCode',
+      key: 'orderCode',
+      render: item => <b>{item}</b>,
       width: '15%',
     },
     {

@@ -145,8 +145,8 @@ const HomePage = () => {
     dispatch(getBlogListAction({ limit: PAGE_SIZE.HOME_BLOG, page: 1 }));
   }, [userInfo.data]);
 
-  const cakeList = productList.data.filter(cake => cake.categoryId !== 5);
-  const drinkList = productList.data.filter(cake => cake.categoryId === 5);
+  const cakeList = productList.data.filter(cake => cake.categoryId !== 6);
+  const drinkList = productList.data.filter(cake => cake.categoryId === 6);
 
   const renderCakeList = useMemo(() => {
     return cakeList.map(cake => {
@@ -198,7 +198,7 @@ const HomePage = () => {
                     <Col>
                       <div
                         style={{ color: 'red' }}
-                      >{`${cake.price.toLocaleString()}₫`}</div>
+                      >{`${cake.price?.toLocaleString()}₫`}</div>
                     </Col>
                   </Row>
                   <Row justify="space-around" align="middle">

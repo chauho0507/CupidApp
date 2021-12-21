@@ -220,19 +220,19 @@ const ProductListPage = () => {
     );
   };
 
-  const handleClearSort = () => {
-    setSortFilter(null);
-    dispatch(
-      getProductListAction({
-        limit: PAGE_SIZE.USER_PRODUCT,
-        page: 1,
-        categoryFilter,
-        priceFilter,
-        keyword: keywordFilter,
-        sortFilter: '',
-      })
-    );
-  };
+  // const handleClearSort = () => {
+  //   setSortFilter(null);
+  //   dispatch(
+  //     getProductListAction({
+  //       limit: PAGE_SIZE.USER_PRODUCT,
+  //       page: 1,
+  //       categoryFilter,
+  //       priceFilter,
+  //       keyword: keywordFilter,
+  //       sortFilter: '',
+  //     })
+  //   );
+  // };
 
   const handleLoadMore = e => {
     dispatch(
@@ -395,7 +395,7 @@ const ProductListPage = () => {
                 <Col>
                   <div
                     style={{ color: 'red', fontWeight: 500, fontSize: 16 }}
-                  >{`${cake.price.toLocaleString()}₫`}</div>
+                  >{`${cake.price?.toLocaleString()}₫`}</div>
                 </Col>
               </Row>
               <Row justify="space-around" align="middle">
@@ -455,7 +455,7 @@ const ProductListPage = () => {
               }}
             >
               <S.NumberProduct>{data.length}</S.NumberProduct> /
-              <S.NumberProduct>{meta.total}</S.NumberProduct> sản phẩm ...
+              <S.NumberProduct>{meta?.total}</S.NumberProduct> sản phẩm ...
             </div>
           </Col>
           <Col offset={1} span={4}>
@@ -480,7 +480,7 @@ const ProductListPage = () => {
             </Select>
           </Col>
         </Row>
-        <Row>
+        <Row style={{ height: 35 }} align="middle">
           <Space wrap={false} style={{ marginTop: 6 }}>
             {!!categoryFilter.length && renderCategoryFilterTags}
             {keywordFilter && (
@@ -494,29 +494,24 @@ const ProductListPage = () => {
                 {`Giá từ: ${priceFilter[0].toLocaleString()} - ${priceFilter[1].toLocaleString()}`}
               </Tag>
             )}
-            {sortFilter && (
-              <Tag closable onClose={() => handleClearSort()}>
-                {`Sắp xếp theo ${
-                  sortFilter === 'asc' ? 'tăng dần' : 'giảm dần'
-                }`}
-              </Tag>
-            )}
-            {(sortFilter ||
-              keywordFilter ||
+            {(keywordFilter ||
               !!categoryFilter.length ||
               priceFilter[0] !== DEFAULT_PRICE_FILTER[0] ||
               priceFilter[1] !== DEFAULT_PRICE_FILTER[1]) && (
               <Tag
-                style={{ backgroundColor: COLOR.PRIMARY, border: 'none' }}
-                closable
-                onClose={() => handleClearAll()}
+                style={{
+                  backgroundColor: COLOR.PRIMARY,
+                  border: 'none',
+                  cursor: 'pointer',
+                }}
+                onClick={() => handleClearAll()}
               >
-                Xóa tất cả
+                <span style={{ color: 'orangered' }}>Xóa tất cả</span>
               </Tag>
             )}
           </Space>
         </Row>
-        <Row style={{ marginTop: 16 }}>
+        <Row>
           <Col
             xs={{ span: 24 }}
             sm={{ span: 24 }}
@@ -631,7 +626,7 @@ const ProductListPage = () => {
             <S.ProductContainer>
               <Row gutter={[16, 16]}>{renderProductList}</Row>
             </S.ProductContainer>
-            {productList.meta.total !== productList.data.length && (
+            {productList.meta?.total !== productList.data.length && (
               <Row justify="center" style={{ marginTop: 16 }}>
                 <Button
                   type="primary"
