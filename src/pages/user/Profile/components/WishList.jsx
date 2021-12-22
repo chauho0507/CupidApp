@@ -24,7 +24,9 @@ const WishList = ({ userInfo }) => {
 
   const { wishLists } = useSelector(state => state.wishListsReducer);
 
-  const cakeList = wishLists.data.filter(item => item.product.categoryId !== 6);
+  const cakeList = wishLists.data.filter(
+    item => item.product?.categoryId !== 6
+  );
   const drinkList = wishLists.data.filter(
     item => item.product.categoryId === 6
   );

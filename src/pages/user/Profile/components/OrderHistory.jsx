@@ -14,6 +14,15 @@ const OrderHistory = () => {
   const history = useHistory();
   const { orderList } = useSelector(state => state.orderReducer);
 
+  const renderStatusOrder = status => {
+    if (status === 'pending') return <Tag color="green">Đang xác nhận</Tag>;
+    else if (status === 'confirmed')
+      return <Tag color="yellow">Đã xác nhận</Tag>;
+    else if (status === 'delivering') return <Tag color="green">Đang giao</Tag>;
+    else if (status === 'delivered') return <Tag color="yellow">Đã giao</Tag>;
+    else return <Tag color="red">Đơn bị hủy</Tag>;
+  };
+
   const orderColumns = [
     {
       title: 'Mã đơn hàng',
@@ -51,9 +60,8 @@ const OrderHistory = () => {
       title: 'Tình trạng đơn hàng',
       dataIndex: 'status',
       key: 'status',
-      render: item => (
-        <Tag color="green">{item === 'pending' && 'Đang xác nhận'}</Tag>
-      ),
+      // render: item => <Tag color="green">{renderStatusOrder}</Tag>,
+      render: item => renderStatusOrder(item),
       width: '12%',
     },
   ];

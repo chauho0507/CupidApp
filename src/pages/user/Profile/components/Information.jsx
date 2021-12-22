@@ -49,7 +49,7 @@ const Information = ({ userInfo }) => {
     <>
       <Row gutter={16}>
         <Col span={24}>
-          <Card>
+          <Card size="small">
             <Tabs defaultActiveKey="1">
               <TabPane
                 tab={
@@ -123,18 +123,21 @@ const Information = ({ userInfo }) => {
                   </Row>
                 </Modal>
               </TabPane>
+            </Tabs>
+          </Card>
+          <Card size="small">
+            <Tabs defaultActiveKey="1">
               <TabPane
                 tab={
                   <span>
                     <KeyOutlined style={{ fontSize: 24 }} /> Mật khẩu
                   </span>
                 }
-                key="2"
+                key="1"
               >
                 <Form
                   form={changePasswordForm}
                   name="changePasswordForm"
-                  layout="vertical"
                   initialValues={{
                     oldPassword: '',
                     newPassword: '',

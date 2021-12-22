@@ -336,44 +336,49 @@ const HomePage = () => {
         lg={{ span: 8 }}
         key={blog.id}
       >
-        <Card style={{ width: '100%', height: '100%' }}>
-          {blogList.loading ? (
-            <S.SkeletonImage>
-              <Skeleton.Image />
-            </S.SkeletonImage>
-          ) : (
-            <Image
-              fallback={fallbackImg}
-              preview={false}
-              src={blog.image}
-              style={{ borderRadius: 4 }}
-            ></Image>
-          )}
+        <S.BlogItemWrapper>
+          <S.CardBlog>
+            <S.CardImages>
+              {blogList.loading ? (
+                <S.SkeletonImage>
+                  <Skeleton.Image />
+                </S.SkeletonImage>
+              ) : (
+                <Image
+                  fallback={fallbackImg}
+                  preview={false}
+                  src={blog.image}
+                  style={{ borderRadius: 4 }}
+                ></Image>
+              )}
+            </S.CardImages>
+            <S.CardDetails>
+              <Title
+                level={2}
+                ellipsis={{ rows: 2 }}
+                style={{ color: COLOR.TERTIARY }}
+              >
+                {blog.title}
+              </Title>
+              <Title level={5} ellipsis={{ rows: 2 }}>
+                {blog.description}
+              </Title>
 
-          <Title
-            level={2}
-            ellipsis={{ rows: 2 }}
-            style={{ color: COLOR.TERTIARY }}
-          >
-            {blog.title}
-          </Title>
-          <Title level={5} ellipsis={{ rows: 2 }}>
-            {blog.description}
-          </Title>
-
-          <Row justify="end">
-            <Button
-              type="primary"
-              onClick={() =>
-                history.push(
-                  generatePath(ROUTER.USER.BLOG_DETAIL, { id: blog.id })
-                )
-              }
-            >
-              Chi tiết
-            </Button>
-          </Row>
-        </Card>
+              <Row justify="end">
+                <Button
+                  type="primary"
+                  onClick={() =>
+                    history.push(
+                      generatePath(ROUTER.USER.BLOG_DETAIL, { id: blog.id })
+                    )
+                  }
+                >
+                  Chi tiết
+                </Button>
+              </Row>
+            </S.CardDetails>
+          </S.CardBlog>
+        </S.BlogItemWrapper>
       </Col>
     ));
   }, [blogList.data]);
@@ -520,10 +525,10 @@ const HomePage = () => {
           <Slider {...reviewSlider}>{renderReviewList}</Slider>
         </S.ReviewContent>
       </S.ReviewSection>
-      <S.BlogSection>
+      <S.BlogsContainer>
         <S.H1>Bài viết mới nhất</S.H1>
         <Row gutter={[16, 16]}>{renderBlogList}</Row>
-      </S.BlogSection>
+      </S.BlogsContainer>
       <S.ContactSection>
         <Row align="middle">
           <Col span={10}>

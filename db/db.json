@@ -48,7 +48,6 @@
       "phoneNumber": "",
       "address": "",
       "avatar": "https://live.staticflickr.com/65535/51760278391_c9ace91b3e_z.jpg",
-      "orderLocationId": null,
       "createdAt": 1640064460662,
       "updatedAt": 1640064460663,
       "id": 4
@@ -66,10 +65,26 @@
         "district": "Quận Hải Châu",
         "ward": "Phường Bình Thuận"
       },
-      "defaultLocation": true,
+      "defaultLocation": false,
       "createdAt": 1640058930431,
-      "updatedAt": 1640064913517,
+      "updatedAt": 1640155393521,
       "id": 4
+    },
+    {
+      "userId": 2,
+      "info": {
+        "fullName": "Galaxy",
+        "email": "linhmylove@gmail.com",
+        "phoneNumber": "0905011408",
+        "address": "123123",
+        "city": "Thành phố Hồ Chí Minh",
+        "district": "Quận 1",
+        "ward": "Phường Cầu Kho"
+      },
+      "defaultLocation": true,
+      "createdAt": 1640155382264,
+      "updatedAt": 1640155393522,
+      "id": 5
     }
   ],
   "products": [
@@ -2227,7 +2242,7 @@
       ],
       "totalPrice": 69000,
       "orderCode": 196026,
-      "status": "pending",
+      "status": "delivered",
       "createdAt": 1640004576414,
       "updatedAt": 1640004576414,
       "id": 2
@@ -2261,7 +2276,7 @@
       ],
       "totalPrice": 350000,
       "orderCode": 138458,
-      "status": "pending",
+      "status": "delivered",
       "createdAt": 1640057803806,
       "updatedAt": 1640057803806,
       "id": 3
@@ -2320,7 +2335,7 @@
       ],
       "totalPrice": 612000,
       "orderCode": 146841,
-      "status": "pending",
+      "status": "delivered",
       "createdAt": 1640062669060,
       "updatedAt": 1640062669060,
       "id": 4
@@ -2405,7 +2420,7 @@
       ],
       "totalPrice": 1125000,
       "orderCode": 100455,
-      "status": "pending",
+      "status": "delivering",
       "createdAt": 1640062702920,
       "updatedAt": 1640062702920,
       "id": 5
@@ -2438,10 +2453,76 @@
       ],
       "totalPrice": 99000,
       "orderCode": 127109,
-      "status": "pending",
+      "status": "confirmed",
       "createdAt": 1640065934621,
       "updatedAt": 1640065934621,
       "id": 6
+    },
+    {
+      "fullName": "Hoàng Châu",
+      "email": "chauho0507@gmail.com",
+      "phoneNumber": "0935025045",
+      "city": "Thành phố Đà Nẵng",
+      "district": "Quận Hải Châu",
+      "ward": "Phường Bình Thuận",
+      "address": "338 Hoàng Diệu",
+      "shipper": "giaohangtietkiem",
+      "paymentType": "momo",
+      "userId": 2,
+      "products": [
+        {
+          "id": 13,
+          "cartId": 3,
+          "name": "Cookie Bơ Đậu",
+          "price": 49000,
+          "quantity": 3,
+          "productOption": {
+            "id": 27,
+            "productId": 13,
+            "name": "",
+            "price": 0
+          }
+        }
+      ],
+      "totalPrice": 147000,
+      "orderCode": 102870,
+      "status": "pending",
+      "createdAt": 1640148428667,
+      "updatedAt": 1640148428667,
+      "id": 7
+    },
+    {
+      "fullName": "Hoàng Châu",
+      "email": "chauho0507@gmail.com",
+      "phoneNumber": "0935025045",
+      "city": "Thành phố Đà Nẵng",
+      "district": "Quận Hải Châu",
+      "ward": "Phường Bình Thuận",
+      "address": "338 Hoàng Diệu",
+      "shipper": "giaohangtietkiem",
+      "paymentType": "momo",
+      "userId": 2,
+      "products": [
+        {
+          "id": 1,
+          "cartId": 1,
+          "name": "Cookie Giáng Sinh",
+          "price": 59000,
+          "quantity": 1,
+          "productOption": {
+            "id": 2,
+            "productId": 1,
+            "name": "Size M",
+            "price": 9000
+          }
+        }
+      ],
+      "totalPrice": 68000,
+      "orderCode": 111776,
+      "status": "pending",
+      "createdAt": 1640152975289,
+      "updatedAt": 1640152975290,
+      "id": 8
     }
   ],
   "comments": [
@@ -2494,38 +2575,20 @@
   "carts": [
     {
       "quantity": 1,
-      "productId": 3,
+      "productId": 4,
       "userId": 2,
-      "productOptionId": 7,
-      "createdAt": 1640142453044,
-      "updatedAt": 1640142453045,
+      "productOptionId": 8,
+      "createdAt": 1640167610271,
+      "updatedAt": 1640167610271,
       "id": 1
     },
     {
       "quantity": 1,
-      "productId": 4,
+      "productId": 27,
       "userId": 2,
-      "productOptionId": 8,
-      "createdAt": 1640142464662,
-      "updatedAt": 1640142464662,
-      "id": 2
-    },
-    {
-      "quantity": 1,
-      "productId": 5,
-      "userId": 2,
-      "productOptionId": 9,
-      "createdAt": 1640142479121,
-      "updatedAt": 1640142479121,
-      "id": 3
-    },
-    {
-      "quantity": 1,
-      "productId": 7,
-      "userId": 2,
-      "productOptionId": 14,
-      "createdAt": 1640142496319,
-      "updatedAt": 1640142496319,
+      "productOptionId": 47,
+      "createdAt": 1640167633069,
+      "updatedAt": 1640167633069,
       "id": 4
     }
   ],
@@ -2603,13 +2666,6 @@
     },
     {
       "userId": 2,
-      "productId": 1,
-      "createdAt": 1640100791122,
-      "updatedAt": 1640100791122,
-      "id": 3
-    },
-    {
-      "userId": 2,
       "productId": 2,
       "createdAt": 1640100820020,
       "updatedAt": 1640100820020,
@@ -2621,6 +2677,62 @@
       "createdAt": 1640100837288,
       "updatedAt": 1640100837288,
       "id": 5
+    },
+    {
+      "userId": 2,
+      "productId": 7,
+      "createdAt": 1640148582499,
+      "updatedAt": 1640148582499,
+      "id": 6
+    },
+    {
+      "userId": 2,
+      "productId": 1,
+      "createdAt": 1640153208929,
+      "updatedAt": 1640153208929,
+      "id": 7
+    },
+    {
+      "userId": 2,
+      "productId": 4,
+      "createdAt": 1640167614432,
+      "updatedAt": 1640167614433,
+      "id": 8
+    },
+    {
+      "userId": 2,
+      "productId": 27,
+      "createdAt": 1640167637731,
+      "updatedAt": 1640167637731,
+      "id": 9
+    },
+    {
+      "userId": 2,
+      "productId": 8,
+      "createdAt": 1640167651739,
+      "updatedAt": 1640167651739,
+      "id": 10
+    },
+    {
+      "userId": 2,
+      "productId": 20,
+      "createdAt": 1640167655369,
+      "updatedAt": 1640167655369,
+      "id": 11
+    },
+    {
+      "userId": 2,
+      "productId": 31,
+      "createdAt": 1640167659615,
+      "updatedAt": 1640167659615,
+      "id": 12
+    },
+    {
+      "userId": 2,
+      "productId": 42,
+      "createdAt": 1640167671703,
+      "updatedAt": 1640167671703,
+      "id": 13
     }
   ],
   "cities": [

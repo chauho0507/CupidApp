@@ -10,7 +10,7 @@ function* getWishListSaga(action) {
     const result = yield axios.get('http://localhost:4000/wishlists', {
       params: {
         userId,
-        // _expand: 'product',
+        _expand: 'product',
       },
     });
     yield put({

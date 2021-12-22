@@ -16,7 +16,7 @@ const Information = ({ setCheckoutStep, userInfo }) => {
   const dispatch = useDispatch();
   const { orderLocations } = userInfo.data;
   const defaultOrderLocation =
-    orderLocations.find(location => location.defaultLocation === true) || {};
+    orderLocations?.find(location => location.defaultLocation === true) || {};
   const [wardOptions, setWardOptions] = useState([]);
   const [districtOptions, setDistrictOptions] = useState([]);
   const [orderLocationForm, setOrderLocationForm] =

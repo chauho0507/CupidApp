@@ -31,7 +31,6 @@ const RegisterFormPage = ({ setIsLogin }) => {
             phoneNumber: '',
             address: '',
             avatar: '',
-            orderLocationId: null,
           },
         })
       );

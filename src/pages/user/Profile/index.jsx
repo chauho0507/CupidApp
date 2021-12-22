@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
 
 import TopWrapper from '../../../components/TopWrapper';
@@ -7,12 +6,8 @@ import OrderHistory from './components/OrderHistory';
 import Information from './components/Information';
 import WishList from './components/WishList';
 
-import { Card, Col, Row, Table, Avatar, Space, Button } from 'antd';
-import {
-  HistoryOutlined,
-  UserOutlined,
-  LogoutOutlined,
-} from '@ant-design/icons';
+import { Col, Row, Avatar, Space, Button } from 'antd';
+import { UserOutlined, LogoutOutlined } from '@ant-design/icons';
 import { getOrderListAction, logoutAction } from '../../../redux/actions';
 
 import { COLOR } from '../../../constants/theme';
