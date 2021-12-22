@@ -22,7 +22,6 @@ import {
 } from 'antd';
 import {
   SearchOutlined,
-  HeartFilled,
   HeartOutlined,
   UnorderedListOutlined,
   ArrowsAltOutlined,
@@ -521,11 +520,12 @@ const ProductListPage = () => {
           >
             <Row align="top">
               <Col
-                xs={{ span: 12 }}
-                sm={{ span: 12 }}
-                md={{ span: 24 }}
-                lg={{ span: 24 }}
-                xl={{ span: 24 }}
+                // xs={{ span: 12 }}
+                // sm={{ span: 12 }}
+                // md={{ span: 24 }}
+                // lg={{ span: 24 }}
+                // xl={{ span: 24 }}
+                span={24}
               >
                 <Card
                   size="small"
@@ -548,11 +548,12 @@ const ProductListPage = () => {
               </Col>
 
               <Col
-                xs={{ span: 12 }}
-                sm={{ span: 12 }}
-                md={{ span: 24 }}
-                lg={{ span: 24 }}
-                xl={{ span: 24 }}
+                // xs={{ span: 12 }}
+                // sm={{ span: 12 }}
+                // md={{ span: 24 }}
+                // lg={{ span: 24 }}
+                // xl={{ span: 24 }}
+                span={24}
               >
                 <Card
                   size="small"
@@ -588,11 +589,12 @@ const ProductListPage = () => {
               </Col>
 
               <Col
-                xs={{ span: 12 }}
-                sm={{ span: 12 }}
-                md={{ span: 24 }}
-                lg={{ span: 24 }}
-                xl={{ span: 24 }}
+                // xs={{ span: 12 }}
+                // sm={{ span: 12 }}
+                // md={{ span: 24 }}
+                // lg={{ span: 24 }}
+                // xl={{ span: 24 }}
+                span={24}
               >
                 <Card
                   size="small"

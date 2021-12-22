@@ -18,14 +18,14 @@ const LoginFormPage = () => {
         loginForm.setFields([
           {
             name: 'password',
-            errors: [responseAction.login.error],
+            errors: ['Mật khẩu không đúng!'],
           },
         ]);
       } else {
         loginForm.setFields([
           {
             name: 'email',
-            errors: [responseAction.login.error],
+            errors: ['Email không đúng!'],
           },
         ]);
       }

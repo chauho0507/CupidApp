@@ -118,8 +118,6 @@ const Location = ({ userInfo }) => {
     };
     const locationIds = orderLocationsList.data.map(location => location.id);
 
-    console.log(values, newValues);
-
     if (isModify === 'update') {
       dispatch(
         updateOrderLocationAction({
@@ -148,14 +146,15 @@ const Location = ({ userInfo }) => {
     }
   };
 
-  const handleDeleteOrderLocation = locationId => {
-    dispatch(deleteOrderLocationAction({ locationId }));
+  const handleDeleteOrderLocation = (locationId, userId) => {
+    dispatch(deleteOrderLocationAction({ locationId, userId }));
   };
   const renderOrderLocations = () => {
     return orderLocationsList.data?.map((location, idx) => {
       return (
         <Col span={24} key={idx}>
           <S.LocationCard
+            active={location.defaultLocation.toString()}
             hoverable
             title={
               <Row justify="space-between" align="middle">
@@ -169,7 +168,8 @@ const Location = ({ userInfo }) => {
                   cancelText="Hủy"
                   okText="Xác nhận"
                   onConfirm={() => {
-                    handleDeleteOrderLocation(location.id);
+                    console.log(location.id);
+                    handleDeleteOrderLocation(location.id, userInfo.data.id);
                   }}
                 >
                   <Button type="text" danger icon={<DeleteOutlined />} />
@@ -227,6 +227,7 @@ const Location = ({ userInfo }) => {
         cancelText="Hủy"
         okText="Xác nhận"
         centered
+        width={650}
       >
         <Form
           form={locationForm}
@@ -272,7 +273,13 @@ const Location = ({ userInfo }) => {
           </Row>
 
           <Row gutter={24}>
-            <Col span={8}>
+            <Col
+              xs={{ span: 24 }}
+              sm={{ span: 24 }}
+              md={{ span: 8 }}
+              lg={{ span: 8 }}
+              xl={{ span: 8 }}
+            >
               <Form.Item
                 label={<S.H4>Tỉnh/Thành</S.H4>}
                 name="city"
@@ -292,7 +299,13 @@ const Location = ({ userInfo }) => {
                 </Select>
               </Form.Item>
             </Col>
-            <Col span={8}>
+            <Col
+              xs={{ span: 24 }}
+              sm={{ span: 24 }}
+              md={{ span: 8 }}
+              lg={{ span: 8 }}
+              xl={{ span: 8 }}
+            >
               <Form.Item
                 label={<S.H4>Quận/Huyện</S.H4>}
                 name="district"
@@ -312,7 +325,13 @@ const Location = ({ userInfo }) => {
                 </Select>
               </Form.Item>
             </Col>
-            <Col span={8}>
+            <Col
+              xs={{ span: 24 }}
+              sm={{ span: 24 }}
+              md={{ span: 8 }}
+              lg={{ span: 8 }}
+              xl={{ span: 8 }}
+            >
               <Form.Item
                 label={<S.H4>Phường/Xã</S.H4>}
                 name="ward"

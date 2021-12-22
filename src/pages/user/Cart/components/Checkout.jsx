@@ -13,7 +13,6 @@ import {
   Button,
   Image,
   Checkbox,
-  notification,
   Descriptions,
   Popconfirm,
 } from 'antd';
@@ -196,7 +195,6 @@ const Checkout = ({ setCheckoutStep, userInfo }) => {
           cancelText="Hủy"
           okText="Xác nhận"
           onConfirm={() => {
-            console.log(record);
             dispatch(
               removeFromCartAction({
                 cartId: record.id,

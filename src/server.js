@@ -5,11 +5,11 @@ const moment = require('moment');
 const server = jsonServer.create();
 const router = jsonServer.router('./db/db.json');
 
-const middleware = jsonServer.defaults();
+const middlewares = jsonServer.defaults();
 
 server.db = router.db;
 
-server.use(middleware);
+server.use(middlewares);
 server.use(jsonServer.bodyParser);
 
 server.use((req, res, next) => {

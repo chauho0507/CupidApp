@@ -65,6 +65,10 @@ function* registerSaga(action) {
     yield put({
       type: SUCCESS(AUTH_ACTION.REGISTER),
     });
+    yield notification.success({
+      message: 'Đăng ký thành công!',
+      placement: 'bottomRight',
+    });
     yield callback.goBackLogin();
   } catch (error) {
     yield put({

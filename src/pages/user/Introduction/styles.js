@@ -11,6 +11,7 @@ export const IntroContainer = styled.div`
   width: 100%;
 
   margin: 0 auto;
+  padding: 20px;
   & > * {
     padding-bottom: 60px;
   }
@@ -22,6 +23,7 @@ export const WelcomeSection = styled.div`
   justify-content: space-between;
 
   height: 100%;
+  width: 100%;
   transition: all 0.2s;
 
   & p {
@@ -31,7 +33,7 @@ export const WelcomeSection = styled.div`
     border-radius: 4px;
     width: 50%;
 
-    &:hover {
+    &:hover:not(:last-child) {
       outline: 4px solid ${COLOR.PRIMARY};
       transform: scale(1.02) translateY(-0.5rem);
       box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.5);
@@ -59,6 +61,17 @@ export const WelcomeSection = styled.div`
     object-fit: cover;
   }
 
+  & #welcome-img-4 {
+    display: none;
+    object-fit: cover;
+
+    @media (max-width: 1180px) {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
   @media (max-width: 1180px) {
     display: flex;
     flex-direction: column;
@@ -67,7 +80,7 @@ export const WelcomeSection = styled.div`
     text-align: center;
 
     & p {
-      font-size: 16px;
+      font-size: 20px;
     }
 
     & img {
@@ -83,7 +96,8 @@ export const LeftWelcome = styled.div`
   width: 50%;
 
   @media (max-width: 1180px) {
-    margin-top: 230px;
+    width: 100%;
+    margin-top: 20px;
     order: 2;
   }
 `;
@@ -91,6 +105,7 @@ export const RightWelcome = styled.div`
   position: relative;
   width: 50%;
   @media (max-width: 1180px) {
+    width: 100%;
     order: 1;
   }
 `;

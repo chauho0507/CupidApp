@@ -57,7 +57,7 @@ const HomePage = () => {
     infinite: true,
     speed: 500,
     slidesToShow: 6,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
     autoplay: true,
     autoplaySpeed: 3000,
     pauseOnHover: true,
@@ -197,7 +197,7 @@ const HomePage = () => {
                   <Row justify="center">
                     <Col>
                       <div
-                        style={{ color: 'red' }}
+                        style={{ color: 'red', fontWeight: 500 }}
                       >{`${cake.price?.toLocaleString()}₫`}</div>
                     </Col>
                   </Row>
@@ -205,10 +205,10 @@ const HomePage = () => {
                     <Col>
                       <Rate
                         disabled
-                        style={{ color: COLOR.SECONDARY }}
+                        style={{ fontSize: 14 }}
                         allowHalf
                         value={cake.rating}
-                        character={<HeartFilled style={{ fontSize: 10 }} />}
+                        // character={<HeartFilled style={{ fontSize: 10 }} />}
                       ></Rate>
                     </Col>
                     <Col>
@@ -275,7 +275,7 @@ const HomePage = () => {
                   <Row justify="center">
                     <Col>
                       <div
-                        style={{ color: 'red' }}
+                        style={{ color: 'red', fontWeight: 500 }}
                       >{`${drink.price.toLocaleString()}₫`}</div>
                     </Col>
                   </Row>
@@ -283,10 +283,10 @@ const HomePage = () => {
                     <Col>
                       <Rate
                         disabled
-                        style={{ color: COLOR.SECONDARY }}
+                        style={{ fontSize: 14 }}
                         allowHalf
                         value={drink.rating}
-                        character={<HeartFilled style={{ fontSize: 10 }} />}
+                        // character={<HeartFilled style={{ fontSize: 10 }} />}
                       ></Rate>
                     </Col>
                     <Col>
@@ -315,9 +315,9 @@ const HomePage = () => {
             />
           </Col>
           <Col
-            sm={{ offset: 4, span: 15 }}
-            md={{ offset: 3, span: 15 }}
-            lg={{ offset: 2, span: 15 }}
+            sm={{ offset: 2, span: 15 }}
+            md={{ offset: 1, span: 15 }}
+            lg={{ offset: 1, span: 15 }}
           >
             <Row>{comment.content}</Row>
             <Row justify="end">- {comment.user.fullName}</Row>
@@ -407,17 +407,19 @@ const HomePage = () => {
             >
               <S.H1>Chào mừng bạn đến Cupid Bakery!</S.H1>
               <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Maiores illum aliquam aut tempora voluptas porro accusantium
-                doloribus quia soluta. Non consectetur voluptatibus ducimus
-                recusandae velit!
+                Bắt đầu mở cửa từ năm 2021, Cupid Bakery mong muốn mang cho bạn
+                trải nghiệm tốt nhất về bánh ngọt, cũng như những ý tưởng quà
+                tặng trong những dịp lễ tết. Sự hài lòng của các bạn là giá trị
+                lớn nhất đối với chúng tôi.
               </p>
               <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Nesciunt ex autem minus at voluptatum. Illum aliquid doloremque
-                qui facere corporis consectetur accusantium, distinctio, dolorum
-                fugit quae tenetur ducimus adipisci porro, commodi assumenda
-                inventore esse voluptates.
+                Hãy đến với Cupid Bakery để trải nghiệm những loại bánh thơm
+                ngon, đẹp mắt nhất, cũng như những món quà sang trọng và ý nghĩa
+                nhất.
+              </p>
+              <p>
+                Mọi ý kiến đóng góp của các bạn đều quý báu để Cupid Bakery có
+                thể phát triển hơn nữa trong thời gian sắp tới.
               </p>
               <Button
                 size="large"

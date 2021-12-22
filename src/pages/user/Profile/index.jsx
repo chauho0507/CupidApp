@@ -61,7 +61,11 @@ const ProfilePage = () => {
             <Col span={5}>
               <S.LeftContainer>
                 <S.AvatarContainer>
-                  <Avatar size={180} icon={<UserOutlined />} />
+                  <Avatar
+                    size={{ xs: 80, sm: 100, md: 130, lg: 160, xl: 180 }}
+                    src={userInfo.data.avatar}
+                    icon={<UserOutlined />}
+                  />
                   <S.H1>{userInfo.data.fullName}</S.H1>
                 </S.AvatarContainer>
                 {renderProfileTab()}

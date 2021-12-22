@@ -84,8 +84,7 @@ function* updateCartProductSaga(action) {
 function* removeFromCartSaga(action) {
   try {
     const { cartId } = action.payload;
-    const result = yield axios.delete(`http://localhost:4000/carts/${cartId}`);
-    yield console.log(result);
+    yield axios.delete(`http://localhost:4000/carts/${cartId}`);
     yield put({
       type: SUCCESS(CART_ACTION.REMOVE_FROM_CART),
       payload: {

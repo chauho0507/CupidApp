@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, generatePath } from 'react-router-dom';
 
-import { Col, Row, Tabs, Rate } from 'antd';
+import { Col, Row, Tabs, Rate, Button } from 'antd';
 import { CloseOutlined } from '@ant-design/icons';
 
 import {
@@ -24,15 +24,15 @@ const WishList = ({ userInfo }) => {
 
   const { wishLists } = useSelector(state => state.wishListsReducer);
 
-  const cakeList = wishLists.data.filter(item => item.product.categoryId !== 5);
+  const cakeList = wishLists.data.filter(item => item.product.categoryId !== 6);
   const drinkList = wishLists.data.filter(
-    item => item.product.categoryId === 5
+    item => item.product.categoryId === 6
   );
 
   const handleRemoveFromWishList = product => {
     dispatch(
       removeFromWishListAction({
-        id: product.id,
+        id: parseInt(product.id),
         userId: userInfo.data.id,
       })
     );
@@ -41,7 +41,7 @@ const WishList = ({ userInfo }) => {
   const renderCakeList = () =>
     cakeList.map(cake => {
       return (
-        <Col xs={24} sm={12} md={12} lg={12} xl={12} key={cake.id}>
+        <Col xs={24} sm={24} md={12} lg={12} xl={12} key={cake.id}>
           <S.ProductItemWrapper>
             <S.ProductItemContent>
               <S.ProductImageWrapper
@@ -62,7 +62,7 @@ const WishList = ({ userInfo }) => {
               </S.ProductImageWrapper>
 
               <S.ProductDetailWrapper>
-                <S.H3>{cake.product.name}</S.H3>
+                <S.H1>{cake.product.name}</S.H1>
                 <S.P>{cake.product.price.toLocaleString()} ₫</S.P>
                 <Rate
                   disabled
@@ -88,7 +88,7 @@ const WishList = ({ userInfo }) => {
   const renderDrinkList = () =>
     drinkList.map(drink => {
       return (
-        <Col xs={24} sm={12} md={12} lg={12} xl={12} key={drink.id}>
+        <Col xs={24} sm={24} md={12} lg={12} xl={12} key={drink.id}>
           <S.ProductItemWrapper>
             <S.ProductItemContent>
               <S.ProductImageWrapper
@@ -134,18 +134,30 @@ const WishList = ({ userInfo }) => {
     });
 
   return (
-    <Row>
+    <Row justify="middle">
       <Col span={24}>
-        <S.TabsContainer>
-          <Tabs defaultActiveKey="1" type="card" size="large">
-            <TabPane tab="Bánh" key="1">
-              <Row gutter={[16, 16]}>{renderCakeList()}</Row>
-            </TabPane>
-            <TabPane tab="Nước uống" key="2">
-              <Row gutter={[16, 16]}>{renderDrinkList()}</Row>
-            </TabPane>
-          </Tabs>
-        </S.TabsContainer>
+        {!!wishLists.data.length ? (
+          <S.TabsContainer>
+            <Tabs defaultActiveKey="1" type="card" size="large">
+              <TabPane tab="Bánh" key="1">
+                <Row gutter={[16, 16]}>{renderCakeList()}</Row>
+              </TabPane>
+              <TabPane tab="Nước uống" key="2">
+                <Row gutter={[16, 16]}>{renderDrinkList()}</Row>
+              </TabPane>
+            </Tabs>
+          </S.TabsContainer>
+        ) : (
+          <S.EmptyWishList>
+            <S.H1>Danh sách trống!</S.H1>
+            <Button
+              type="primary"
+              onClick={() => history.push(ROUTER.USER.PRODUCT_LIST)}
+            >
+              Thêm sản phẩm yêu thích
+            </Button>
+          </S.EmptyWishList>
+        )}
       </Col>
     </Row>
   );

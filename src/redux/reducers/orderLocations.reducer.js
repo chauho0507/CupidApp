@@ -76,30 +76,8 @@ const orderLocationsReducer = createReducer(initialState, {
   },
 
   [SUCCESS(ORDER_LOCATION_ACTION.UPDATE_ORDER_LOCATION)]: (state, action) => {
-    const { locationId, userId, info, defaultLocation } = action.payload;
-    const newOrderLocationsList = [...state.orderLocationsList.data];
-    newOrderLocationsList.forEach(
-      location => (location.defaultLocation = false)
-    );
-
-    const orderIndex = newOrderLocationsList.findIndex(
-      location => location.id === locationId
-    );
-    newOrderLocationsList.splice(orderIndex, 1, {
-      userId,
-      info,
-      id: locationId,
-      defaultLocation,
-    });
-
     return {
       ...state,
-      orderLocationsList: {
-        ...state.orderLocationsList,
-        data: newOrderLocationsList,
-        loading: false,
-        error: null,
-      },
       actionLoading: {
         ...state.actionLoading,
         updateLocation: false,

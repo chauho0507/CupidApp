@@ -7,14 +7,12 @@ import { WISHLISTS_ACTION, REQUEST, SUCCESS, FAIL } from '../constants';
 function* getWishListSaga(action) {
   try {
     const { userId } = action.payload;
-    const result = yield axios.get(
-      'http://localhost:4000/wishlists?_expand=product',
-      {
-        params: {
-          userId,
-        },
-      }
-    );
+    const result = yield axios.get('http://localhost:4000/wishlists', {
+      params: {
+        userId,
+        // _expand: 'product',
+      },
+    });
     yield put({
       type: SUCCESS(WISHLISTS_ACTION.GET_WISH_LIST),
       payload: {
@@ -31,11 +29,11 @@ function* getWishListSaga(action) {
 
 function* addToWishListSaga(action) {
   try {
-    const { userId } = action.payload;
-    const result = yield axios.post(
-      `http://localhost:4000/wishlists`,
-      action.payload
-    );
+    const { userId, productId } = action.payload;
+    const result = yield axios.post(`http://localhost:4000/wishlists`, {
+      userId,
+      productId,
+    });
     yield put({
       type: REQUEST(WISHLISTS_ACTION.GET_WISH_LIST),
       payload: {

@@ -30,6 +30,7 @@ const RegisterFormPage = ({ setIsLogin }) => {
             ...values,
             phoneNumber: '',
             address: '',
+            avatar: '',
             orderLocationId: null,
           },
         })

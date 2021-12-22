@@ -80,13 +80,13 @@ function* updateOrderLocation(action) {
     });
 
     yield put({
-      type: SUCCESS(ORDER_LOCATION_ACTION.UPDATE_ORDER_LOCATION),
+      type: REQUEST(ORDER_LOCATION_ACTION.GET_ORDER_LOCATION_LIST),
       payload: {
-        locationId,
         userId,
-        info,
-        defaultLocation,
       },
+    });
+    yield put({
+      type: SUCCESS(ORDER_LOCATION_ACTION.UPDATE_ORDER_LOCATION),
     });
     yield notification.success({
       message: 'Cập nhật thành công',
@@ -103,11 +103,18 @@ function* updateOrderLocation(action) {
 
 function* deleteOrderLocation(action) {
   try {
-    const { locationId } = action.payload;
+    const { locationId, userId } = action.payload;
     yield axios.delete(`http://localhost:4000/orderLocations/${locationId}`);
+
+    yield put({
+      type: REQUEST(ORDER_LOCATION_ACTION.GET_ORDER_LOCATION_LIST),
+      payload: {
+        userId,
+      },
+    });
+
     yield put({
       type: SUCCESS(ORDER_LOCATION_ACTION.DELETE_ORDER_LOCATION),
-      payload: locationId,
     });
   } catch (error) {
     yield put({

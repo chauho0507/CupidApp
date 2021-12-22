@@ -78,7 +78,7 @@ const ProductDetailPage = ({ match, ...props }) => {
     infinite: true,
     speed: 500,
     slidesToShow: 6,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
     autoplay: true,
     autoplaySpeed: 3000,
     pauseOnHover: true,
@@ -131,7 +131,7 @@ const ProductDetailPage = ({ match, ...props }) => {
     if (id) {
       dispatch(getProductDetailAction({ id: parseInt(id) }));
       dispatch(getCommentListAction({ productId: parseInt(id) }));
-      dispatch(getWishListAction({ userId: userInfo.data.id, productId: id }));
+      dispatch(getWishListAction({ userId: parseInt(userInfo.data.id) }));
     }
     if (categoryId) {
       dispatch(
@@ -265,6 +265,7 @@ const ProductDetailPage = ({ match, ...props }) => {
   const handleWishList = () => {
     if (isLike) {
       const wish = wishLists.data.find(item => item.productId === parseInt(id));
+      console.log(wish);
       dispatch(
         removeFromWishListAction({ id: wish.id, userId: userInfo.data.id })
       );
@@ -517,12 +518,7 @@ const ProductDetailPage = ({ match, ...props }) => {
                     name="rating"
                     rules={[{ required: true, message: 'Required !' }]}
                   >
-                    <Rate
-                      allowHalf
-                      style={{ fontSize: 18 }}
-                      // style={{ color: COLOR.SECONDARY }}
-                      // character={<HeartFilled style={{ fontSize: 18 }} />}
-                    />
+                    <Rate allowHalf style={{ fontSize: 18 }} />
                   </Form.Item>
                   <Form.Item
                     label="Bình luận"

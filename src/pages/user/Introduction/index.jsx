@@ -1,9 +1,14 @@
 import React from 'react';
 
 import TopWrapper from '../../../components/TopWrapper';
-import { Card, Col, Row, Image, Divider } from 'antd';
+import { Col, Row, Image, Divider } from 'antd';
 
 import { BREADCRUMB } from './constants';
+
+import welcome_1 from '../../../assets/img/Introduction/welcome-1.png';
+import welcome_2 from '../../../assets/img/Introduction/welcome-2.png';
+import welcome_3 from '../../../assets/img/Introduction/welcome-3.png';
+import welcome_4 from '../../../assets/img/Introduction/welcome-4.jpg';
 import intro_1 from '../../../assets/img/Introduction/bakery-1.jpg';
 import intro_2 from '../../../assets/img/Introduction/bakery-2.jpg';
 import intro_3 from '../../../assets/img/Introduction/bakery-3.jpg';
@@ -35,11 +40,12 @@ const IntroductionPage = () => {
             </p>
           </S.LeftWelcome>
           <S.RightWelcome>
-            <img src={intro_1} alt="intro-img" id="intro-img-1" />
+            <img src={welcome_1} alt="intro-img" id="intro-img-1" />
 
-            <img src={intro_2} alt="intro-img" id="intro-img-2" />
+            <img src={welcome_2} alt="intro-img" id="intro-img-2" />
 
-            <img src={intro_3} alt="intro-img" id="intro-img-3" />
+            <img src={welcome_3} alt="intro-img" id="intro-img-3" />
+            <img src={welcome_4} alt="welcome-img" id="welcome-img-4" />
           </S.RightWelcome>
         </S.WelcomeSection>
         <Divider style={{ borderColor: COLOR.PRIMARY }} />
@@ -56,6 +62,9 @@ const IntroductionPage = () => {
             ngọt, cũng như quà tặng các ngày lễ. Nếu bạn có yêu cầu, đừng ngần
             ngại cho chúng tôi biết để phục vụ các bạn tốt hơn.
           </p>
+          <p>- Luôn chọn những hương liệu ngoại nhập tốt nhất.</p>
+          <p>- Luôn đảm bảo chất lượng sản phẩm vượt trội.</p>
+          <p>- Khách hàng là thượng đế của chúng tôi.</p>
           <Row style={{ marginTop: 24 }}>
             <Col span={8}>
               <Image preview={false} src={intro_1} alt="intro-img" />

@@ -17,6 +17,7 @@ export const IntroSection = styled.section`
   border-bottom: 1px solid ${COLOR.PRIMARY};
 
   & p {
+    text-align: center;
     font-size: 18px;
   }
 
@@ -167,8 +168,10 @@ export const CardImage = styled.div`
 
 export const CardContent = styled.div`
   display: flex;
-  padding: 0 6px;
   flex-direction: column;
+
+  height: 32%;
+  padding: 0 6px;
   font-size: 14px;
 `;
 

@@ -23,7 +23,7 @@ export const SkeletonImage = styled.div`
 export const BlogItemWrapper = styled.div`
   position: relative;
   width: 100%;
-  padding-top: 133%;
+  padding-top: 125%;
   transition: all 0.3s;
 `;
 
@@ -54,7 +54,7 @@ export const Card = styled.div`
 `;
 
 export const CardImage = styled.div`
-  height: 65%;
+  height: 55%;
   width: 100%;
   overflow: hidden;
 
@@ -71,6 +71,6 @@ export const CardImage = styled.div`
 `;
 
 export const CardDetail = styled.div`
-  height: 35%;
+  height: 40%;
   width: 100%;
 `;

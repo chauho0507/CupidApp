@@ -38,20 +38,22 @@ const OrderHistory = () => {
           .map(item => `${item.name} x ${item.quantity}`)
           .join(', '),
       ellipsis: true,
-      width: '45%',
+      width: '39%',
     },
     {
       title: 'Tổng tiền',
       dataIndex: 'totalPrice',
       key: 'totalPrice',
       render: item => <S.P>{item.toLocaleString()}₫</S.P>,
-      width: '12%',
+      width: '18%',
     },
     {
       title: 'Tình trạng đơn hàng',
       dataIndex: 'status',
       key: 'status',
-      render: item => <Tag color="green">{item}</Tag>,
+      render: item => (
+        <Tag color="green">{item === 'pending' && 'Đang xác nhận'}</Tag>
+      ),
       width: '12%',
     },
   ];

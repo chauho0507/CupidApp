@@ -5,7 +5,6 @@ import {
   HeartOutlined,
   EnvironmentOutlined,
   CreditCardOutlined,
-  LogoutOutlined,
 } from '@ant-design/icons';
 
 export const BREADCRUMB = [

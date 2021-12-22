@@ -9,7 +9,7 @@ export const Container = styled.div`
   margin: 0 auto;
   overflow: hidden;
 
-  /* @media (max-width: 1290px) {
+  @media (max-width: 1290px) {
     max-width: 1180px;
   }
   @media (max-width: 1190px) {
@@ -38,7 +38,7 @@ export const Container = styled.div`
   }
   @media (max-width: 390px) {
     max-width: 320px;
-  } */
+  }
 `;
 
 export const TopSaleCard = styled.div`
@@ -48,6 +48,11 @@ export const TopSaleCard = styled.div`
 
   @media (max-width: 1145px) {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  @media (max-width: 767px) {
+    flex-direction: row;
     justify-content: center;
     align-items: center;
   }

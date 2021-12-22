@@ -67,6 +67,19 @@ export const TabItem = styled.div`
 
 export const H1 = styled.h1`
   color: ${COLOR.TERTIARY};
+
+  @media (max-width: 1145px) {
+    font-size: 18px;
+  }
+  @media (max-width: 992px) {
+    font-size: 17px;
+  }
+  @media (max-width: 750px) {
+    font-size: 13px;
+  }
+  @media (max-width: 571px) {
+    font-size: 11px;
+  }
 `;
 
 export const H2 = styled.h2`
@@ -82,6 +95,7 @@ export const H4 = styled.h4`
 `;
 
 export const P = styled.p`
+  font-size: 16px;
   color: red;
   font-weight: 500;
 `;
@@ -114,6 +128,7 @@ export const ProductItemContent = styled.div`
 
   display: flex;
   justify-content: space-around;
+  box-sizing: border-box;
 
   height: 100%;
   width: 100%;
@@ -166,4 +181,15 @@ export const EditButton = styled(Button)`
   position: absolute;
   bottom: 0;
   right: 0;
+`;
+
+export const EmptyWishList = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-item: center;
+  height: 12vh;
+  text-align: center;
+  border-radius: 4px;
+  background-color: ${COLOR.WHITE};
 `;

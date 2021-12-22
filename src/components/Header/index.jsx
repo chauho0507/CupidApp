@@ -226,6 +226,7 @@ const Header = () => {
                 <Avatar
                   shape="circle"
                   size={{ xs: 45, sm: 45, md: 45, lg: 45, xl: 60 }}
+                  src={userInfo.data.avatar}
                   icon={<UserOutlined />}
                   style={{ marginLeft: 12, cursor: 'pointer' }}
                 />
