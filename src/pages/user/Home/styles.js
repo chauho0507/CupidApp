@@ -8,6 +8,37 @@ export const MainContainer = styled.div`
   max-width: 1280px;
   width: 100%;
   margin: 0 auto;
+
+  @media (max-width: 1290px) {
+    max-width: 1180px;
+  }
+  @media (max-width: 1190px) {
+    max-width: 1080px;
+  }
+  @media (max-width: 1090px) {
+    max-width: 980px;
+  }
+  @media (max-width: 990px) {
+    max-width: 880px;
+  }
+  @media (max-width: 890px) {
+    max-width: 780px;
+  }
+  @media (max-width: 790px) {
+    max-width: 680px;
+  }
+  @media (max-width: 690px) {
+    max-width: 580px;
+  }
+  @media (max-width: 590px) {
+    max-width: 500px;
+  }
+  @media (max-width: 490px) {
+    max-width: 380px;
+  }
+  @media (max-width: 390px) {
+    max-width: 320px;
+  }
 `;
 
 export const IntroSection = styled.section`
@@ -47,7 +78,7 @@ export const H1 = styled.h1`
     height: 100%;
     width: 4rem;
 
-    border-bottom: 2px solid ${COLOR.PRIMARY};
+    border-bottom: 2px solid ${COLOR.PRIMARY_DARK};
 
     transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
       background-color 0.1s;
@@ -269,7 +300,7 @@ export const ReviewSection = styled.section`
   height: 35vh;
   width: 100%;
 
-  background-color: #e6fffb;
+  background-color: ${COLOR.PRIMARY};
 `;
 
 export const ReviewContent = styled.div`
@@ -277,21 +308,19 @@ export const ReviewContent = styled.div`
   width: 60%;
 
   & .ant-row {
-    color: ${COLOR.SECONDARY_LIGHT};
+    color: ${COLOR.SECONDARY};
     font-size: 20px;
     line-height: 1.6;
   }
 
   @media (max-width: 993px) {
     & .ant-row {
-      color: ${COLOR.SECONDARY_LIGHT};
       font-size: 16px;
       line-height: 1.6;
     }
   }
   @media (max-width: 776px) {
     & .ant-row {
-      color: ${COLOR.SECONDARY_LIGHT};
       font-size: 14px;
       line-height: 1.6;
     }
@@ -310,7 +339,7 @@ export const ReviewTitle = styled.h1`
   font-weight: 700;
   text-transform: uppercase;
   line-height: 1.6;
-  color: ${COLOR.SECONDARY};
+  color: ${COLOR.TERTIARY};
 
   &::after {
     content: '';
@@ -320,7 +349,7 @@ export const ReviewTitle = styled.h1`
     height: 100%;
     width: 4rem;
 
-    border-bottom: 2px solid ${COLOR.SECONDARY};
+    border-bottom: 2px solid ${COLOR.TERTIARY};
 
     transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
       background-color 0.1s;
@@ -348,7 +377,7 @@ export const ContactSection = styled.section`
 
   margin-bottom: -20px;
 
-  background-color: ${COLOR.PRIMARY};
+  background-color: ${COLOR.PRIMARY_DARK};
 `;
 
 export const ContactTitle = styled.p`

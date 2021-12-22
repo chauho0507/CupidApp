@@ -310,8 +310,10 @@ const HomePage = () => {
         <Row align="middle">
           <Col sm={{ span: 2 }} md={{ span: 2 }} lg={{ span: 4 }}>
             <Avatar
-              size={{ sm: 80, md: 100, lg: 120, xl: 150 }}
+              size={{ sm: 70, md: 80, lg: 110, xl: 130 }}
               icon={<UserOutlined />}
+              style={{ margin: '0 10px' }}
+              src={comment.user.avatar}
             />
           </Col>
           <Col
@@ -551,7 +553,7 @@ const HomePage = () => {
                         style={{
                           width: '160px',
                           height: 45,
-                          backgroundColor: '#E6DBDF',
+                          // backgroundColor: '#E6DBDF',
                         }}
                       >
                         Xác nhận

@@ -439,7 +439,7 @@ const ProductListPage = () => {
               }}
               suffix={
                 <SearchOutlined
-                  style={{ fontSize: 20, color: COLOR.PRIMARY }}
+                  style={{ fontSize: 20, color: COLOR.PRIMARY_DARK }}
                 />
               }
             />
@@ -466,13 +466,13 @@ const ProductListPage = () => {
             >
               <Select.Option value="asc">
                 <ArrowUpOutlined
-                  style={{ marginRight: 4, color: COLOR.PRIMARY }}
+                  style={{ marginRight: 4, color: COLOR.PRIMARY_DARK }}
                 />
                 Giá tăng dần
               </Select.Option>
               <Select.Option value="desc">
                 <ArrowDownOutlined
-                  style={{ marginRight: 4, color: COLOR.PRIMARY }}
+                  style={{ marginRight: 4, color: COLOR.PRIMARY_DARK }}
                 />
                 Giá giảm dần
               </Select.Option>
@@ -540,7 +540,7 @@ const ProductListPage = () => {
                   headStyle={{
                     fontSize: 18,
                     color: 'white',
-                    backgroundColor: COLOR.PRIMARY,
+                    backgroundColor: COLOR.PRIMARY_DARK,
                   }}
                 >
                   {renderCategoryList}
@@ -569,7 +569,7 @@ const ProductListPage = () => {
                   headStyle={{
                     fontSize: 18,
                     color: 'white',
-                    backgroundColor: COLOR.PRIMARY,
+                    backgroundColor: COLOR.PRIMARY_DARK,
                   }}
                 >
                   <Slider
@@ -610,7 +610,7 @@ const ProductListPage = () => {
                   headStyle={{
                     fontSize: 18,
                     color: COLOR.WHITE,
-                    backgroundColor: COLOR.PRIMARY,
+                    backgroundColor: COLOR.PRIMARY_DARK,
                   }}
                 >
                   <div style={{ width: '100%' }}>{renderTopSaleList}</div>

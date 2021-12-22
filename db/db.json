@@ -65,25 +65,25 @@
         "district": "Quận Hải Châu",
         "ward": "Phường Bình Thuận"
       },
-      "defaultLocation": false,
+      "defaultLocation": true,
       "createdAt": 1640058930431,
-      "updatedAt": 1640155393521,
+      "updatedAt": 1640187381636,
       "id": 4
     },
     {
       "userId": 2,
       "info": {
-        "fullName": "Galaxy",
-        "email": "linhmylove@gmail.com",
+        "fullName": "Huyền Sương",
+        "email": "suongmylove@gmail.com",
         "phoneNumber": "0905011408",
-        "address": "123123",
-        "city": "Thành phố Hồ Chí Minh",
-        "district": "Quận 1",
-        "ward": "Phường Cầu Kho"
+        "address": "125 Trần Nhân Tông",
+        "city": "Thành phố Đà Nẵng",
+        "district": "Quận Sơn Trà",
+        "ward": "Phường Thọ Quang"
       },
-      "defaultLocation": true,
-      "createdAt": 1640155382264,
-      "updatedAt": 1640155393522,
+      "defaultLocation": false,
+      "createdAt": 1640187372533,
+      "updatedAt": 1640187381636,
       "id": 5
     }
   ],
@@ -2523,6 +2523,33 @@
       "createdAt": 1640152975289,
       "updatedAt": 1640152975290,
       "id": 8
+    },
+    {
+      "fullName": "Galaxy",
+      "email": "linhmylove@gmail.com",
+      "phoneNumber": "0905011408",
+      "city": "Thành phố Hồ Chí Minh",
+      "district": "Quận 1",
+      "ward": "Phường Cầu Kho",
+      "address": "123123",
+      "shipper": "giaohangtietkiem",
+      "paymentType": "momo",
+      "userId": 2,
+      "products": [
+        {
+          "id": 3,
+          "cartId": 2,
+          "name": "Bánh kem Dâu",
+          "price": 350000,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 350000,
+      "orderCode": 165129,
+      "status": "pending",
+      "createdAt": 1640173553831,
+      "updatedAt": 1640173553831,
+      "id": 9
     }
   ],
   "comments": [
@@ -2575,21 +2602,12 @@
   "carts": [
     {
       "quantity": 1,
-      "productId": 4,
+      "productId": 1,
       "userId": 2,
-      "productOptionId": 8,
-      "createdAt": 1640167610271,
-      "updatedAt": 1640167610271,
+      "productOptionId": 2,
+      "createdAt": 1640173365505,
+      "updatedAt": 1640173365506,
       "id": 1
-    },
-    {
-      "quantity": 1,
-      "productId": 27,
-      "userId": 2,
-      "productOptionId": 47,
-      "createdAt": 1640167633069,
-      "updatedAt": 1640167633069,
-      "id": 4
     }
   ],
   "discounts": [
@@ -2654,16 +2672,16 @@
       "title": "Hướng dẫn làm bánh pizza gà tại nhà",
       "description": "Sự kết hợp của gà và bánh pizza rất ư là tuyệt, hãy làm thử nhé!",
       "content": "<p> <img src='https://cdn.tgdd.vn/2020/09/CookRecipe/Avatar/pizza-ga%CC%80-pho-mai-thumbnail.jpg' alt='Pizza gà phô mai'></p><p class='ql-align-center'> <br></p><h2>Nguyên liệu làm Pizza gà phô maiCho 4 người</h2><p> <span style='color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 18px; background-color: rgb(255, 255, 255);'>&nbsp;Đế bánh pizza&nbsp;200 gr</span></p><p> <span style='color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 18px; background-color: rgb(255, 255, 255);'>&nbsp;Ức gà&nbsp;150 gr</span></p><p> <span style='color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 18px; background-color: rgb(255, 255, 255);'>&nbsp;Xúc xích&nbsp;50 gr</span></p><p> <span style='color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 18px; background-color: rgb(255, 255, 255);'>&nbsp;Phô mai Mozzarella&nbsp;100 gr</span></p><p> <span style='color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 18px; background-color: rgb(255, 255, 255);'>&nbsp;Ớt chuông đỏ&nbsp;50 gr</span></p><p> <span style='color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 18px; background-color: rgb(255, 255, 255);'>&nbsp;Ớt chuông vàng&nbsp;50 gr</span></p><p> <span style='color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 18px; background-color: rgb(255, 255, 255);'>&nbsp;Hành tím Ấn Độ&nbsp;50 gr(hoặc hành tây)</span></p><p> <span style='color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 18px; background-color: rgb(255, 255, 255);'>&nbsp;Tương cà&nbsp;100 gr</span></p><p> <span style='color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 18px; background-color: rgb(255, 255, 255);'>&nbsp;Muối&nbsp;10 gr</span></p><p> <span style='color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 18px; background-color: rgb(255, 255, 255);'>&nbsp;Đường&nbsp;10 gr</span></p><p> <span style='color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 18px; background-color: rgb(255, 255, 255);'>&nbsp;Hạt nêm&nbsp;10 gr</span></p><p> <span style='color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 18px; background-color: rgb(255, 255, 255);'>&nbsp;Tiêu&nbsp;10 gr</span></p><p> <br></p><h2>Cách chế biến Pizza gà phô mai</h2><p> <br></p><h3>1.Sơ chế rau củ</h3><p>Ớt chuông rửa sạch, dùng mũi dao tách phần cuống sau đó cắt ớt thành khoanh. Hành tím bóc vỏ, cắt lát. Xúc xích cắt khoanh.</p><h3>2. Sơ chế thịt gà</h3><p>Thịt ức gà bạn rửa sạch, để ráo, cắt khúc vừa và ướp với 5gr muối, 5gr hạt nêm, 5gr tiêu, 2gr đường sau đó trộn đều và ướp gà 15 phút.</p><h3>3. Chiên và xé gà</h3><p>Cho 50ml dầu vào chảo, khi dầu sôi bạn cho gà vào và chiên chín mềm. Khi gà chín, bạn xé gà thành từng thớ thịt mỏng vừa ăn.</p><h3>4. Cho nhân lên đế bánh</h3><p>Trước tiên, bạn cho tương cà lên trên và phết đều bề mặt. Tiếp theo, bạn cho xen kẽ ớt chuông, hành tím, sau đó là gà xé, xúc xích và cuối cùng là phô mai Mozzarella.</p><p>5. <strong>Nướng pizza bằng nồi chiên không dầu</strong></p><p>Còn đối với nồi chiên không dầu, bạn nướng ở 200 độ C trong vòng 10 phút.</p><h3>6. Thành phẩm</h3><p>Lớp đế bánh giòn, phần gà cùng rau củ ngọt thơm hòa quyện với phô mai béo ngậy khiến bạn ăn hết miếng này lại ăn tiếp thêm miếng nữa.</p><p>Bạn có thể ăn kèm với tương cà và tương ớt để tăng thêm hương vị cho món ăn nhé!</p><p> <img src='https://cdn.tgdd.vn/2020/09/CookRecipe/GalleryStep/tha%CC%80nh-pha%CC%89m-8.jpg' alt='Bước 6 Thành phẩm Pizza gà phô mai'></p>"
+    },
+    {
+      "id": 5,
+      "image": "https://live.staticflickr.com/65535/51764741123_e598975433_z.jpg",
+      "title": "Giáng sinh sắp đến rồi, làm bánh thôi!",
+      "description": "Cách làm bánh cupcake ông già noel dễ thương cho ngày Giáng Sinh",
+      "content": ""
     }
   ],
   "wishlists": [
-    {
-      "userId": 2,
-      "productId": 64,
-      "createdAt": 1640100787066,
-      "updatedAt": 1640100787066,
-      "id": 2
-    },
     {
       "userId": 2,
       "productId": 2,
@@ -2687,13 +2705,6 @@
     },
     {
       "userId": 2,
-      "productId": 1,
-      "createdAt": 1640153208929,
-      "updatedAt": 1640153208929,
-      "id": 7
-    },
-    {
-      "userId": 2,
       "productId": 4,
       "createdAt": 1640167614432,
       "updatedAt": 1640167614433,
@@ -2708,20 +2719,6 @@
     },
     {
       "userId": 2,
-      "productId": 8,
-      "createdAt": 1640167651739,
-      "updatedAt": 1640167651739,
-      "id": 10
-    },
-    {
-      "userId": 2,
-      "productId": 20,
-      "createdAt": 1640167655369,
-      "updatedAt": 1640167655369,
-      "id": 11
-    },
-    {
-      "userId": 2,
       "productId": 31,
       "createdAt": 1640167659615,
       "updatedAt": 1640167659615,
@@ -2733,6 +2730,20 @@
       "createdAt": 1640167671703,
       "updatedAt": 1640167671703,
       "id": 13
+    },
+    {
+      "userId": 2,
+      "productId": 1,
+      "createdAt": 1640173593803,
+      "updatedAt": 1640173593803,
+      "id": 16
+    },
+    {
+      "userId": 2,
+      "productId": 3,
+      "createdAt": 1640174583204,
+      "updatedAt": 1640174583204,
+      "id": 17
     }
   ],
   "cities": [

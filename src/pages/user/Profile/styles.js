@@ -49,18 +49,17 @@ export const TabItem = styled.div`
   padding: 0 16px;
   height: 50px;
   width: 100%;
-  border-radius: 100px;
   cursor: pointer;
   color: ${COLOR.TERTIARY};
 
   &:hover {
-    background-color: #ffd4d4;
+    background-color: ${COLOR.PRIMARY};
   }
 
   ${({ active }) =>
     active &&
     css`
-      background-color: ${COLOR.PRIMARY_LIGHT};
+      background-color: ${COLOR.PRIMARY_DARK};
       border-right: 5px solid ${COLOR.SECONDARY};
     `}
 `;
@@ -173,7 +172,7 @@ export const LocationCard = styled(Card)`
   ${({ active }) =>
     active === 'true' &&
     css`
-      border: 2px dashed ${COLOR.PRIMARY};
+      border: 2px dashed ${COLOR.PRIMARY_DARK};
     `}
 `;
 

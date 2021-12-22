@@ -57,79 +57,6 @@ const Footer = () => {
 
   return (
     <S.Footer>
-      {/* <Row gutter={[0, 16]} align="top" justify="center">
-        <Col
-          sm={{ span: 12 }}
-          md={{ offset: 2, span: 4 }}
-          lg={{ offset: 2, span: 4 }}
-        >
-          <img src={cupidLogo} alt="logo" style={{ width: '100%' }}></img>
-          <p>
-            Được phục vụ quý khách là niềm vinh hạnh của chúng tôi. Hãy liên lạc
-            nhé!
-          </p>
-          {renderContactLogo()}
-        </Col>
-        <Col
-          sm={{ offset: 2, span: 22 }}
-          md={{ offset: 1, span: 17 }}
-          lg={{ offset: 2, span: 16 }}
-        >
-          <table width="100%">
-            <thead style={{ textAlign: 'left' }}>
-              <tr>
-                <th>
-                  <S.H2>PHÁP LÝ & CÂU HỎI</S.H2>
-                </th>
-                <th>
-                  <S.H2>THỜI GIAN LÀM VIỆC</S.H2>
-                </th>
-                <th>
-                  <S.H2>LIÊN HỆ</S.H2>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td onClick={() => history.push(ROUTER.USER.INTRODUCTION)}>
-                  <S.Link>Giới thiệu</S.Link>
-                </td>
-                <td>Thứ 2-Thứ 7: 8am - 9pm</td>
-                <td>
-                  <b>(0236) 387 2428</b>
-                </td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <td onClick={() => history.push(ROUTER.USER.CART)}>
-                  <S.Link>Giỏ hàng</S.Link>
-                </td>
-                <td>Chủ nhật: 8am-7pm</td>
-                <td>338 Hoàng Diệu - Hải Châu - Đà Nẵng</td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <td onClick={() => history.push(ROUTER.USER.TERMS)}>
-                  <S.Link>Chính sách</S.Link>
-                </td>
-                <td />
-                <td>Chau Ho's store</td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <td onClick={() => history.push(ROUTER.USER.TERMS)}>
-                  <S.Link>Điều khoản dịch vụ</S.Link>
-                </td>
-                <td />
-                <td>cupidBakery@gmail.com</td>
-              </tr>
-            </tbody>
-          </table>
-        </Col>
-      </Row> */}
       <Row align="top">
         <Col
           xs={{ offset: 4, span: 16 }}
@@ -140,7 +67,7 @@ const Footer = () => {
           <img
             src={cupidLogo}
             alt="logo"
-            style={{ width: '100%' }}
+            style={{ width: '90%' }}
             onClick={() => history.push(ROUTER.USER.HOME)}
           />
           <p>

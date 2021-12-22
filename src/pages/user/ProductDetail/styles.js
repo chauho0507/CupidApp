@@ -152,3 +152,17 @@ export const Span = styled.span`
   font-weight: 500;
   color: ${COLOR.PRIMARY};
 `;
+
+export const CommentContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-item: center;
+`;
+export const CommentAvatar = styled.div`
+  margin-right: 30px;
+`;
+export const CommentDetail = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+`;

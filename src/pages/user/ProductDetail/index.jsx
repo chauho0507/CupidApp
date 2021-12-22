@@ -51,6 +51,7 @@ import { COLOR } from '../../../constants/theme';
 import fallbackImg from '../../../assets/img/fallback.png';
 
 import * as S from './styles';
+import Avatar from 'antd/lib/avatar/avatar';
 
 const ProductDetailPage = ({ match, ...props }) => {
   const history = useHistory();
@@ -546,19 +547,31 @@ const ProductDetailPage = ({ match, ...props }) => {
                 renderItem={item => (
                   <li>
                     <Comment
-                      author={<h2>{item.user?.name}</h2>}
+                      author={<h2>{item.user?.fullName}</h2>}
                       content={
-                        <div>
-                          <Rate
-                            disabled
-                            value={item.rating}
-                            allowHalf
-                            style={{ fontSize: 18 }}
-                            // style={{ color: COLOR.SECONDARY }}
-                            // character={<HeartFilled style={{ fontSize: 18 }} />}
-                          />
-                          <p>{item.content}</p>
-                        </div>
+                        <S.CommentContainer>
+                          <S.CommentAvatar>
+                            <Avatar
+                              size={{
+                                xs: 70,
+                                sm: 80,
+                                md: 100,
+                                lg: 120,
+                                xl: 120,
+                              }}
+                              src={item.user.avatar}
+                            />
+                          </S.CommentAvatar>
+                          <S.CommentDetail>
+                            <Rate
+                              disabled
+                              value={item.rating}
+                              allowHalf
+                              style={{ fontSize: 18 }}
+                            />
+                            <p>{item.content}</p>
+                          </S.CommentDetail>
+                        </S.CommentContainer>
                       }
                       datetime={moment(item.createdAt).fromNow()}
                     />

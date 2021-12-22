@@ -35,7 +35,7 @@ export const HeaderSpace = styled.div`
 
   height: 40px;
   width: 100%;
-  background-color: ${COLOR.PRIMARY};
+  background-color: ${COLOR.PRIMARY_DARK};
   color: #fff;
   font-size: 16px;
 
@@ -142,7 +142,7 @@ export const HeaderItem = styled.div`
   cursor: pointer;
 
   &:hover {
-    color: ${COLOR.PRIMARY};
+    color: ${COLOR.PRIMARY_DARK};
   }
 
   &::after {
@@ -153,7 +153,7 @@ export const HeaderItem = styled.div`
     height: 100%;
     width: 0;
 
-    border-bottom: 3px solid ${COLOR.PRIMARY};
+    border-bottom: 3px solid ${COLOR.PRIMARY_DARK};
 
     transition: all 0.2s ease-out;
 
@@ -168,7 +168,7 @@ export const HeaderItem = styled.div`
   ${({ item, location }) =>
     item.path === location.pathname &&
     css`
-      color: ${COLOR.PRIMARY};
+      color: ${COLOR.PRIMARY_DARK};
 
       &::after {
         content: '';
@@ -178,7 +178,7 @@ export const HeaderItem = styled.div`
         height: 100%;
         width: 50%;
 
-        border-bottom: 3px solid ${COLOR.PRIMARY};
+        border-bottom: 3px solid ${COLOR.PRIMARY_DARK};
       }
     `}
 `;

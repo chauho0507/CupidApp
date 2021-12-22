@@ -152,7 +152,7 @@ const Location = ({ userInfo }) => {
   const renderOrderLocations = () => {
     return orderLocationsList.data?.map((location, idx) => {
       return (
-        <Col span={24} key={idx}>
+        <Col span={12} key={idx}>
           <S.LocationCard
             active={location.defaultLocation.toString()}
             hoverable

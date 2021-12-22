@@ -28,7 +28,7 @@ export const Logo = styled.div`
 
   & > * {
     font-size: 35px;
-    color: ${COLOR.PRIMARY};
+    color: ${COLOR.SECONDARY};
   }
 
   @media (max-width: 992px) {

@@ -8,7 +8,15 @@ export const CartContainer = styled.div`
   max-width: 1280px;
   width: 100%;
   margin: 0 auto;
-  padding: 32px;
+  padding: 0 32px;
+`;
+
+export const StepContainer = styled.div`
+  width: 100%;
+  margin-top: -20px;
+  margin-bottom: 20px;
+
+  background-color: ${COLOR.WHITE};
 `;
 
 export const CartFooter = styled.div`
@@ -66,6 +74,6 @@ export const LocationCard = styled(Card)`
   ${({ active }) =>
     active === 'true' &&
     css`
-      border: 2px dashed ${COLOR.PRIMARY};
+      border: 2px dashed ${COLOR.PRIMARY_DARK};
     `}
 `;

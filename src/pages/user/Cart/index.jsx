@@ -26,27 +26,27 @@ const CartPage = () => {
   return (
     <>
       <TopWrapper titlePage="Giỏ hàng" breadcrumb={BREADCRUMB} height={180} />
+      <S.StepContainer>
+        <Steps current={checkoutStep} type="navigation">
+          <Steps.Step
+            description="Giỏ hàng"
+            icon={<ShoppingCartOutlined style={{ fontSize: 32 }} />}
+          />
+          <Steps.Step
+            description="Thông tin"
+            icon={<InfoCircleOutlined style={{ fontSize: 32 }} />}
+          />
+          <Steps.Step
+            description="Thanh toán"
+            icon={<CreditCardOutlined style={{ fontSize: 32 }} />}
+          />
+          <Steps.Step
+            description="Hoàn tất"
+            icon={<CheckCircleOutlined style={{ fontSize: 32 }} />}
+          />
+        </Steps>
+      </S.StepContainer>
       <S.CartContainer>
-        <div>
-          <Steps current={checkoutStep} type="navigation">
-            <Steps.Step
-              description="Giỏ hàng"
-              icon={<ShoppingCartOutlined style={{ fontSize: 32 }} />}
-            />
-            <Steps.Step
-              description="Thông tin"
-              icon={<InfoCircleOutlined style={{ fontSize: 32 }} />}
-            />
-            <Steps.Step
-              description="Thanh toán"
-              icon={<CreditCardOutlined style={{ fontSize: 32 }} />}
-            />
-            <Steps.Step
-              description="Hoàn tất"
-              icon={<CheckCircleOutlined style={{ fontSize: 32 }} />}
-            />
-          </Steps>
-        </div>
         <Row gutter={32}>
           <Col span={24}>
             {checkoutStep === 0 && (
