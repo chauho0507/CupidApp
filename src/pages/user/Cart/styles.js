@@ -49,7 +49,8 @@ export const P = styled.p`
 `;
 
 export const Span = styled.span`
-  color: ${COLOR.PRIMARY};
+  font-weight: 500;
+  color: ${COLOR.PRIMARY_DARK};
 `;
 
 export const EmptyCart = styled.h1`

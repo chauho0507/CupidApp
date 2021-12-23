@@ -264,19 +264,27 @@ const ProductDetailPage = ({ match, ...props }) => {
   };
 
   const handleWishList = () => {
-    if (isLike) {
-      const wish = wishLists.data.find(item => item.productId === parseInt(id));
-      console.log(wish);
-      dispatch(
-        removeFromWishListAction({ id: wish.id, userId: userInfo.data.id })
-      );
+    if (userInfo.data.id) {
+      if (isLike) {
+        const wish = wishLists.data.find(
+          item => item.productId === parseInt(id)
+        );
+        console.log(wish);
+        dispatch(
+          removeFromWishListAction({ id: wish.id, userId: userInfo.data.id })
+        );
+      } else
+        dispatch(
+          addToWishListAction({
+            userId: userInfo.data.id,
+            productId: parseInt(id),
+          })
+        );
     } else
-      dispatch(
-        addToWishListAction({
-          userId: userInfo.data.id,
-          productId: parseInt(id),
-        })
-      );
+      notification.error({
+        message: 'Bạn cần đăng nhập để thực hiện chức năng này!',
+        placement: 'bottomRight',
+      });
   };
 
   const renderProductDetail = useMemo(() => {
@@ -340,7 +348,7 @@ const ProductDetailPage = ({ match, ...props }) => {
                   <S.PriceDetail>
                     {productDetail.data.productOptions?.length > 1 && (
                       <div>
-                        Kích cỡ:
+                        <S.H3>Kích cỡ:</S.H3>
                         <div>
                           <Radio.Group
                             onChange={e => {
@@ -363,8 +371,11 @@ const ProductDetailPage = ({ match, ...props }) => {
                         onChange={value => setProductQuantity(value)}
                       />
                     </div>
-
-                    <div>Còn lại: {data.balance}</div>
+                    {!!data.balance ? (
+                      <div>Còn lại: {data.balance}</div>
+                    ) : (
+                      <S.H2>Hết</S.H2>
+                    )}
 
                     <h2 style={{ color: 'red', fontWeight: 700 }}>
                       {selectedOption
@@ -654,11 +665,9 @@ const ProductDetailPage = ({ match, ...props }) => {
                     <Col>
                       <Rate
                         disabled
-                        // style={{ color: COLOR.SECONDARY }}
                         style={{ fontSize: 12 }}
                         allowHalf
                         value={cake.rating}
-                        // character={<HeartFilled style={{ fontSize: 10 }} />}
                       ></Rate>
                     </Col>
                     <Col>

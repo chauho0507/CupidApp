@@ -18,7 +18,7 @@ const TermsPage = () => {
         <Row>
           <Col span={24}>
             <Card
-              headStyle={{ backgroundColor: COLOR.PRIMARY }}
+              headStyle={{ backgroundColor: COLOR.PRIMARY_DARK }}
               bordered
               title={
                 <S.H2>
@@ -45,7 +45,7 @@ const TermsPage = () => {
         <Row>
           <Col span={24}>
             <Card
-              headStyle={{ backgroundColor: COLOR.PRIMARY }}
+              headStyle={{ backgroundColor: COLOR.PRIMARY_DARK }}
               title={
                 <S.H2>
                   <CarOutlined /> Chính sách giao hàng

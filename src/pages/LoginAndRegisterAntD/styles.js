@@ -24,7 +24,7 @@ export const RightForm = styled.div`
   height: 100vh;
   width: 100%;
 
-  background: linear-gradient(to bottom, #ffe8f1, #f195b2);
+  background: linear-gradient(to bottom, #ffd6d3, #ff9aa2);
 `;
 
 export const LoginForm = styled.div`

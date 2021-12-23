@@ -2608,6 +2608,132 @@
       "createdAt": 1640173365505,
       "updatedAt": 1640173365506,
       "id": 1
+    },
+    {
+      "quantity": 1,
+      "productId": 14,
+      "userId": 2,
+      "productOptionId": 28,
+      "createdAt": 1640235241968,
+      "updatedAt": 1640235241968,
+      "id": 2
+    },
+    {
+      "quantity": 1,
+      "productId": 63,
+      "userId": 2,
+      "productOptionId": 99,
+      "createdAt": 1640235264951,
+      "updatedAt": 1640235264951,
+      "id": 3
+    },
+    {
+      "quantity": 1,
+      "productId": 83,
+      "userId": 2,
+      "productOptionId": 128,
+      "createdAt": 1640235285132,
+      "updatedAt": 1640235285132,
+      "id": 4
+    },
+    {
+      "quantity": 1,
+      "productId": 30,
+      "userId": 2,
+      "productOptionId": 52,
+      "createdAt": 1640235302993,
+      "updatedAt": 1640235302994,
+      "id": 5
+    },
+    {
+      "quantity": 1,
+      "productId": 21,
+      "userId": 2,
+      "productOptionId": 39,
+      "createdAt": 1640235324354,
+      "updatedAt": 1640235324354,
+      "id": 6
+    },
+    {
+      "quantity": 1,
+      "productId": 20,
+      "userId": 2,
+      "productOptionId": 38,
+      "createdAt": 1640235338286,
+      "updatedAt": 1640235338287,
+      "id": 7
+    },
+    {
+      "quantity": 1,
+      "productId": 19,
+      "userId": 2,
+      "productOptionId": 37,
+      "createdAt": 1640235342579,
+      "updatedAt": 1640235342579,
+      "id": 8
+    },
+    {
+      "quantity": 1,
+      "productId": 31,
+      "userId": 2,
+      "productOptionId": 53,
+      "createdAt": 1640235347244,
+      "updatedAt": 1640235347244,
+      "id": 9
+    },
+    {
+      "quantity": 1,
+      "productId": 61,
+      "userId": 2,
+      "productOptionId": 97,
+      "createdAt": 1640235355988,
+      "updatedAt": 1640235355988,
+      "id": 10
+    },
+    {
+      "quantity": 1,
+      "productId": 62,
+      "userId": 2,
+      "productOptionId": 98,
+      "createdAt": 1640235362071,
+      "updatedAt": 1640235362072,
+      "id": 11
+    },
+    {
+      "quantity": 1,
+      "productId": 106,
+      "userId": 2,
+      "productOptionId": 169,
+      "createdAt": 1640235383398,
+      "updatedAt": 1640235383398,
+      "id": 12
+    },
+    {
+      "quantity": 1,
+      "productId": 102,
+      "userId": 2,
+      "productOptionId": 161,
+      "createdAt": 1640235390399,
+      "updatedAt": 1640235390399,
+      "id": 13
+    },
+    {
+      "quantity": 1,
+      "productId": 101,
+      "userId": 2,
+      "productOptionId": 160,
+      "createdAt": 1640235398018,
+      "updatedAt": 1640235398018,
+      "id": 14
+    },
+    {
+      "quantity": 1,
+      "productId": 23,
+      "userId": 2,
+      "productOptionId": 43,
+      "createdAt": 1640235404360,
+      "updatedAt": 1640235404360,
+      "id": 15
     }
   ],
   "discounts": [
@@ -2678,7 +2804,14 @@
       "image": "https://live.staticflickr.com/65535/51764741123_e598975433_z.jpg",
       "title": "Giáng sinh sắp đến rồi, làm bánh thôi!",
       "description": "Cách làm bánh cupcake ông già noel dễ thương cho ngày Giáng Sinh",
-      "content": ""
+      "content": "<h2>Hình nguyên liệu</h2><p> <img src='https://cdn.tgdd.vn/2020/11/content/5-800x450-15.jpg' alt='Nguyên liệu món ăn bánh cupcake ông già noel' height='450' width='800'></p><p> <br></p><h2>Nguyên liệu làm Bánh cupcake ông già Noel</h2><p> <span style='color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 18px; background-color: rgb(255, 255, 255);'>&nbsp;Bột mì&nbsp;180 gr</span></p><p> <span style='color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 18px; background-color: rgb(255, 255, 255);'>&nbsp;Bột cacao&nbsp;33 gr</span></p><p> <span style='color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 18px; background-color: rgb(255, 255, 255);'>&nbsp;Đường bột&nbsp;1 kg</span></p><p> <span style='color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 18px; background-color: rgb(255, 255, 255);'>&nbsp;Bơ lạc&nbsp;0.5 kg</span></p><p> <span style='color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 18px; background-color: rgb(255, 255, 255);'>&nbsp;Baking powder&nbsp;3 gr</span></p><p> <span style='color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 18px; background-color: rgb(255, 255, 255);'>&nbsp;Baking soda&nbsp;9 gr</span></p><p> <span style='color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 18px; background-color: rgb(255, 255, 255);'>&nbsp;Sour cream&nbsp;59 ml(kem chua)</span></p><p> <span style='color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 18px; background-color: rgb(255, 255, 255);'>&nbsp;Sữa tươi có đường&nbsp;118 ml</span></p><p> <span style='color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 18px; background-color: rgb(255, 255, 255);'>&nbsp;Trứng gà&nbsp;2 quả</span></p><p> <span style='color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 18px; background-color: rgb(255, 255, 255);'>&nbsp;Muối&nbsp;2.8 gr</span></p><p> <span style='color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 18px; background-color: rgb(255, 255, 255);'>&nbsp;Tinh chất vani&nbsp;2 ml</span></p><p> <span style='color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 18px; background-color: rgb(255, 255, 255);'>&nbsp;Dầu thực vật&nbsp;79 ml</span></p><p> <span style='color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 18px; background-color: rgb(255, 255, 255);'>&nbsp;Chanh&nbsp;1/2 trái</span></p><p> <span style='color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 18px; background-color: rgb(255, 255, 255);'>&nbsp;Màu thực phẩm&nbsp;2 ml(đỏ/ hồng)</span></p><p> <span style='color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 18px; background-color: rgb(255, 255, 255);'>&nbsp;Kẹo trang trí&nbsp;30 gr</span></p><p> <br></p><h2>Dụng cụ thực hiện</h2><p> <br></p><p>Lò nướng, máy đánh trứng, rây lọc ....</p><p> <br></p><h2>Cách chế biến Bánh cupcake ông già noel</h2><ul> <li>Bước 1</li></ul><h3>Rây hỗn hợp bột</h3><ul> <li>Rây 180gr bột mì, 266gr đường bột, 3gr baking powder, 9gr baking soda, 2.8gr muối, 33gr bột cacao vào âu trộn. Sau đó dùng phới lồng trộn đều.</li></ul><p> <br></p><p> <br></p><p> <img src='https://cdn.tgdd.vn/2020/11/CookRecipe/GalleryStep/ray-hon-hop-bot-1.jpg' alt='Bước 1 Rây hỗn hợp bột Bánh cupcake ông già noel'></p><p> <br></p><ul> <li>Bước 2</li></ul><h3>Trộn hỗn hợp trứng</h3><ul> <li>Cho vào tô 79ml dầu thực vật, 118ml sữa tươi có đường, 2 quả trứng gà, 2ml tinh chất vani, 59ml sour cream và vắt thêm 1/2 trái chanh vào. Dùng phới lồng đánh tan trứng đến khi hỗn hợp mịn.</li> <li>Tiếp theo đổ từ từ 60ml cà phê nóng vào hỗn hợp trứng. Bạn vừa đổ cà phê vừa khuấy đều hỗn hợp nhé.</li></ul><p> <img src='https://cdn.tgdd.vn/2020/11/CookRecipe/GalleryStep/tron-hon-hop-trung-4.jpg' alt='Bước 2 Trộn hỗn hợp trứng Bánh cupcake ông già noel'></p><p> <img src='https://cdn.tgdd.vn/2020/11/CookRecipe/GalleryStep/tron-hon-hop-trung-5.jpg' alt='Bước 2 Trộn hỗn hợp trứng Bánh cupcake ông già noel'></p><p> <img src='https://cdn.tgdd.vn/2020/11/CookRecipe/GalleryStep/tron-hon-hop-trung-6.jpg' alt='Bước 2 Trộn hỗn hợp trứng Bánh cupcake ông già noel'></p><ul> <li>Bước 3</li></ul><h3>Trộn bột bánh</h3><ul> <li>Đổ hỗn hợp trứng vào âu bột lúc nãy. Dùng máy trộn hoặc máy đánh trứng để trộn đều, tạo thành một hỗn hợp đồng nhất.</li></ul><p> <img src='https://cdn.tgdd.vn/2020/11/CookRecipe/GalleryStep/tron-bot-banh-151.jpg' alt='Bước 3 Trộn bột bánh Bánh cupcake ông già noel'></p><ul> <li>Bước 4</li></ul><p> <br></p><h3>Đổ khuôn và nướng bánh</h3><ul> <li>Làm nóng lò trước ở nhiệt độ 170 độ C trong 15 phút để nhiệt độ lò ổn định.</li> <li>Lót giấy vào khuôn bánh cupcake rồi cho bột vào 1/2 khuôn. Sau đó, cho bánh vào lò nướng trong 30 phút ở 177 độ C.</li></ul><p> <img src='https://cdn.tgdd.vn/2020/11/CookRecipe/GalleryStep/do-khuon-va-nuong-banh-28.jpg' alt='Bước 4 Đổ khuôn và nướng bánh Bánh cupcake ông già noel'></p><p> <img src='https://cdn.tgdd.vn/2020/11/CookRecipe/GalleryStep/do-khuon-va-nuong-banh-29.jpg' alt='Bước 4 Đổ khuôn và nướng bánh Bánh cupcake ông già noel'></p><ul> <li>Bước 5</li></ul><p> <br></p><h3>Đánh bông kem bơ</h3><ul> <li>Cho vào âu trộn 0.45kg bơ lạc ở nhiệt độ phòng. Bật máy đánh trứng ở tốc độ trung bình đến khi bơ nhuyễn, mịn.</li> <li>Kế đến rây khoảng 0.75kg đường bột vào âu trộn. Tiếp tục dùng máy để trộn đều và cho thêm 2ml tinh chất vani vào, trộn đến khi hỗn hợp bông, mịn.</li> <li>Cuối cùng chia hỗn hợp ra làm 3 phần. Một phần, bạn cho một ít màu đỏ thực phẩm vào kem, trộn đều. Phần thứ hai, bạn cho dùng cây tâm chấm một ít màu hồng vào, trộn đều cho kem đều màu. Phần còn lại bạn cho vào túi bắt kem.</li></ul><p> <br></p><ul> <li>Bước 6</li></ul><h3>Trang trí hình ông già noel</h3><ul> <li>Trét kem màu hồng nhạt lên giữa bánh. Kế đến trét phần kem màu đỏ lên phía trên để tạo hình giống chiếc mũ. Gắn thêm kẹo socola để tạo mắt, mũi</li> <li>Sau đó, xịt một ít bông kem lên phần bánh còn trống để tạo bộ râu cho ông già noel và thêm một chút lên chiếc mũ như hình dưới đây nữa nhé.</li></ul><p> <img src='https://cdn.tgdd.vn/2020/11/CookRecipe/GalleryStep/trang-tri-hinh-ong-gia-noel.jpg' alt='Bước 6 Trang trí hình ông già noel Bánh cupcake ông già noel'></p><p> <img src='https://cdn.tgdd.vn/2020/11/CookRecipe/GalleryStep/trang-tri-hinh-ong-gia-noel-1.jpg' alt='Bước 6 Trang trí hình ông già noel Bánh cupcake ông già noel'></p><p> <img src='https://cdn.tgdd.vn/2020/11/CookRecipe/GalleryStep/trang-tri-hinh-ong-gia-noel-2.jpg' alt='Bước 6 Trang trí hình ông già noel Bánh cupcake ông già noel'></p><ul> <li>7</li></ul><h3>Thành phẩm</h3><ul> <li>Những chiếc bánh cupcake với hình ông già noel vừa đáng yêu lại vừa bắt mắt. Từng miếng bánh cupcake mềm, tơi xốp và thơm nhẹ mùi cà phê cùng vị beo béo của trứng. Kem bơ có độ ngọt vừa phải nên khi ăn bạn sẽ không thấy ngán một chút nào đâu nhé.</li></ul><p> <img src='https://cdn.tgdd.vn/2020/11/CookRecipe/GalleryStep/thanh-pham-870.jpg' alt='Bước 7 Thành phẩm Bánh cupcake ông già noel'></p><p> <br></p><p> <br></p>"
+    },
+    {
+      "id": 6,
+      "image": "https://live.staticflickr.com/65535/51763663207_974a37d1f6_z.jpg",
+      "title": "5 Lợi ích của bánh kẹo đối với sức khỏe.",
+      "description": "Mọi người vẫn hay nghĩ rằng bánh kẹo là loại thực phẩm không tốt cho sức khỏe.",
+      "content": "<p>Hầu hết mọi người thường bánh ngọt sẽ chứa nhiều đường hoặc chất béo nên sẽ không tốt cho sức khoẻ. Tuy vậy, theo các chuyên gia dinh dưỡng thì nếu chúng ta ăn&nbsp; <a href='https://banhngot.vn/' target='_blank' style='background-color: transparent; color: rgb(233, 30, 99);'> <strong>bánh ngọt</strong> </a>&nbsp;với một lượng vừa phải thì sẽ mang lại rất nhiều lợi ích cho cơ thể. Chẳng hạn như giúp giảm stress và tốt cho tim mạch. Để hiểu rõ hơn về các lợi ích bất ngờ của bánh ngọt, hãy cùng chúng tôi đọc bài viết dưới đây nhé!</p><p class='ql-align-center'> <img src='https://lh5.googleusercontent.com/pjKzeImM2DJCuluYkKpIlmV2A6QBf2b2JRc3DyziYy8HPWgRouXSvzc3-5mHahSEDivYNbDChKkMPv0lE43rP--jN3KKNzIGH0MK49bBkolVENYr1bq3eJjsiUBWnHEpSrEIOpJEyFyf6xQmHw' alt='Ăn bánh ngọt với một lượng vừa phải sẽ rất tốt cho cơ thể con người' height='458' width='693'>Ăn bánh ngọt với một lượng vừa phải sẽ rất tốt cho cơ thể con người</p><h2> <strong>Các lợi ích bất ngờ của bánh ngọt đối với sức khoẻ con người</strong></h2><h3> <strong>Giúp mọi người giảm căng thẳng hiệu quả</strong></h3><p> <strong>Bánh ngọt</strong>&nbsp;có mùi hương rất thơm lừng nên có tác dụng làm giảm sự căng thẳng hiệu quả. Theo kết quả nghiên cứu của các nhà khoa học, chất béo có bên trong bánh sẽ giúp kích thích não tiết ra endorphin và seretonins nhiều hơn. Từ đó giúp người ăn cũng như thợ làm bánh cảm thấy vui vẻ và yêu đời hơn.&nbsp;</p><h3> <strong>Kéo dài tuổi thanh xuân</strong></h3><p>Các loại&nbsp; <strong>bánh ngọt</strong>&nbsp;được làm từ quả bí ngô chứa hàm lượng vitamin A rất dồi dào. Đây là nguồn dinh dưỡng rất quan trọng trong việc kéo dài tuổi thanh xuân của mỗi người. Bên cạnh đó, vitamin A còn thúc đẩy quá trình sản sinh ra nhiều tế bào nên giúp các chị em có một làn da tươi sáng và mịn màng hơn.&nbsp;</p><p>Đặc biệt, vitamin A bên trong quả bí ngô cùng cung cấp các enzyme nên thúc đẩy sự tái tạo collagen. Từ đó giúp chị em có làn da căng mọng và tràn đầy sức sống để tự tin dạo phố cùng bạn bè hơn.</p><h3> <strong>Bảo vệ tim mạch một cách tích cực</strong></h3><p>Theo nghiên cứu của một bác sĩ chuyên khoa mạch nổi tiếng đã cho thấy&nbsp; <strong>bánh ngọt</strong>&nbsp;được làm từ socola mang lại rất nhiều lợi ích về sức khoẻ, nhất là bảo vệ tim mạch.&nbsp;</p><p class='ql-align-center'> <img src='https://lh6.googleusercontent.com/PKQprXfCH6oM3TtD91cE5m6-3tczg948kBnzBUbAeokYQXb8QYhLEtyPjpustRjteM3XsGSxzAHOuzxjn39nA9B_W-TlwZdCXsUByGKM7sQz_N2wkt9XuG2bs6yjaddUn-Eci20OzGA2nj0xAw' alt='Bánh ngọt giúp bảo vệ tim mạch một cách tích cực' height='387' width='691'>Bánh ngọt giúp bảo vệ tim mạch một cách tích cực</p><p>Bởi bên trong socola chứa hỗn hợp flavonoid – đây là chất giúp ngăn ngừa chứng đột quỵ bằng cách gia tăng lượng máu chảy về tim và làm giảm hàm lượng cholesterol có hại. Từ đó giúp bạn có một trái tim khoẻ và trở nên yêu đời hơn.&nbsp;</p><h3> <strong>Phục hồi năng lượng hiệu quả</strong></h3><p>Nếu bạn đang cảm thấy mệt mỏi hay suy nhược cơ thể thì để phục hồi năng lượng, bạn hãy lập tức ăn một cái&nbsp; <strong>bánh ngọt</strong>&nbsp;bằng socola nhé! Thành phần theobromine trong chiếc bánh ngọt này sẽ giúp bạn giảm bớt cảm giác bồn chồn và nhanh chóng lấy lại tinh thần hơn. Bên cạnh đó, bên trong bánh ngày còn chứa phenylethylamine – một loại hormone giúp mang lại cảm giác phấn chấn, tươi vui.</p>"
     }
   ],
   "wishlists": [
@@ -2744,6 +2877,76 @@
       "createdAt": 1640174583204,
       "updatedAt": 1640174583204,
       "id": 17
+    },
+    {
+      "userId": 2,
+      "productId": 63,
+      "createdAt": 1640235267634,
+      "updatedAt": 1640235267634,
+      "id": 18
+    },
+    {
+      "userId": 2,
+      "productId": 21,
+      "createdAt": 1640235325995,
+      "updatedAt": 1640235325995,
+      "id": 19
+    },
+    {
+      "userId": 2,
+      "productId": 20,
+      "createdAt": 1640235339030,
+      "updatedAt": 1640235339030,
+      "id": 20
+    },
+    {
+      "userId": 2,
+      "productId": 19,
+      "createdAt": 1640235343165,
+      "updatedAt": 1640235343165,
+      "id": 21
+    },
+    {
+      "userId": 2,
+      "productId": 61,
+      "createdAt": 1640235356576,
+      "updatedAt": 1640235356576,
+      "id": 22
+    },
+    {
+      "userId": 2,
+      "productId": 62,
+      "createdAt": 1640235362803,
+      "updatedAt": 1640235362803,
+      "id": 23
+    },
+    {
+      "userId": 2,
+      "productId": 106,
+      "createdAt": 1640235384154,
+      "updatedAt": 1640235384154,
+      "id": 24
+    },
+    {
+      "userId": 2,
+      "productId": 102,
+      "createdAt": 1640235391032,
+      "updatedAt": 1640235391032,
+      "id": 25
+    },
+    {
+      "userId": 2,
+      "productId": 101,
+      "createdAt": 1640235398710,
+      "updatedAt": 1640235398710,
+      "id": 26
+    },
+    {
+      "userId": 2,
+      "productId": 23,
+      "createdAt": 1640235405236,
+      "updatedAt": 1640235405236,
+      "id": 27
     }
   ],
   "cities": [

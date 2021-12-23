@@ -30,7 +30,7 @@ const ContactPage = () => {
           <p>cupidBakery@gmail.com</p>
         </div>
         <div>
-          <S.H2>Giờ làm việc: </S.H2>
+          <S.H2>Giờ làm hỗ trợ: </S.H2>
           <p>Thứ 2 - Chủ nhật</p>
           <p>8 AM - 10 PM</p>
         </div>

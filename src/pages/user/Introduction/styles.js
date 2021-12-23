@@ -130,3 +130,9 @@ export const H1 = styled.h1`
   font-style: italic;
   font-size: 30px;
 `;
+
+export const ShopName = styled.span`
+  color: ${COLOR.PRIMARY_DARK};
+  font-size: 40px;
+  font-weight: 500;
+`;

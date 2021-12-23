@@ -480,35 +480,37 @@ const ProductListPage = () => {
           </Col>
         </Row>
         <Row style={{ height: 35 }} align="middle">
-          <Space wrap={false} style={{ marginTop: 6 }}>
-            {!!categoryFilter.length && renderCategoryFilterTags}
-            {keywordFilter && (
-              <Tag closable onClose={() => handleClearKeyword()}>
-                Từ khóa: {keywordFilter}
-              </Tag>
-            )}
-            {(priceFilter[0] !== DEFAULT_PRICE_FILTER[0] ||
-              priceFilter[1] !== DEFAULT_PRICE_FILTER[1]) && (
-              <Tag closable onClose={() => handleClearPriceFilter()}>
-                {`Giá từ: ${priceFilter[0].toLocaleString()} - ${priceFilter[1].toLocaleString()}`}
-              </Tag>
-            )}
-            {(keywordFilter ||
-              !!categoryFilter.length ||
-              priceFilter[0] !== DEFAULT_PRICE_FILTER[0] ||
-              priceFilter[1] !== DEFAULT_PRICE_FILTER[1]) && (
-              <Tag
-                style={{
-                  backgroundColor: COLOR.PRIMARY,
-                  border: 'none',
-                  cursor: 'pointer',
-                }}
-                onClick={() => handleClearAll()}
-              >
-                <span style={{ color: 'orangered' }}>Xóa tất cả</span>
-              </Tag>
-            )}
-          </Space>
+          <Col offset={7} span={17}>
+            <Space wrap={false} style={{ marginTop: 6 }}>
+              {!!categoryFilter.length && renderCategoryFilterTags}
+              {keywordFilter && (
+                <Tag closable onClose={() => handleClearKeyword()}>
+                  Từ khóa: {keywordFilter}
+                </Tag>
+              )}
+              {(priceFilter[0] !== DEFAULT_PRICE_FILTER[0] ||
+                priceFilter[1] !== DEFAULT_PRICE_FILTER[1]) && (
+                <Tag closable onClose={() => handleClearPriceFilter()}>
+                  {`Giá từ: ${priceFilter[0].toLocaleString()} - ${priceFilter[1].toLocaleString()}`}
+                </Tag>
+              )}
+              {(keywordFilter ||
+                !!categoryFilter.length ||
+                priceFilter[0] !== DEFAULT_PRICE_FILTER[0] ||
+                priceFilter[1] !== DEFAULT_PRICE_FILTER[1]) && (
+                <Tag
+                  style={{
+                    backgroundColor: COLOR.PRIMARY_DARK,
+                    border: 'none',
+                    cursor: 'pointer',
+                  }}
+                  onClick={() => handleClearAll()}
+                >
+                  <span style={{ color: COLOR.SECONDARY }}>Xóa tất cả</span>
+                </Tag>
+              )}
+            </Space>
+          </Col>
         </Row>
         <Row>
           <Col

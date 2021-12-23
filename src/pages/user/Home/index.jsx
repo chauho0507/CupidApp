@@ -412,7 +412,9 @@ const HomePage = () => {
               sm={{ span: 24, order: 2 }}
               md={{ span: 12, order: 1 }}
             >
-              <S.H1>Chào mừng bạn đến Cupid Bakery!</S.H1>
+              <S.H1>
+                Chào mừng bạn đến <S.ShopName>Cupid Bakery!</S.ShopName>
+              </S.H1>
               <p>
                 Bắt đầu mở cửa từ năm 2021, Cupid Bakery mong muốn mang cho bạn
                 trải nghiệm tốt nhất về bánh ngọt, cũng như những ý tưởng quà
@@ -546,14 +548,14 @@ const HomePage = () => {
                   <Form.Item>
                     <Input.Group>
                       <Input
-                        style={{ width: 'calc(100% - 160px)', height: 45 }}
+                        style={{ width: 'calc(100% - 100px)', height: 45 }}
                         placeholder="Nhập email của bạn..."
                       />
                       <Button
                         style={{
-                          width: '160px',
+                          width: '100px',
                           height: 45,
-                          // backgroundColor: '#E6DBDF',
+                          backgroundColor: COLOR.PRIMARY_LIGHT,
                         }}
                       >
                         Xác nhận

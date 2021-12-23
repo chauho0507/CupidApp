@@ -144,6 +144,8 @@ const Information = ({ userInfo }) => {
                     confirmPassword: '',
                   }}
                   onFinish={values => handleChangePassword(values)}
+                  labelCol={{ span: 6 }}
+                  wrapperCol={{ span: 16 }}
                 >
                   <Form.Item
                     label={<S.H3>Mật khẩu cũ</S.H3>}
@@ -195,9 +197,11 @@ const Information = ({ userInfo }) => {
                   >
                     <Input.Password />
                   </Form.Item>
-                  <Button htmlType="submit" type="primary">
-                    Thay đổi
-                  </Button>
+                  <Row justify="center">
+                    <Button htmlType="submit" type="primary">
+                      Thay đổi
+                    </Button>
+                  </Row>
                 </Form>
               </TabPane>
             </Tabs>

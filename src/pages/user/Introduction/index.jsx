@@ -23,7 +23,9 @@ const IntroductionPage = () => {
       <S.IntroContainer>
         <S.WelcomeSection>
           <S.LeftWelcome>
-            <S.H1>Cupid Bakery hân hạnh chào đón bạn!</S.H1>
+            <S.H1>
+              <S.ShopName>Cupid Bakery</S.ShopName> hân hạnh chào đón bạn!
+            </S.H1>
             <p>
               Bắt đầu mở cửa từ năm 2021, Cupid Bakery mong muốn mang cho bạn
               trải nghiệm tốt nhất về bánh ngọt, cũng như những ý tưởng quà tặng
@@ -50,7 +52,9 @@ const IntroductionPage = () => {
         </S.WelcomeSection>
         <Divider style={{ borderColor: COLOR.PRIMARY }} />
         <S.MissionSection>
-          <S.H1>Cupid Bakery cam kết</S.H1>
+          <S.H1>
+            <S.ShopName>Cupid Bakery</S.ShopName> cam kết
+          </S.H1>
           <p>
             Chất lượng và thái độ phục vụ luôn là ưu tiên hàng đầu của chúng
             tôi. Luôn mang đến những sản phẩm tốt nhất một cách nhanh chóng. Đội

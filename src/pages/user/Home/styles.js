@@ -100,6 +100,12 @@ export const H2 = styled.h2`
   font-style: italic;
 `;
 
+export const ShopName = styled.span`
+  color: ${COLOR.PRIMARY_DARK};
+  font-size: 40px;
+  font-weight: 500;
+`;
+
 export const Span = styled.span`
   font-weight: 500;
   color: ${COLOR.PRIMARY};
