@@ -43,14 +43,40 @@
       "email": "linhmylove@gmail.com",
       "password": "$2a$10$nOXAVdDOqkJEtY2aBXTJAeAtsuyhoH9uHQWEPUmfgmWweFn9FtcK2",
       "fullName": "Sam Linh",
-      "rePassword": "123123",
       "gender": "female",
+      "role": "user",
       "phoneNumber": "",
       "address": "",
       "avatar": "https://live.staticflickr.com/65535/51760278391_c9ace91b3e_z.jpg",
       "createdAt": 1640064460662,
       "updatedAt": 1640064460663,
       "id": 4
+    },
+    {
+      "email": "heomap@gmail.com",
+      "password": "$2a$10$.E5VAscgiNvenB28L8wc9.G8DGB0MypuveM/dYHTl8pi4uZrqmjbK",
+      "fullName": "Heo kute",
+      "gender": "other",
+      "role": "user",
+      "phoneNumber": "",
+      "address": "",
+      "avatar": "",
+      "createdAt": 1640248927827,
+      "updatedAt": 1640248927828,
+      "id": 5
+    },
+    {
+      "email": "nhocquay@gmail.com",
+      "password": "$2a$10$97kAd1upgSMfn1YJZVIc5eg0fbYpjcdAcEIqC9flr6LujOPKyiUH6",
+      "fullName": "Nhóc quậy",
+      "gender": "male",
+      "role": "user",
+      "phoneNumber": "",
+      "address": "",
+      "avatar": "",
+      "createdAt": 1640253507315,
+      "updatedAt": 1640253507315,
+      "id": 6
     }
   ],
   "orderLocations": [
@@ -65,9 +91,9 @@
         "district": "Quận Hải Châu",
         "ward": "Phường Bình Thuận"
       },
-      "defaultLocation": true,
+      "defaultLocation": false,
       "createdAt": 1640058930431,
-      "updatedAt": 1640187381636,
+      "updatedAt": 1640265636605,
       "id": 4
     },
     {
@@ -83,8 +109,24 @@
       },
       "defaultLocation": false,
       "createdAt": 1640187372533,
-      "updatedAt": 1640187381636,
+      "updatedAt": 1640265636606,
       "id": 5
+    },
+    {
+      "userId": 2,
+      "info": {
+        "fullName": "Sam Linh",
+        "email": "linhmylove@gmail.com",
+        "phoneNumber": "0905011408",
+        "address": "29 Nguyễn Chí Diễu",
+        "city": "Thành phố Đà Nẵng",
+        "district": "Quận Sơn Trà",
+        "ward": "Phường An Hải Bắc"
+      },
+      "defaultLocation": true,
+      "createdAt": 1640245512431,
+      "updatedAt": 1640265636608,
+      "id": 6
     }
   ],
   "products": [
@@ -461,7 +503,7 @@
     {
       "id": 38,
       "name": "Bánh kem Bạc Hà Mint",
-      "price": 169000,
+      "price": 269000,
       "isNew": true,
       "image": "https://live.staticflickr.com/65535/51758923823_ebe8bcfeb5_z.jpg",
       "categoryId": 1,
@@ -562,7 +604,7 @@
       "id": 48,
       "name": "Bánh kem Tình Yêu",
       "price": 269000,
-      "isNew": false,
+      "isNew": true,
       "image": "https://live.staticflickr.com/65535/51759334064_55ae4e99d5_z.jpg",
       "categoryId": 1,
       "rating": 4.5,
@@ -630,7 +672,7 @@
     },
     {
       "id": 55,
-      "name": "Cookie Nhím Xanh",
+      "name": "Cookie Matcha Rùa",
       "price": 59000,
       "isNew": true,
       "image": "https://live.staticflickr.com/65535/51757845527_bca2994a3e_z.jpg",
@@ -2550,6 +2592,164 @@
       "createdAt": 1640173553831,
       "updatedAt": 1640173553831,
       "id": 9
+    },
+    {
+      "fullName": "Châu Mập",
+      "email": "chaumap@gmail.com",
+      "phoneNumber": "0935025045",
+      "city": "Thành phố Đà Nẵng",
+      "district": "Quận Hải Châu",
+      "ward": "Phường Bình Thuận",
+      "address": "123 Hoàng Diệu",
+      "shipper": "giaohangtietkiem",
+      "paymentType": "zaloPay",
+      "userId": 5,
+      "products": [
+        {
+          "id": 1,
+          "cartId": 16,
+          "name": "Cookie Giáng Sinh",
+          "price": 59000,
+          "quantity": 1,
+          "productOption": {
+            "id": 2,
+            "productId": 1,
+            "name": "Size M",
+            "price": 9000
+          }
+        }
+      ],
+      "totalPrice": 68000,
+      "orderCode": 117583,
+      "status": "pending",
+      "createdAt": 1640250097586,
+      "updatedAt": 1640250097586,
+      "id": 10
+    },
+    {
+      "fullName": "Châu",
+      "email": "linhmylove@gmail.com",
+      "phoneNumber": "0905011408",
+      "city": "Thành phố Hà Nội",
+      "district": "Quận Ba Đình",
+      "ward": "Phường Cống Vị",
+      "address": "Hoàng Diệu",
+      "shipper": "giaohangtietkiem",
+      "paymentType": "momo",
+      "userId": 4,
+      "products": [
+        {
+          "id": 56,
+          "cartId": 24,
+          "name": "Cookie Trái Tim",
+          "price": 79000,
+          "quantity": 1,
+          "productOption": {
+            "id": 90,
+            "productId": 56,
+            "name": "",
+            "price": 0
+          }
+        },
+        {
+          "id": 64,
+          "cartId": 25,
+          "name": "Cookie Cream",
+          "price": 39000,
+          "quantity": 1,
+          "productOption": {
+            "id": 100,
+            "productId": 64,
+            "name": "",
+            "price": 0
+          }
+        }
+      ],
+      "totalPrice": 68000,
+      "orderCode": 117737,
+      "status": "pending",
+      "createdAt": 1640254058643,
+      "updatedAt": 1640254058643,
+      "id": 11
+    },
+    {
+      "fullName": "Galaxy",
+      "email": "linhmylove@gmail.com",
+      "phoneNumber": "0935025045",
+      "city": "Thành phố Hà Nội",
+      "district": "Quận Ba Đình",
+      "ward": "Phường Kim Mã",
+      "address": "Hàn Thuyên",
+      "shipper": "giaohangtietkiem",
+      "paymentType": "momo",
+      "userId": 4,
+      "products": [
+        {
+          "id": 13,
+          "cartId": 26,
+          "name": "Cookie Bơ Đậu",
+          "price": 49000,
+          "quantity": 1,
+          "productOption": {
+            "id": 27,
+            "productId": 13,
+            "name": "",
+            "price": 0
+          }
+        }
+      ],
+      "totalPrice": 49000,
+      "orderCode": 186807,
+      "status": "pending",
+      "createdAt": 1640254141510,
+      "updatedAt": 1640254141510,
+      "id": 12
+    },
+    {
+      "fullName": "Galaxy",
+      "email": "linhmylove@gmail.com",
+      "phoneNumber": "0935025045",
+      "city": "Thành phố Đà Nẵng",
+      "district": "Quận Hải Châu",
+      "ward": "Phường Bình Hiên",
+      "address": "Phan Chau Trinh",
+      "shipper": "giaohangtietkiem",
+      "paymentType": "momo",
+      "userId": 4,
+      "products": [
+        {
+          "id": 29,
+          "cartId": 26,
+          "name": "Cupcake Cherry",
+          "price": 109000,
+          "quantity": 1,
+          "productOption": {
+            "id": 51,
+            "productId": 29,
+            "name": "",
+            "price": 0
+          }
+        },
+        {
+          "id": 30,
+          "cartId": 25,
+          "name": "Cupcake Giáng Sinh",
+          "price": 69000,
+          "quantity": 1,
+          "productOption": {
+            "id": 52,
+            "productId": 30,
+            "name": "",
+            "price": 0
+          }
+        }
+      ],
+      "totalPrice": 178000,
+      "orderCode": 192315,
+      "status": "pending",
+      "createdAt": 1640266226235,
+      "updatedAt": 1640266226235,
+      "id": 13
     }
   ],
   "comments": [
@@ -2597,6 +2797,24 @@
       "createdAt": 1639107588448,
       "updatedAt": 1639107588449,
       "id": 5
+    },
+    {
+      "rating": 4.5,
+      "content": "Nước uống ngon lắm ạ!",
+      "productId": 42,
+      "userId": 4,
+      "createdAt": 1640266280686,
+      "updatedAt": 1640266280686,
+      "id": 6
+    },
+    {
+      "rating": 5,
+      "content": "Bánh vừa đẹp lại còn ngon nữa, mong shop có nhiều sản phẩm tương tự thế này ạ",
+      "productId": 6,
+      "userId": 4,
+      "createdAt": 1640266329744,
+      "updatedAt": 1640266329744,
+      "id": 7
     }
   ],
   "carts": [
@@ -2734,6 +2952,123 @@
       "createdAt": 1640235404360,
       "updatedAt": 1640235404360,
       "id": 15
+    },
+    {
+      "quantity": 1,
+      "productId": 1,
+      "userId": 5,
+      "productOptionId": 2,
+      "createdAt": 1640250736497,
+      "updatedAt": 1640250736497,
+      "id": 16
+    },
+    {
+      "quantity": 1,
+      "productId": 64,
+      "userId": 5,
+      "productOptionId": 100,
+      "createdAt": 1640250744056,
+      "updatedAt": 1640250744056,
+      "id": 17
+    },
+    {
+      "quantity": 1,
+      "productId": 1,
+      "userId": 5,
+      "productOptionId": 3,
+      "createdAt": 1640251255555,
+      "updatedAt": 1640251255555,
+      "id": 18
+    },
+    {
+      "quantity": 1,
+      "productId": 3,
+      "userId": 6,
+      "productOptionId": 7,
+      "createdAt": 1640253673545,
+      "updatedAt": 1640253673545,
+      "id": 19
+    },
+    {
+      "quantity": 1,
+      "productId": 15,
+      "userId": 6,
+      "productOptionId": 31,
+      "createdAt": 1640253682374,
+      "updatedAt": 1640253682374,
+      "id": 20
+    },
+    {
+      "quantity": 1,
+      "productId": 4,
+      "userId": 6,
+      "productOptionId": 8,
+      "createdAt": 1640253685304,
+      "updatedAt": 1640253685304,
+      "id": 21
+    },
+    {
+      "quantity": 1,
+      "productId": 28,
+      "userId": 6,
+      "productOptionId": 49,
+      "createdAt": 1640253690952,
+      "updatedAt": 1640253690952,
+      "id": 22
+    },
+    {
+      "quantity": 1,
+      "productId": 1,
+      "userId": 4,
+      "productOptionId": 2,
+      "createdAt": 1640254014236,
+      "updatedAt": 1640254014236,
+      "id": 23
+    },
+    {
+      "quantity": 1,
+      "productId": 5,
+      "userId": 4,
+      "productOptionId": 9,
+      "createdAt": 1640266151765,
+      "updatedAt": 1640266151765,
+      "id": 24
+    },
+    {
+      "quantity": 1,
+      "productId": 40,
+      "userId": 4,
+      "productOptionId": 66,
+      "createdAt": 1640266165184,
+      "updatedAt": 1640266165184,
+      "id": 27
+    },
+    {
+      "quantity": 1,
+      "productId": 31,
+      "userId": 4,
+      "productOptionId": 53,
+      "createdAt": 1640266174601,
+      "updatedAt": 1640266174601,
+      "id": 28
+    },
+    {
+      "quantity": 1,
+      "productId": 19,
+      "userId": 4,
+      "productOptionId": 37,
+      "createdAt": 1640266178364,
+      "updatedAt": 1640266178365,
+      "id": 29
+    },
+    {
+      "quantity": 1,
+      "productId": 42,
+      "userId": 4,
+      "productOptionId": 68,
+      "createdAt": 1640266184176,
+      "updatedAt": 1640266184176,
+      "id": 30
     }
   ],
   "discounts": [
@@ -2947,6 +3282,139 @@
       "createdAt": 1640235405236,
       "updatedAt": 1640235405236,
       "id": 27
+    },
+    {
+      "userId": 6,
+      "productId": 3,
+      "createdAt": 1640253674659,
+      "updatedAt": 1640253674659,
+      "id": 29
+    },
+    {
+      "userId": 6,
+      "productId": 15,
+      "createdAt": 1640253678258,
+      "updatedAt": 1640253678258,
+      "id": 30
+    },
+    {
+      "userId": 6,
+      "productId": 4,
+      "createdAt": 1640253685991,
+      "updatedAt": 1640253685992,
+      "id": 31
+    },
+    {
+      "userId": 6,
+      "productId": 28,
+      "createdAt": 1640253691500,
+      "updatedAt": 1640253691500,
+      "id": 32
+    },
+    {
+      "userId": 4,
+      "productId": 56,
+      "createdAt": 1640254023817,
+      "updatedAt": 1640254023817,
+      "id": 33
+    },
+    {
+      "userId": 4,
+      "productId": 64,
+      "createdAt": 1640254028064,
+      "updatedAt": 1640254028064,
+      "id": 34
+    },
+    {
+      "userId": 4,
+      "productId": 13,
+      "createdAt": 1640254034182,
+      "updatedAt": 1640254034182,
+      "id": 35
+    },
+    {
+      "userId": 4,
+      "productId": 5,
+      "createdAt": 1640266153190,
+      "updatedAt": 1640266153190,
+      "id": 36
+    },
+    {
+      "userId": 4,
+      "productId": 30,
+      "createdAt": 1640266157081,
+      "updatedAt": 1640266157081,
+      "id": 37
+    },
+    {
+      "userId": 4,
+      "productId": 29,
+      "createdAt": 1640266161449,
+      "updatedAt": 1640266161449,
+      "id": 38
+    },
+    {
+      "userId": 4,
+      "productId": 40,
+      "createdAt": 1640266165830,
+      "updatedAt": 1640266165830,
+      "id": 39
+    },
+    {
+      "userId": 4,
+      "productId": 31,
+      "createdAt": 1640266175209,
+      "updatedAt": 1640266175209,
+      "id": 40
+    },
+    {
+      "userId": 4,
+      "productId": 19,
+      "createdAt": 1640266178905,
+      "updatedAt": 1640266178905,
+      "id": 41
+    },
+    {
+      "userId": 4,
+      "productId": 42,
+      "createdAt": 1640266184699,
+      "updatedAt": 1640266184699,
+      "id": 42
+    },
+    {
+      "userId": 4,
+      "productId": 6,
+      "createdAt": 1640266336754,
+      "updatedAt": 1640266336754,
+      "id": 43
+    },
+    {
+      "userId": 4,
+      "productId": 38,
+      "createdAt": 1640266417676,
+      "updatedAt": 1640266417676,
+      "id": 44
+    },
+    {
+      "userId": 4,
+      "productId": 62,
+      "createdAt": 1640266441298,
+      "updatedAt": 1640266441298,
+      "id": 45
+    },
+    {
+      "userId": 4,
+      "productId": 32,
+      "createdAt": 1640266446323,
+      "updatedAt": 1640266446323,
+      "id": 46
+    },
+    {
+      "userId": 4,
+      "productId": 61,
+      "createdAt": 1640266453230,
+      "updatedAt": 1640266453230,
+      "id": 47
     }
   ],
   "cities": [

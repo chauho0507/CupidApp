@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   Card,
@@ -27,7 +27,7 @@ import {
 
 import * as S from '../styles';
 
-const Location = ({ userInfo }) => {
+const OrderLocation = ({ userInfo }) => {
   const dispatch = useDispatch();
 
   const [locationForm] = Form.useForm();
@@ -92,7 +92,7 @@ const Location = ({ userInfo }) => {
     dispatch(getDistrictListAction());
     dispatch(getWardListAction());
     dispatch(getOrderLocationListAction({ userId: userInfo.data.id }));
-  }, [dispatch, userInfo]);
+  }, [dispatch, userInfo.data.id]);
 
   useEffect(() => {
     if (!!isModify) {
@@ -146,16 +146,13 @@ const Location = ({ userInfo }) => {
     }
   };
 
-  const handleDeleteOrderLocation = (locationId, userId) => {
-    dispatch(deleteOrderLocationAction({ locationId, userId }));
-  };
   const renderOrderLocations = () => {
     return orderLocationsList.data?.map((location, idx) => {
       return (
         <Col span={12} key={idx}>
           <S.LocationCard
             active={location.defaultLocation.toString()}
-            hoverable
+            hoverable={!location.defaultLocation}
             title={
               <Row justify="space-between" align="middle">
                 {location.defaultLocation ? (
@@ -168,8 +165,12 @@ const Location = ({ userInfo }) => {
                   cancelText="Hủy"
                   okText="Xác nhận"
                   onConfirm={() => {
-                    console.log(location.id);
-                    handleDeleteOrderLocation(location.id, userInfo.data.id);
+                    dispatch(
+                      deleteOrderLocationAction({
+                        locationId: location.id,
+                        userId: userInfo.data.id,
+                      })
+                    );
                   }}
                 >
                   <Button type="text" danger icon={<DeleteOutlined />} />
@@ -387,4 +388,4 @@ const Location = ({ userInfo }) => {
   );
 };
 
-export default Location;
+export default OrderLocation;

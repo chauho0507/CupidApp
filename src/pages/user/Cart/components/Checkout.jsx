@@ -27,7 +27,7 @@ import {
 } from '../../../../redux/actions';
 
 import fallbackImg from '../../../../assets/img/fallback.png';
-import emptyCart from '../../../../assets/img/emptyCart.png';
+import emptyCart from '../../../../assets/img/empty-cart.png';
 import { ROUTER } from '../../../../constants/router';
 import { COLOR } from '../../../../constants/theme';
 import * as S from '../styles';

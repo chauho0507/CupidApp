@@ -64,11 +64,12 @@ export const IntroSection = styled.section`
 export const H1 = styled.h1`
   position: relative;
   text-transform: uppercase;
-  font-size: 30px;
+  font-size: 28px;
   font-style: italic;
   font-weight: 700;
   line-height: 1.6;
   color: ${COLOR.TERTIARY};
+  margin-bottom: 40px;
 
   &::after {
     content: '';
@@ -102,13 +103,13 @@ export const H2 = styled.h2`
 
 export const ShopName = styled.span`
   color: ${COLOR.PRIMARY_DARK};
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 500;
 `;
 
 export const Span = styled.span`
   font-weight: 500;
-  color: ${COLOR.PRIMARY};
+  color: ${COLOR.PRIMARY_DARK};
 `;
 
 export const ProductItemWrapper = styled.div`

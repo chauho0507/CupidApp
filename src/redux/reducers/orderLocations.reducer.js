@@ -29,7 +29,6 @@ const orderLocationsReducer = createReducer(initialState, {
     return {
       ...state,
       orderLocationsList: {
-        ...state.orderLocationsList,
         data,
         loading: false,
         error: null,
@@ -85,21 +84,8 @@ const orderLocationsReducer = createReducer(initialState, {
     };
   },
   [SUCCESS(ORDER_LOCATION_ACTION.DELETE_ORDER_LOCATION)]: (state, action) => {
-    const { locationId } = action.payload;
-    const newOrderLocationsList = [...state.orderLocationsList.data];
-    const orderIndex = newOrderLocationsList.findIndex(
-      location => location.id === locationId
-    );
-    newOrderLocationsList.splice(orderIndex, 1);
-
     return {
       ...state,
-      orderLocationsList: {
-        ...state.orderLocationsList,
-        data: newOrderLocationsList,
-        loading: false,
-        error: null,
-      },
       actionLoading: {
         ...state.actionLoading,
         deleteLocation: false,

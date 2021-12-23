@@ -214,7 +214,7 @@ const Payment = ({ setCheckoutStep }) => {
                 <EnvironmentOutlined /> Thông tin giao hàng
               </S.H3>
             }
-            headStyle={{ backgroundColor: COLOR.PRIMARY }}
+            headStyle={{ backgroundColor: COLOR.PRIMARY_DARK }}
             bodyStyle={{ backgroundColor: COLOR.PRIMARY_LIGHT }}
           >
             <Row justify="space-between">
@@ -238,7 +238,7 @@ const Payment = ({ setCheckoutStep }) => {
                 <UnorderedListOutlined /> Thông tin đơn hàng
               </S.H3>
             }
-            headStyle={{ backgroundColor: COLOR.PRIMARY }}
+            headStyle={{ backgroundColor: COLOR.PRIMARY_DARK }}
             bodyStyle={{ backgroundColor: COLOR.PRIMARY_LIGHT }}
           >
             {renderSelectedCarts()}

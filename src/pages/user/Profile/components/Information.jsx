@@ -97,12 +97,30 @@ const Information = ({ userInfo }) => {
                       layout="vertical"
                       onFinish={values => handleSubmitInfoForm(values)}
                     >
-                      <Form.Item name="fullName" label={<S.H3>Họ và tên</S.H3>}>
+                      <Form.Item
+                        name="fullName"
+                        label={<S.H3>Họ và tên</S.H3>}
+                        rules={[
+                          {
+                            required: true,
+                            message: 'Bạn cần nhập họ và tên!',
+                          },
+                        ]}
+                      >
                         <Input />
                       </Form.Item>
                       <Row gutter={6}>
                         <Col span={12}>
-                          <Form.Item name="email" label={<S.H3>Email</S.H3>}>
+                          <Form.Item
+                            name="email"
+                            label={<S.H3>Email</S.H3>}
+                            rules={[
+                              {
+                                required: true,
+                                message: 'Bạn cần nhập email!',
+                              },
+                            ]}
+                          >
                             <Input />
                           </Form.Item>
                         </Col>
@@ -110,13 +128,25 @@ const Information = ({ userInfo }) => {
                           <Form.Item
                             name="phoneNumber"
                             label={<S.H3>Số điện thoại</S.H3>}
+                            rules={[
+                              {
+                                required: true,
+                                message: 'Bạn cần nhập số điện thoại!',
+                              },
+                            ]}
                           >
                             <Input />
                           </Form.Item>
                         </Col>
                       </Row>
 
-                      <Form.Item name="address" label={<S.H3>Địa chỉ</S.H3>}>
+                      <Form.Item
+                        name="address"
+                        label={<S.H3>Địa chỉ</S.H3>}
+                        rules={[
+                          { required: true, message: 'Bạn cần nhập địa chỉ!' },
+                        ]}
+                      >
                         <Input />
                       </Form.Item>
                     </Form>

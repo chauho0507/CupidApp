@@ -219,19 +219,19 @@ const ProductListPage = () => {
     );
   };
 
-  // const handleClearSort = () => {
-  //   setSortFilter(null);
-  //   dispatch(
-  //     getProductListAction({
-  //       limit: PAGE_SIZE.USER_PRODUCT,
-  //       page: 1,
-  //       categoryFilter,
-  //       priceFilter,
-  //       keyword: keywordFilter,
-  //       sortFilter: '',
-  //     })
-  //   );
-  // };
+  const handleClearSort = () => {
+    setSortFilter(null);
+    dispatch(
+      getProductListAction({
+        limit: PAGE_SIZE.USER_PRODUCT,
+        page: 1,
+        categoryFilter,
+        priceFilter,
+        keyword: keywordFilter,
+        sortFilter: '',
+      })
+    );
+  };
 
   const handleLoadMore = e => {
     dispatch(
@@ -330,11 +330,9 @@ const ProductListPage = () => {
             >{`${cake.price.toLocaleString()} ₫`}</S.Span>
             <Rate
               disabled
-              // style={{ color: COLOR.SECONDARY }}
               style={{ fontSize: 14 }}
               allowHalf
               value={cake.rating}
-              // character={<HeartFilled style={{ fontSize: 12 }} />}
             />
           </S.TopSaleCardDetail>
         </S.TopSaleCard>
@@ -399,13 +397,7 @@ const ProductListPage = () => {
               </Row>
               <Row justify="space-around" align="middle">
                 <Col>
-                  <Rate
-                    disabled
-                    // style={{ color: COLOR.SECONDARY }}
-                    allowHalf
-                    value={cake.rating}
-                    // character={<HeartFilled style={{ fontSize: 18 }} />}
-                  ></Rate>
+                  <Rate disabled allowHalf value={cake.rating}></Rate>
                 </Col>
 
                 <Col>
@@ -463,6 +455,7 @@ const ProductListPage = () => {
               placeholder="Sắp xếp theo..."
               allowClear
               onChange={value => handleChangeSort(value)}
+              onClear={() => handleClearSort()}
             >
               <Select.Option value="asc">
                 <ArrowUpOutlined

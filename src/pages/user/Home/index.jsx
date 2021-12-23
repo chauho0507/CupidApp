@@ -386,7 +386,7 @@ const HomePage = () => {
   }, [blogList.data]);
 
   return (
-    <Spin spinning={productList.loading || commentList.loading}>
+    <Spin spinning={productList.loading}>
       <Carousel
         autoplay={true}
         autoplaySpeed={2500}
@@ -435,6 +435,7 @@ const HomePage = () => {
                 shape="round"
                 type="primary"
                 onClick={() => history.push(ROUTER.USER.INTRODUCTION)}
+                style={{ marginTop: 30 }}
               >
                 Tìm hiểu thêm về chúng tôi
               </Button>

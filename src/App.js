@@ -47,7 +47,7 @@ const App = () => {
     if (userInfo.data.id) {
       dispatch(getCartListAction({ userId: userInfo.data.id }));
     }
-  }, [userInfo.data.id]);
+  }, [userInfo.data.id, dispatch]);
 
   useEffect(() => {
     window.scrollTo(0, 0);

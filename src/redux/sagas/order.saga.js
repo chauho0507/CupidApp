@@ -6,12 +6,12 @@ import { notification } from 'antd';
 
 function* getOrderListSaga(action) {
   try {
-    const { id } = action.payload;
+    const { userId } = action.payload;
     const result = yield axios.get(`http://localhost:4000/orders`, {
       params: {
         _sort: 'id',
         _order: 'desc',
-        userId: id,
+        userId,
       },
     });
     yield put({

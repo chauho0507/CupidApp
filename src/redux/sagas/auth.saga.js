@@ -49,6 +49,12 @@ function* loginSaga(action) {
       message: 'Đăng nhập thành công!',
       placement: 'bottomRight',
     });
+    yield put({
+      type: REQUEST(AUTH_ACTION.GET_USER_INFO),
+      payload: {
+        id: result.data.user.id,
+      },
+    });
     if (result.data.user.role === 'admin') yield callback.redirectDashboard();
     else yield callback.redirectHome();
   } catch (error) {

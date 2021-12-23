@@ -19,7 +19,7 @@ const WishList = ({ userInfo }) => {
   const { TabPane } = Tabs;
 
   useEffect(() => {
-    dispatch(getWishListAction({ id: userInfo.data.id }));
+    dispatch(getWishListAction({ userId: userInfo.data.id }));
   }, []);
 
   const { wishLists } = useSelector(state => state.wishListsReducer);

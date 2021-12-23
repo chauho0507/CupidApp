@@ -221,5 +221,5 @@ export const P = styled.p`
 
 export const Span = styled.span`
   font-weight: 500;
-  color: ${COLOR.PRIMARY};
+  color: ${COLOR.PRIMARY_DARK};
 `;

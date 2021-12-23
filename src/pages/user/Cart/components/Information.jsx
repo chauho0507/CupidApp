@@ -249,7 +249,7 @@ const Information = ({ setCheckoutStep, userInfo }) => {
 
   return (
     <>
-      {!!userInfo.data.orderLocations.length && (
+      {!!userInfo.data.orderLocations?.length && (
         <Row gutter={[16, 16]}>{renderOrderLocations()}</Row>
       )}
       <Row gutter={[16, 16]} style={{ marginTop: 16 }}>

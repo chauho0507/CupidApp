@@ -44,7 +44,7 @@ function* createOrderLocation(action) {
     });
     yield put({
       type: REQUEST(ORDER_LOCATION_ACTION.GET_ORDER_LOCATION_LIST),
-      payload: userId,
+      payload: { userId },
     });
     yield put({
       type: SUCCESS(ORDER_LOCATION_ACTION.CREATE_ORDER_LOCATION),
@@ -104,6 +104,7 @@ function* updateOrderLocation(action) {
 function* deleteOrderLocation(action) {
   try {
     const { locationId, userId } = action.payload;
+    console.log(locationId, userId);
     yield axios.delete(`http://localhost:4000/orderLocations/${locationId}`);
 
     yield put({
@@ -112,7 +113,6 @@ function* deleteOrderLocation(action) {
         userId,
       },
     });
-
     yield put({
       type: SUCCESS(ORDER_LOCATION_ACTION.DELETE_ORDER_LOCATION),
     });

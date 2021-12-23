@@ -17,9 +17,9 @@ const OrderHistory = () => {
   const renderStatusOrder = status => {
     if (status === 'pending') return <Tag color="green">Đang xác nhận</Tag>;
     else if (status === 'confirmed')
-      return <Tag color="yellow">Đã xác nhận</Tag>;
-    else if (status === 'delivering') return <Tag color="green">Đang giao</Tag>;
-    else if (status === 'delivered') return <Tag color="yellow">Đã giao</Tag>;
+      return <Tag color="orange">Đã xác nhận</Tag>;
+    else if (status === 'delivering') return <Tag color="blue">Đang giao</Tag>;
+    else if (status === 'delivered') return <Tag color="magenta">Đã giao</Tag>;
     else return <Tag color="red">Đơn bị hủy</Tag>;
   };
 
@@ -81,7 +81,7 @@ const OrderHistory = () => {
             <HistoryOutlined /> Lịch sử đơn hàng
           </S.H2>
         }
-        headStyle={{ backgroundColor: COLOR.PRIMARY }}
+        headStyle={{ backgroundColor: COLOR.PRIMARY_DARK }}
       >
         <Table
           columns={orderColumns}

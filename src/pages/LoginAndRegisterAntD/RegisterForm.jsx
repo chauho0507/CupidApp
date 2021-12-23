@@ -27,7 +27,11 @@ const RegisterFormPage = ({ setIsLogin }) => {
       dispatch(
         registerAction({
           data: {
-            ...values,
+            email: values.email,
+            password: values.password,
+            fullName: values.fullName,
+            gender: values.gender,
+            role: 'user',
             phoneNumber: '',
             address: '',
             avatar: '',
@@ -72,7 +76,6 @@ const RegisterFormPage = ({ setIsLogin }) => {
       <Form.Item
         name="email"
         label="E-mail"
-        dependencies={['role']}
         rules={[
           {
             type: 'email',

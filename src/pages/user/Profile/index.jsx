@@ -10,12 +10,11 @@ import { Col, Row, Avatar, Space, Button } from 'antd';
 import { UserOutlined, LogoutOutlined } from '@ant-design/icons';
 import { getOrderListAction, logoutAction } from '../../../redux/actions';
 
-import { COLOR } from '../../../constants/theme';
 import { PROFILE_TABS } from './constants';
 import { BREADCRUMB } from './constants';
 
 import * as S from './styles';
-import Location from './components/Location';
+import OrderLocation from './components/OrderLocation';
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
@@ -24,8 +23,8 @@ const ProfilePage = () => {
   const { userInfo } = useSelector(state => state.authReducer);
 
   useEffect(() => {
-    dispatch(getOrderListAction({ id: userInfo.data.id }));
-  }, [userInfo.data]);
+    dispatch(getOrderListAction({ userId: userInfo.data.id }));
+  }, [userInfo.data.id, dispatch]);
 
   const handleLogout = () => {
     localStorage.removeItem('userInfo');
@@ -79,7 +78,7 @@ const ProfilePage = () => {
                 {activeTab === 0 && <Information userInfo={userInfo} />}
                 {activeTab === 1 && <OrderHistory />}
                 {activeTab === 2 && <WishList userInfo={userInfo} />}
-                {activeTab === 3 && <Location userInfo={userInfo} />}
+                {activeTab === 3 && <OrderLocation userInfo={userInfo} />}
               </S.RightContainer>
             </Col>
           </Row>
