@@ -52,7 +52,7 @@ const HEADER_ITEMS = [
     path: ROUTER.USER.PRODUCT_LIST,
   },
   {
-    title: 'Khuyến mãi',
+    title: 'Chính sách',
     path: ROUTER.USER.TERMS,
   },
   {

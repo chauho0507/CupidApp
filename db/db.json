@@ -2232,27 +2232,27 @@
   "categories": [
     {
       "id": 1,
-      "name": "BÁNH KEM"
+      "name": "Bánh Kem"
     },
     {
       "id": 2,
-      "name": "BÁNH CUPCAKE"
+      "name": "Bánh Cupcake"
     },
     {
       "id": 3,
-      "name": "BÁNH COOKIES"
+      "name": "Bánh Cookies"
     },
     {
       "id": 4,
-      "name": "BÁNH PUDDING"
+      "name": "Bánh Pudding"
     },
     {
       "id": 5,
-      "name": "BÁNH VÒNG"
+      "name": "Bánh Vòng"
     },
     {
       "id": 6,
-      "name": "NƯỚC UỐNG"
+      "name": "Nước uống"
     }
   ],
   "orders": [
