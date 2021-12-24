@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { COLOR } from '../../constants/theme';
+import { COLOR } from "../../constants/theme";
 
 export const MainWrapper = styled.div`
   position: relative;
@@ -15,7 +15,7 @@ export const MainContainer = styled.div`
 
   min-height: calc(100vh - 120px);
 
-  margin-top: 60px;
+  margin-top: 100px;
   padding-bottom: 20px;
 
   background-color: ${COLOR.PRIMARY_LIGHT};

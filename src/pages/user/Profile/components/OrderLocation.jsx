@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Card,
   Col,
@@ -12,8 +12,8 @@ import {
   Select,
   Checkbox,
   Popconfirm,
-} from 'antd';
-import { PlusOutlined, DeleteOutlined } from '@ant-design/icons';
+} from "antd";
+import { PlusOutlined, DeleteOutlined } from "@ant-design/icons";
 
 import {
   getOrderLocationListAction,
@@ -23,9 +23,9 @@ import {
   updateOrderLocationAction,
   deleteOrderLocationAction,
   createOrderLocationAction,
-} from '../../../../redux/actions';
+} from "../../../../redux/actions";
 
-import * as S from '../styles';
+import * as S from "../styles";
 
 const OrderLocation = ({ userInfo }) => {
   const dispatch = useDispatch();
@@ -36,10 +36,10 @@ const OrderLocation = ({ userInfo }) => {
   const [initialLocationForm, setInitialLocationForm] = useState({});
   const [isModify, setIsModify] = useState(null);
   const { orderLocationsList } = useSelector(
-    state => state.orderLocationsReducer
+    (state) => state.orderLocationsReducer
   );
   const { cityList, districtList, wardList } = useSelector(
-    state => state.commonReducer
+    (state) => state.commonReducer
   );
 
   const formInitialValues = initialLocationForm.id
@@ -47,18 +47,18 @@ const OrderLocation = ({ userInfo }) => {
         ...initialLocationForm.values,
       }
     : {
-        fullName: '',
-        email: '',
-        phoneNumber: '',
-        address: '',
-        ward: '',
-        district: '',
-        city: '',
+        fullName: "",
+        email: "",
+        phoneNumber: "",
+        address: "",
+        ward: "",
+        district: "",
+        city: "",
         defaultLocation: false,
       };
 
   const renderCityOption = () => {
-    return cityList.data.map(city => {
+    return cityList.data.map((city) => {
       return (
         <Select.Option key={city.id} value={city.code}>
           {city.name}
@@ -68,7 +68,7 @@ const OrderLocation = ({ userInfo }) => {
   };
 
   const renderDistrictOption = () => {
-    return districtOptions.map(district => {
+    return districtOptions.map((district) => {
       return (
         <Select.Option key={district.id} value={district.code}>
           {district.name}
@@ -78,7 +78,7 @@ const OrderLocation = ({ userInfo }) => {
   };
 
   const renderWardOption = () => {
-    return wardOptions.map(ward => {
+    return wardOptions.map((ward) => {
       return (
         <Select.Option key={ward.id} value={ward.code}>
           {ward.name}
@@ -100,13 +100,13 @@ const OrderLocation = ({ userInfo }) => {
     }
   }, [isModify, locationForm]);
 
-  const handleSubmitLocationForm = values => {
-    const city = cityList.data.find(city => city.code === values.city);
+  const handleSubmitLocationForm = (values) => {
+    const city = cityList.data.find((city) => city.code === values.city);
     const district = districtOptions.find(
-      district => district.code === values.district
+      (district) => district.code === values.district
     );
 
-    const ward = wardOptions.find(ward => ward.code === values.ward);
+    const ward = wardOptions.find((ward) => ward.code === values.ward);
     const newValues = {
       fullName: values.fullName,
       email: values.email,
@@ -116,9 +116,9 @@ const OrderLocation = ({ userInfo }) => {
       district: district?.name || values.district,
       ward: ward?.name || values.ward,
     };
-    const locationIds = orderLocationsList.data.map(location => location.id);
+    const locationIds = orderLocationsList.data.map((location) => location.id);
 
-    if (isModify === 'update') {
+    if (isModify === "update") {
       dispatch(
         updateOrderLocationAction({
           defaultLocation: values.defaultLocation,
@@ -131,7 +131,7 @@ const OrderLocation = ({ userInfo }) => {
           },
         })
       );
-    } else if (isModify === 'create') {
+    } else if (isModify === "create") {
       dispatch(
         createOrderLocationAction({
           defaultLocation: values.defaultLocation,
@@ -149,7 +149,7 @@ const OrderLocation = ({ userInfo }) => {
   const renderOrderLocations = () => {
     return orderLocationsList.data?.map((location, idx) => {
       return (
-        <Col span={12} key={idx}>
+        <Col xl={12} xs={24} key={idx}>
           <S.LocationCard
             active={location.defaultLocation.toString()}
             hoverable={!location.defaultLocation}
@@ -193,7 +193,7 @@ const OrderLocation = ({ userInfo }) => {
                 <S.EditButton
                   type="primary"
                   onClick={() => {
-                    setIsModify('update');
+                    setIsModify("update");
                     setInitialLocationForm({
                       values: {
                         ...location.info,
@@ -217,7 +217,7 @@ const OrderLocation = ({ userInfo }) => {
       <Modal
         title={
           <S.H3>
-            {isModify === 'update' ? 'Chỉnh sửa' : 'Thêm'} thông tin giao hàng
+            {isModify === "update" ? "Chỉnh sửa" : "Thêm"} thông tin giao hàng
           </S.H3>
         }
         visible={!!isModify}
@@ -233,11 +233,11 @@ const OrderLocation = ({ userInfo }) => {
         <Form
           form={locationForm}
           name={
-            isModify === 'update' ? 'updateLocationForm' : 'addLocationForm'
+            isModify === "update" ? "updateLocationForm" : "addLocationForm"
           }
           initialValues={formInitialValues}
           layout="vertical"
-          onFinish={values => handleSubmitLocationForm(values)}
+          onFinish={(values) => handleSubmitLocationForm(values)}
         >
           <Row justify="end">
             {initialLocationForm.default && <Tag color="green">Mặc định</Tag>}
@@ -245,7 +245,7 @@ const OrderLocation = ({ userInfo }) => {
           <Form.Item
             label={<S.H4>Họ và tên</S.H4>}
             name="fullName"
-            rules={[{ required: true, message: 'Bạn cần nhập họ và tên' }]}
+            rules={[{ required: true, message: "Bạn cần nhập họ và tên" }]}
           >
             <Input />
           </Form.Item>
@@ -255,7 +255,7 @@ const OrderLocation = ({ userInfo }) => {
               <Form.Item
                 label={<S.H4>Email</S.H4>}
                 name="email"
-                rules={[{ required: true, message: 'Bạn cần nhập email' }]}
+                rules={[{ required: true, message: "Bạn cần nhập email" }]}
               >
                 <Input />
               </Form.Item>
@@ -265,7 +265,7 @@ const OrderLocation = ({ userInfo }) => {
                 label={<S.H4>Số điện thoại</S.H4>}
                 name="phoneNumber"
                 rules={[
-                  { required: true, message: 'Bạn cần nhập số điện thoại' },
+                  { required: true, message: "Bạn cần nhập số điện thoại" },
                 ]}
               >
                 <Input />
@@ -285,13 +285,13 @@ const OrderLocation = ({ userInfo }) => {
                 label={<S.H4>Tỉnh/Thành</S.H4>}
                 name="city"
                 rules={[
-                  { required: true, message: 'Bạn cần nhập Tỉnh/Thành!' },
+                  { required: true, message: "Bạn cần nhập Tỉnh/Thành!" },
                 ]}
               >
                 <Select
-                  onChange={value => {
+                  onChange={(value) => {
                     const curDistrictList = districtList.data.filter(
-                      district => district.parentcode === value
+                      (district) => district.parentcode === value
                     );
                     setDistrictOptions(curDistrictList);
                   }}
@@ -311,13 +311,13 @@ const OrderLocation = ({ userInfo }) => {
                 label={<S.H4>Quận/Huyện</S.H4>}
                 name="district"
                 rules={[
-                  { required: true, message: 'Bạn cần nhập Quận/Huyện!' },
+                  { required: true, message: "Bạn cần nhập Quận/Huyện!" },
                 ]}
               >
                 <Select
-                  onChange={value => {
+                  onChange={(value) => {
                     const curWardList = wardList.data.filter(
-                      ward => ward.parentcode === value
+                      (ward) => ward.parentcode === value
                     );
                     setWardOptions(curWardList);
                   }}
@@ -336,7 +336,7 @@ const OrderLocation = ({ userInfo }) => {
               <Form.Item
                 label={<S.H4>Phường/Xã</S.H4>}
                 name="ward"
-                rules={[{ required: true, message: 'Bạn cần nhập Phường/Xã!' }]}
+                rules={[{ required: true, message: "Bạn cần nhập Phường/Xã!" }]}
               >
                 <Select>{renderWardOption()}</Select>
               </Form.Item>
@@ -347,7 +347,7 @@ const OrderLocation = ({ userInfo }) => {
             label={<S.H4>Địa chỉ</S.H4>}
             name="address"
             rules={[
-              { required: true, message: 'Bạn cần nhập địa chỉ nhận hàng' },
+              { required: true, message: "Bạn cần nhập địa chỉ nhận hàng" },
             ]}
           >
             <Input />
@@ -376,7 +376,7 @@ const OrderLocation = ({ userInfo }) => {
         style={{ marginBottom: 16 }}
         icon={<PlusOutlined />}
         onClick={() => {
-          setIsModify('create');
+          setIsModify("create");
           setInitialLocationForm({});
         }}
       >

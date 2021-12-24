@@ -1,6 +1,6 @@
-import React, { useMemo } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import React, { useMemo } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import {
   Card,
@@ -15,8 +15,8 @@ import {
   Checkbox,
   Descriptions,
   Popconfirm,
-} from 'antd';
-import { CloseOutlined } from '@ant-design/icons';
+} from "antd";
+import { CloseOutlined } from "@ant-design/icons";
 
 import {
   updateCartProductAction,
@@ -24,22 +24,22 @@ import {
   setSelectedCartsAction,
   checkDiscountAction,
   setCheckoutInfoAction,
-} from '../../../../redux/actions';
+} from "../../../../redux/actions";
 
-import fallbackImg from '../../../../assets/img/fallback.png';
-import emptyCart from '../../../../assets/img/empty-cart.png';
-import { ROUTER } from '../../../../constants/router';
-import { COLOR } from '../../../../constants/theme';
-import * as S from '../styles';
+import fallbackImg from "../../../../assets/img/fallback.png";
+import emptyCart from "../../../../assets/img/empty-cart.png";
+import { ROUTER } from "../../../../constants/router";
+import { COLOR } from "../../../../constants/theme";
+import * as S from "../styles";
 
 const Checkout = ({ setCheckoutStep, userInfo }) => {
   const [discountForm] = Form.useForm();
   const dispatch = useDispatch();
   const history = useHistory();
   const { cartList, actionLoading, selectedCarts } = useSelector(
-    state => state.cartReducer
+    (state) => state.cartReducer
   );
-  const { discountInfo } = useSelector(state => state.discountReducer);
+  const { discountInfo } = useSelector((state) => state.discountReducer);
 
   const handleChangeQuantity = (id, quantity) => {
     dispatch(
@@ -55,16 +55,16 @@ const Checkout = ({ setCheckoutStep, userInfo }) => {
       dispatch(setSelectedCartsAction([...selectedCarts, item]));
     } else {
       const newSelectedCarts = selectedCarts.filter(
-        selectedCart => selectedCart.id !== item.id
+        (selectedCart) => selectedCart.id !== item.id
       );
       dispatch(setSelectedCartsAction(newSelectedCarts));
     }
   };
 
-  const handleSelectAll = e => {
+  const handleSelectAll = (e) => {
     const { checked } = e.target;
     if (checked) {
-      const newCartList = cartList.data.map(cartItem => {
+      const newCartList = cartList.data.map((cartItem) => {
         return {
           id: cartItem.id,
           productId: cartItem.product.id,
@@ -81,7 +81,7 @@ const Checkout = ({ setCheckoutStep, userInfo }) => {
     }
   };
 
-  const handleCheckDiscount = values => {
+  const handleCheckDiscount = (values) => {
     dispatch(
       checkDiscountAction({
         code: values.discount,
@@ -94,7 +94,7 @@ const Checkout = ({ setCheckoutStep, userInfo }) => {
     {
       title: (
         <Checkbox
-          onChange={e => handleSelectAll(e)}
+          onChange={(e) => handleSelectAll(e)}
           indeterminate={
             selectedCarts.length > 0 &&
             selectedCarts.length !== cartList.data.length
@@ -105,52 +105,52 @@ const Checkout = ({ setCheckoutStep, userInfo }) => {
           }
         />
       ),
-      key: 'checked',
+      key: "checked",
       render: (_, record) => (
         <Checkbox
-          onChange={e => {
+          onChange={(e) => {
             handleSelectCart(e, record);
           }}
           checked={
             selectedCarts.findIndex(
-              selectedCart => selectedCart.id === record.id
+              (selectedCart) => selectedCart.id === record.id
             ) !== -1
           }
         />
       ),
-      width: '5%',
+      width: "5%",
     },
     {
-      title: 'Hình ảnh',
-      dataIndex: 'image',
-      key: 'image',
+      title: "Hình ảnh",
+      dataIndex: "image",
+      key: "image",
       render: (_, record) => (
         <Image
           fallback={fallbackImg}
           preview={false}
           src={record.image}
           alt="img"
-          style={{ height: '100px', width: '100px', borderRadius: 4 }}
+          style={{ height: "100px", width: "100px", borderRadius: 4 }}
         />
       ),
-      width: '16%',
+      width: "16%",
     },
     {
-      title: 'Tên sản phẩm',
-      dataIndex: 'name',
-      key: 'name',
+      title: "Tên sản phẩm",
+      dataIndex: "name",
+      key: "name",
       render: (_, record) => (
         <>
           <S.H2>{record.name}</S.H2>
           <S.Span>{record.productOption?.name}</S.Span>
         </>
       ),
-      width: '34%',
+      width: "34%",
     },
     {
-      title: 'Giá',
-      dataIndex: 'price',
-      key: 'price',
+      title: "Giá",
+      dataIndex: "price",
+      key: "price",
       render: (_, record) => (
         <S.P>{`${(record.productOption
           ? record.price + record.productOption.price
@@ -158,12 +158,12 @@ const Checkout = ({ setCheckoutStep, userInfo }) => {
         ).toLocaleString()} ₫`}</S.P>
       ),
 
-      width: '12%',
+      width: "12%",
     },
     {
-      title: 'Số lượng',
-      dataIndex: 'quantity',
-      key: 'quantity',
+      title: "Số lượng",
+      dataIndex: "quantity",
+      key: "quantity",
       render: (_, record) => (
         <InputNumber
           style={{ width: 50 }}
@@ -171,24 +171,24 @@ const Checkout = ({ setCheckoutStep, userInfo }) => {
           step={1}
           min={1}
           max={record.balance}
-          onChange={value => {
+          onChange={(value) => {
             handleChangeQuantity(record.id, value);
           }}
         />
       ),
-      width: '11%',
+      width: "11%",
     },
     {
-      title: 'Còn',
-      dataIndex: 'balance',
-      key: 'balance',
-      width: '5%',
+      title: "Còn",
+      dataIndex: "balance",
+      key: "balance",
+      width: "5%",
     },
 
     {
-      title: '',
-      dataIndex: 'id',
-      key: 'id',
+      title: "",
+      dataIndex: "id",
+      key: "id",
       render: (_, record) => (
         <Popconfirm
           title="Bạn muốn xóa sản phẩm chứ?"
@@ -211,11 +211,11 @@ const Checkout = ({ setCheckoutStep, userInfo }) => {
           />
         </Popconfirm>
       ),
-      width: '5%',
+      width: "5%",
     },
   ];
 
-  const cartTable = cartList.data.map(cart => {
+  const cartTable = cartList.data.map((cart) => {
     return {
       id: cart.id,
       key: cart.id,
@@ -263,7 +263,7 @@ const Checkout = ({ setCheckoutStep, userInfo }) => {
         }
         columns={columns}
         dataSource={cartTable}
-        pagination={{ defaultPageSize: 10 }}
+        pagination={false}
         footer={() => renderCartTableFooter()}
       />
     );
@@ -274,7 +274,7 @@ const Checkout = ({ setCheckoutStep, userInfo }) => {
     const totalPrice = cartList.data.reduce((totalPrice, cartItem) => {
       const isChecked =
         selectedCarts.findIndex(
-          selectedCart => selectedCart.id === cartItem.id
+          (selectedCart) => selectedCart.id === cartItem.id
         ) !== -1;
       const unitPrice = cartItem.productOption
         ? cartItem.product.price + cartItem.productOption.price
@@ -282,10 +282,10 @@ const Checkout = ({ setCheckoutStep, userInfo }) => {
       return (totalPrice += isChecked ? cartItem.quantity * unitPrice : 0);
     }, 0);
 
-    if (discountInfo.data.discountType === 'percent') {
+    if (discountInfo.data.discountType === "percent") {
       discountPrice = totalPrice * (discountInfo.data.discountValue / 100);
     }
-    if (discountInfo.data.discountType === 'cash') {
+    if (discountInfo.data.discountType === "cash") {
       discountPrice = discountInfo.data.discountValue;
     }
 
@@ -308,7 +308,7 @@ const Checkout = ({ setCheckoutStep, userInfo }) => {
             <S.P>
               {totalPrice
                 ? `${parseInt(totalPrice - discountPrice).toLocaleString()} ₫`
-                : '0 ₫'}
+                : "0 ₫"}
             </S.P>
           </Descriptions.Item>
         </Descriptions>
@@ -326,11 +326,13 @@ const Checkout = ({ setCheckoutStep, userInfo }) => {
   }, [selectedCarts, cartList.data, discountInfo.data]);
 
   return (
-    <Row gutter={16}>
+    <Row gutter={[16, 16]}>
       {!!cartList.data.length ? (
         <>
-          <Col span={18}>{renderCartList}</Col>
-          <Col span={6}>
+          <Col xl={18} lg={16} xs={24}>
+            {renderCartList}
+          </Col>
+          <Col xl={6} lg={8} xs={24}>
             <S.TotalWrapper>
               <Card bordered={false} size="small">
                 {renderTotalPrice}
@@ -344,7 +346,7 @@ const Checkout = ({ setCheckoutStep, userInfo }) => {
             preview={false}
             src={emptyCart}
             alt="empty cart"
-            style={{ borderRadius: 4, height: '40vh', width: 'auto' }}
+            style={{ borderRadius: 4, height: "40vh", width: "auto" }}
           />
           <S.H2 style={{ marginTop: -30, zIndex: 10 }}>Giỏ hàng trống</S.H2>
           <Button

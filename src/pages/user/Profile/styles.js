@@ -1,8 +1,8 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
-import { Button, Tag, Card } from 'antd';
+import { Button, Tag, Card } from "antd";
 
-import { COLOR } from '../../../constants/theme';
+import { COLOR } from "../../../constants/theme";
 
 export const ProfileWrapper = styled.div`
   margin: 24px auto;
@@ -22,14 +22,14 @@ export const LeftContainer = styled.div`
   border-radius: 4px;
   background-color: ${COLOR.WHITE};
 
-  box-shadow: 0 3px 6px 10px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 4px 10px rgba(0, 0, 0, 0.04);
 `;
 
 export const RightContainer = styled.div`
   width: 100%;
   border-radius: 4px;
 
-  /* box-shadow: 0 3px 6px 10px rgba(0, 0, 0, 0.04); */
+  /* box-shadow: 0 1px 4px 10px rgba(0, 0, 0, 0.04); */
 `;
 
 export const AvatarContainer = styled.div`
@@ -39,7 +39,6 @@ export const AvatarContainer = styled.div`
   padding: 24px;
   margin-bottom: 12px;
   width: 100%;
-  height: 280px;
   border-bottom: 1px solid ${COLOR.PRIMARY};
 `;
 
@@ -176,7 +175,7 @@ export const LocationCard = styled(Card)`
   transition: all 0.2s;
 
   ${({ active }) =>
-    active === 'true' &&
+    active === "true" &&
     css`
       border: 2px dashed ${COLOR.PRIMARY_DARK};
     `}

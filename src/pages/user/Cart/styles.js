@@ -1,8 +1,8 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
-import { Tag, Card } from 'antd';
+import { Tag, Card } from "antd";
 
-import { COLOR } from '../../../constants/theme';
+import { COLOR } from "../../../constants/theme";
 
 export const CartContainer = styled.div`
   max-width: 1280px;
@@ -12,11 +12,16 @@ export const CartContainer = styled.div`
 `;
 
 export const StepContainer = styled.div`
+  margin: -20px 0 20px;
   width: 100%;
-  margin-top: -20px;
-  margin-bottom: 20px;
 
   background-color: ${COLOR.WHITE};
+`;
+
+export const StepContent = styled.div`
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1280px;
 `;
 
 export const CartFooter = styled.div`
@@ -73,7 +78,7 @@ export const LocationCard = styled(Card)`
   transition: all 0.2s;
 
   ${({ active }) =>
-    active === 'true' &&
+    active === "true" &&
     css`
       border: 2px dashed ${COLOR.PRIMARY_DARK};
     `}

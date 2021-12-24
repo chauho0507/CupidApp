@@ -1,7 +1,7 @@
-import React, { useEffect, useMemo } from 'react';
-import { useHistory, generatePath } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import Slider from 'react-slick';
+import React, { useEffect, useMemo } from "react";
+import { useHistory, generatePath } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import Slider from "react-slick";
 import {
   Col,
   Row,
@@ -16,41 +16,41 @@ import {
   Carousel,
   Avatar,
   Spin,
-} from 'antd';
+} from "antd";
 
-import { HeartFilled, UserOutlined } from '@ant-design/icons';
+import { HeartFilled, UserOutlined } from "@ant-design/icons";
 
 import {
   getProductListAction,
   getCommentListAction,
   getBlogListAction,
-} from '../../../redux/actions';
+} from "../../../redux/actions";
 
-import { COLOR } from '../../../constants/theme';
-import { ROUTER } from '../../../constants/router';
-import { PAGE_SIZE } from '../../../constants/pagination';
+import { COLOR } from "../../../constants/theme";
+import { ROUTER } from "../../../constants/router";
+import { PAGE_SIZE } from "../../../constants/pagination";
 
-import slide_1 from '../../../assets/img/HomeSlider/slider-1.jpg';
-import slide_2 from '../../../assets/img/HomeSlider/slider-2.jpg';
-import slide_3 from '../../../assets/img/HomeSlider/slider-3.jpg';
-import fallbackImg from '../../../assets/img/fallback.png';
-import IntroImage from '../../../assets/img/IntroSection.jpg';
-import recipeContent from '../../../assets/img/recipeContent.png';
-import chef_1 from '../../../assets/img/chef/chef-1.jpg';
-import chef_2 from '../../../assets/img/chef/chef-2.jpg';
-import chef_3 from '../../../assets/img/chef/chef-3.jpg';
+import slide_1 from "../../../assets/img/HomeSlider/slider-1.jpg";
+import slide_2 from "../../../assets/img/HomeSlider/slider-2.jpg";
+import slide_3 from "../../../assets/img/HomeSlider/slider-3.jpg";
+import fallbackImg from "../../../assets/img/fallback.png";
+import IntroImage from "../../../assets/img/IntroSection.jpg";
+import recipeContent from "../../../assets/img/recipeContent.png";
+import chef_1 from "../../../assets/img/chef/chef-1.jpg";
+import chef_2 from "../../../assets/img/chef/chef-2.jpg";
+import chef_3 from "../../../assets/img/chef/chef-3.jpg";
 
-import * as S from './styles';
+import * as S from "./styles";
 
 const HomePage = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const { Title } = Typography;
 
-  const { userInfo } = useSelector(state => state.authReducer);
-  const { productList } = useSelector(state => state.productReducer);
-  const { commentList } = useSelector(state => state.commentReducer);
-  const { blogList } = useSelector(state => state.blogReducer);
+  const { userInfo } = useSelector((state) => state.authReducer);
+  const { productList } = useSelector((state) => state.productReducer);
+  const { commentList } = useSelector((state) => state.commentReducer);
+  const { blogList } = useSelector((state) => state.blogReducer);
 
   const productSlider = {
     dots: false,
@@ -120,17 +120,17 @@ const HomePage = () => {
     {
       id: 1,
       src: slide_1,
-      alt: 'img',
+      alt: "img",
     },
     {
       id: 2,
       src: slide_2,
-      alt: 'img',
+      alt: "img",
     },
     {
       id: 3,
       src: slide_3,
-      alt: 'img',
+      alt: "img",
     },
   ];
 
@@ -145,14 +145,14 @@ const HomePage = () => {
     dispatch(getBlogListAction({ limit: PAGE_SIZE.HOME_BLOG, page: 1 }));
   }, [userInfo.data]);
 
-  const cakeList = productList.data.filter(cake => cake.categoryId !== 6);
-  const drinkList = productList.data.filter(cake => cake.categoryId === 6);
+  const cakeList = productList.data.filter((cake) => cake.categoryId !== 6);
+  const drinkList = productList.data.filter((cake) => cake.categoryId === 6);
 
   const renderCakeList = useMemo(() => {
-    return cakeList.map(cake => {
+    return cakeList.map((cake) => {
       return (
         <div key={cake.id}>
-          <div style={{ maxWidth: '205px', width: '100%' }}>
+          <div style={{ maxWidth: "205px", width: "100%" }}>
             <S.ProductItemWrapper>
               <S.Card>
                 <S.CardImage>
@@ -197,7 +197,7 @@ const HomePage = () => {
                   <Row justify="center">
                     <Col>
                       <div
-                        style={{ color: 'red', fontWeight: 500 }}
+                        style={{ color: "red", fontWeight: 500 }}
                       >{`${cake.price?.toLocaleString()}₫`}</div>
                     </Col>
                   </Row>
@@ -213,7 +213,7 @@ const HomePage = () => {
                     </Col>
                     <Col>
                       <S.Span>
-                        {cake.balance ? `Còn: ${cake.balance}` : 'Hết'}
+                        {cake.balance ? `Còn: ${cake.balance}` : "Hết"}
                       </S.Span>
                     </Col>
                   </Row>
@@ -227,10 +227,10 @@ const HomePage = () => {
   }, [cakeList]);
 
   const renderDrinkList = useMemo(() => {
-    return drinkList.map(drink => {
+    return drinkList.map((drink) => {
       return (
         <div key={drink.id}>
-          <div style={{ maxWidth: '205px', width: '100%' }}>
+          <div style={{ maxWidth: "205px", width: "100%" }}>
             <S.ProductItemWrapper>
               <S.Card>
                 <S.CardImage>
@@ -275,7 +275,7 @@ const HomePage = () => {
                   <Row justify="center">
                     <Col>
                       <div
-                        style={{ color: 'red', fontWeight: 500 }}
+                        style={{ color: "red", fontWeight: 500 }}
                       >{`${drink.price.toLocaleString()}₫`}</div>
                     </Col>
                   </Row>
@@ -291,7 +291,7 @@ const HomePage = () => {
                     </Col>
                     <Col>
                       <S.Span>
-                        {drink.balance ? `Còn: ${drink.balance}` : 'Hết'}
+                        {drink.balance ? `Còn: ${drink.balance}` : "Hết"}
                       </S.Span>
                     </Col>
                   </Row>
@@ -312,7 +312,7 @@ const HomePage = () => {
             <Avatar
               size={{ sm: 70, md: 80, lg: 110, xl: 130 }}
               icon={<UserOutlined />}
-              style={{ margin: '0 10px' }}
+              style={{ margin: "0 10px" }}
               src={comment.user.avatar}
             />
           </Col>
@@ -330,7 +330,7 @@ const HomePage = () => {
   }, [commentList.data]);
 
   const renderBlogList = useMemo(() => {
-    return blogList.data.map(blog => (
+    return blogList.data.map((blog) => (
       <Col
         xs={{ span: 24 }}
         sm={{ span: 12 }}
@@ -391,10 +391,10 @@ const HomePage = () => {
         dots={false}
         pauseOnHover={false}
       >
-        {images.map(item => (
+        {images.map((item) => (
           <div key={item.id}>
             <img
-              style={{ width: '100%', height: 'auto' }}
+              style={{ width: "100%", height: "auto" }}
               src={item.src}
               alt={item.alt}
             />
@@ -446,7 +446,7 @@ const HomePage = () => {
                 src={IntroImage}
                 alt="img"
                 preview={false}
-                style={{ height: 'auto', width: '100%', borderRadius: 4 }}
+                style={{ height: "auto", width: "100%", borderRadius: 4 }}
               />
             </Col>
           </Row>
@@ -471,16 +471,19 @@ const HomePage = () => {
               <img src={recipeContent} alt="recipe img"></img>
             </Col>
             <Col md={{ offset: 2, span: 12 }} lg={{ offset: 2, span: 12 }}>
-              <S.RecipeTitle>Công thức đặc biệt</S.RecipeTitle>
-              <p>
-                Cupcake là món bánh tráng miệng được ưa chuộng ở châu Âu. Chiếc
-                bánh này có kích thước nhỏ gọn. Đặc biệt chúng được đổ vào khuôn
-                để nướng lên và trang trí thêm kem tươi bên trên. Phần kem tươi
-                này chính là điểm nhấn quan trọng làm cho chiếc bánh Cupcake
-                thêm hấp dẫn. Khi thưởng thức Cupcake kem tươi bạn sẽ cảm nhận
-                được bánh có độ mềm, mịn và khá ngọt. Đặc biệt, chiếc bánh này
-                được xem là phiên bản thu nhỏ của món bánh bông lan.
-              </p>
+              <Row style={{ alignItems: "center" }}>
+                <S.RecipeTitle>Công thức đặc biệt</S.RecipeTitle>
+                <p>
+                  Cupcake là món bánh tráng miệng được ưa chuộng ở châu Âu.
+                  Chiếc bánh này có kích thước nhỏ gọn. Đặc biệt chúng được đổ
+                  vào khuôn để nướng lên và trang trí thêm kem tươi bên trên.
+                  Phần kem tươi này chính là điểm nhấn quan trọng làm cho chiếc
+                  bánh Cupcake thêm hấp dẫn. Khi thưởng thức Cupcake kem tươi
+                  bạn sẽ cảm nhận được bánh có độ mềm, mịn và khá ngọt. Đặc
+                  biệt, chiếc bánh này được xem là phiên bản thu nhỏ của món
+                  bánh bông lan.
+                </p>
+              </Row>
             </Col>
           </Row>
         </S.RecipeContent>
@@ -546,12 +549,12 @@ const HomePage = () => {
                   <Form.Item>
                     <Input.Group>
                       <Input
-                        style={{ width: 'calc(100% - 100px)', height: 45 }}
+                        style={{ width: "calc(100% - 100px)", height: 45 }}
                         placeholder="Nhập email của bạn..."
                       />
                       <Button
                         style={{
-                          width: '100px',
+                          width: "100px",
                           height: 45,
                           backgroundColor: COLOR.PRIMARY_LIGHT,
                         }}

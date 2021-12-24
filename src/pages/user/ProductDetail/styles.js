@@ -1,12 +1,16 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { Row } from 'antd';
+import { Row } from "antd";
 
-import { COLOR } from '../../../constants/theme';
+import { COLOR } from "../../../constants/theme";
 
 export const CustomRow = styled(Row)`
   @media (max-width: 767px) {
     text-align: center;
+  }
+
+  & .ant-image {
+    width: 100%;
   }
 `;
 
@@ -69,12 +73,12 @@ export const Card = styled.div`
   width: 100%;
 
   border-radius: 4px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   background-color: white;
 
   &:hover {
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
     transition: all 0.3s;
   }
 `;

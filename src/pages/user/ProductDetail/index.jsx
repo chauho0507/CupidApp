@@ -1,9 +1,9 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useHistory, useRouteMatch, generatePath } from 'react-router-dom';
-import TopWrapper from '../../../components/TopWrapper';
-import Slider from 'react-slick';
-import moment from 'moment';
+import React, { useEffect, useMemo, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory, useRouteMatch, generatePath } from "react-router-dom";
+import TopWrapper from "../../../components/TopWrapper";
+import Slider from "react-slick";
+import moment from "moment";
 
 import {
   Space,
@@ -24,14 +24,14 @@ import {
   notification,
   Radio,
   InputNumber,
-} from 'antd';
+} from "antd";
 import {
   ShoppingCartOutlined,
   HeartOutlined,
   ProfileOutlined,
   CommentOutlined,
   HeartFilled,
-} from '@ant-design/icons';
+} from "@ant-design/icons";
 
 import {
   getProductDetailAction,
@@ -43,15 +43,15 @@ import {
   getWishListAction,
   addToWishListAction,
   removeFromWishListAction,
-} from '../../../redux/actions';
-import { BREADCRUMB } from './constants';
-import { ROUTER } from '../../../constants/router';
-import { COLOR } from '../../../constants/theme';
+} from "../../../redux/actions";
+import { BREADCRUMB } from "./constants";
+import { ROUTER } from "../../../constants/router";
+import { COLOR } from "../../../constants/theme";
 
-import fallbackImg from '../../../assets/img/fallback.png';
+import fallbackImg from "../../../assets/img/fallback.png";
 
-import * as S from './styles';
-import Avatar from 'antd/lib/avatar/avatar';
+import * as S from "./styles";
+import Avatar from "antd/lib/avatar/avatar";
 
 const ProductDetailPage = ({ match, ...props }) => {
   const { params } = useRouteMatch();
@@ -60,16 +60,16 @@ const ProductDetailPage = ({ match, ...props }) => {
   const dispatch = useDispatch();
   const [commentForm] = Form.useForm();
   const { categoryId } = props.location.state;
-  const { userInfo } = useSelector(state => state.authReducer);
-  const { wishLists } = useSelector(state => state.wishListsReducer);
-  const { commentList } = useSelector(state => state.commentReducer);
-  const { productDetail } = useSelector(state => state.productReducer);
-  const { categoryDetail } = useSelector(state => state.categoryReducer);
-  const { cartList, actionLoading } = useSelector(state => state.cartReducer);
+  const { userInfo } = useSelector((state) => state.authReducer);
+  const { wishLists } = useSelector((state) => state.wishListsReducer);
+  const { commentList } = useSelector((state) => state.commentReducer);
+  const { productDetail } = useSelector((state) => state.productReducer);
+  const { categoryDetail } = useSelector((state) => state.categoryReducer);
+  const { cartList, actionLoading } = useSelector((state) => state.cartReducer);
   const [productQuantity, setProductQuantity] = useState(1);
   const [selectedOption, setSelectedOption] = useState(null);
   const isLike =
-    wishLists.data.findIndex(item => item.productId === parseInt(id)) !== -1;
+    wishLists.data.findIndex((item) => item.productId === parseInt(id)) !== -1;
 
   const { data } = productDetail;
   const { Title } = Typography;
@@ -146,7 +146,7 @@ const ProductDetailPage = ({ match, ...props }) => {
 
   const getProductOptions = useMemo(() => {
     if (productDetail.data.productOptions?.length > 1) {
-      return productDetail.data.productOptions.map(option => {
+      return productDetail.data.productOptions.map((option) => {
         return (
           <Radio.Button key={option.id} value={option}>
             {option.name}
@@ -156,14 +156,14 @@ const ProductDetailPage = ({ match, ...props }) => {
     }
   }, [productDetail.data]);
 
-  const handleSubmitComment = values => {
+  const handleSubmitComment = (values) => {
     const isExist =
-      commentList.data.findIndex(item => item.userId === userInfo.data.id) !==
+      commentList.data.findIndex((item) => item.userId === userInfo.data.id) !==
       -1;
     if (isExist) {
       notification.warning({
-        message: 'Bạn đã bình luận',
-        placement: 'bottomRight',
+        message: "Bạn đã bình luận",
+        placement: "bottomRight",
       });
     } else {
       dispatch(
@@ -182,12 +182,12 @@ const ProductDetailPage = ({ match, ...props }) => {
       if (productDetail.data.productOptions?.length > 1) {
         if (!selectedOption) {
           notification.error({
-            message: 'Hãy chọn một kích cỡ!',
-            placement: 'bottomRight',
+            message: "Hãy chọn một kích cỡ!",
+            placement: "bottomRight",
           });
         } else {
           const existCartProduct = cartList.data.find(
-            item => item.productOptionId === selectedOption.id
+            (item) => item.productOptionId === selectedOption.id
           );
           if (existCartProduct) {
             dispatch(
@@ -199,8 +199,8 @@ const ProductDetailPage = ({ match, ...props }) => {
                 callback: {
                   showSuccess: () =>
                     notification.success({
-                      message: 'Cập nhật số lượng thành công!',
-                      placement: 'bottomRight',
+                      message: "Cập nhật số lượng thành công!",
+                      placement: "bottomRight",
                     }),
                 },
               })
@@ -218,7 +218,7 @@ const ProductDetailPage = ({ match, ...props }) => {
         }
       } else {
         const existCartProduct = cartList.data.find(
-          item => item.productId === parseInt(id)
+          (item) => item.productId === parseInt(id)
         );
         if (existCartProduct) {
           dispatch(
@@ -230,8 +230,8 @@ const ProductDetailPage = ({ match, ...props }) => {
               callback: {
                 showSuccess: () =>
                   notification.success({
-                    message: 'Cập nhật số lượng thành công!',
-                    placement: 'bottomRight',
+                    message: "Cập nhật số lượng thành công!",
+                    placement: "bottomRight",
                   }),
               },
             })
@@ -249,9 +249,9 @@ const ProductDetailPage = ({ match, ...props }) => {
       }
     } else {
       notification.error({
-        message: 'Thông báo',
-        description: 'Bạn cần đăng nhập để thực hiện chức năng này!',
-        placement: 'bottomRight',
+        message: "Thông báo",
+        description: "Bạn cần đăng nhập để thực hiện chức năng này!",
+        placement: "bottomRight",
       });
     }
   };
@@ -260,7 +260,7 @@ const ProductDetailPage = ({ match, ...props }) => {
     if (userInfo.data.id) {
       if (isLike) {
         const wish = wishLists.data.find(
-          item => item.productId === parseInt(id)
+          (item) => item.productId === parseInt(id)
         );
         dispatch(
           removeFromWishListAction({ id: wish.id, userId: userInfo.data.id })
@@ -274,8 +274,8 @@ const ProductDetailPage = ({ match, ...props }) => {
         );
     } else
       notification.error({
-        message: 'Bạn cần đăng nhập để thực hiện chức năng này!',
-        placement: 'bottomRight',
+        message: "Bạn cần đăng nhập để thực hiện chức năng này!",
+        placement: "bottomRight",
       });
   };
 
@@ -287,7 +287,7 @@ const ProductDetailPage = ({ match, ...props }) => {
             <Col
               sm={{ span: 24, order: 1 }}
               md={{ span: 14, order: 1 }}
-              lg={{ span: 14, order: 1 }}
+              lg={{ span: 12, order: 1 }}
             >
               {productDetail.loading ? (
                 <S.SkeletonImage>
@@ -297,9 +297,9 @@ const ProductDetailPage = ({ match, ...props }) => {
                 <Image
                   fallback={fallbackImg}
                   style={{
-                    borderRadius: '4px',
-                    objectFit: 'cover',
-                    width: '100%',
+                    borderRadius: "4px",
+                    objectFit: "cover",
+                    width: "100%",
                   }}
                   src={data.image}
                   alt="img"
@@ -309,7 +309,7 @@ const ProductDetailPage = ({ match, ...props }) => {
             <Col
               sm={{ span: 20, order: 2 }}
               md={{ span: 10, order: 2 }}
-              lg={{ span: 10, order: 1 }}
+              lg={{ span: 12, order: 1 }}
             >
               {productDetail.loading ? (
                 <Skeleton active />
@@ -327,7 +327,7 @@ const ProductDetailPage = ({ match, ...props }) => {
                       style={{
                         borderBottom: `1px solid ${COLOR.PRIMARY}`,
                         borderTop: `1px solid ${COLOR.PRIMARY}`,
-                        padding: '15px 0',
+                        padding: "15px 0",
                       }}
                     >
                       Quả thật, chúng ta khó có thể phủ nhận được rằng ý nghĩa
@@ -342,7 +342,7 @@ const ProductDetailPage = ({ match, ...props }) => {
                         <S.H3>Kích cỡ:</S.H3>
                         <div>
                           <Radio.Group
-                            onChange={e => {
+                            onChange={(e) => {
                               setSelectedOption(e.target.value);
                             }}
                             optionType="button"
@@ -353,35 +353,35 @@ const ProductDetailPage = ({ match, ...props }) => {
                       </div>
                     )}
 
-                    <div style={{ padding: '10px 0' }}>
-                      Số lượng:
+                    <div style={{ padding: "10px 0" }}>
+                      <S.H3>Số lượng:</S.H3>
                       <InputNumber
                         min={1}
                         max={productDetail.data.balance}
                         value={productQuantity}
-                        onChange={value => setProductQuantity(value)}
+                        onChange={(value) => setProductQuantity(value)}
                       />
                     </div>
                     {!!data.balance ? (
-                      <div>Còn lại: {data.balance}</div>
+                      <S.H3>Còn lại: {data.balance}</S.H3>
                     ) : (
                       <S.H2>Hết</S.H2>
                     )}
 
-                    <h2 style={{ color: 'red', fontWeight: 700 }}>
+                    <h1 style={{ color: "red", fontWeight: 700 }}>
                       {selectedOption
                         ? `${(
                             selectedOption?.price + data.price || 0
                           ).toLocaleString()} ₫`
                         : `${data.price?.toLocaleString()} ₫`}
-                    </h2>
+                    </h1>
                   </S.PriceDetail>
-                  <Row gutter={32} align="middle">
+                  <Row gutter={[16, 16]} align="middle">
                     <Col
-                      xs={{ span: 12, order: 1 }}
-                      sm={{ span: 12, order: 1 }}
-                      md={{ span: 12, order: 1 }}
-                      lg={{ span: 12, order: 1 }}
+                      xs={{ span: 24, order: 1 }}
+                      sm={{ span: 24, order: 1 }}
+                      md={{ span: 14, order: 1 }}
+                      lg={{ span: 14, order: 1 }}
                     >
                       <Button
                         icon={<ShoppingCartOutlined />}
@@ -392,15 +392,17 @@ const ProductDetailPage = ({ match, ...props }) => {
                           actionLoading.updateCartProduct
                         }
                         disabled={!data.balance}
+                        size="large"
+                        style={{ width: "100%" }}
                       >
                         Thêm vào giỏ
                       </Button>
                     </Col>
                     <Col
-                      xs={{ span: 12, order: 2 }}
-                      sm={{ span: 12, order: 2 }}
-                      md={{ span: 12, order: 2 }}
-                      lg={{ span: 12, order: 2 }}
+                      xs={{ span: 24, order: 2 }}
+                      sm={{ span: 24, order: 2 }}
+                      md={{ span: 10, order: 2 }}
+                      lg={{ span: 10, order: 2 }}
                     >
                       <Button
                         icon={isLike ? <HeartFilled /> : <HeartOutlined />}
@@ -410,8 +412,10 @@ const ProductDetailPage = ({ match, ...props }) => {
                           actionLoading.addToCart ||
                           actionLoading.updateCartProduct
                         }
+                        size="large"
+                        style={{ width: "100%" }}
                       >
-                        {isLike ? 'Đã' : 'Yêu'} thích
+                        {isLike ? "Đã" : "Yêu"} thích
                       </Button>
                     </Col>
                   </Row>
@@ -449,7 +453,7 @@ const ProductDetailPage = ({ match, ...props }) => {
                 <p>
                   - Miễn phí vận chuyển trên toàn thành phố Đà Nẵng khi đơn hàng
                   trên
-                  <b style={{ color: 'red' }}> 300.000₫</b>.
+                  <b style={{ color: "red" }}> 300.000₫</b>.
                 </p>
                 <p>
                   - Với mỗi lượt mua hàng, bạn sẽ được tích điểm để tham gia
@@ -477,7 +481,7 @@ const ProductDetailPage = ({ match, ...props }) => {
             >
               <Row>
                 <Descriptions
-                  style={{ width: '100%' }}
+                  style={{ width: "100%" }}
                   size="middle"
                   labelStyle={{ fontSize: 16, fontWeight: 500 }}
                   bordered
@@ -510,8 +514,8 @@ const ProductDetailPage = ({ match, ...props }) => {
                 <Form
                   form={commentForm}
                   layout="vertical"
-                  initialValues={{ rating: 0, content: '' }}
-                  onFinish={values => {
+                  initialValues={{ rating: 0, content: "" }}
+                  onFinish={(values) => {
                     handleSubmitComment(values);
                     commentForm.resetFields();
                   }}
@@ -519,7 +523,7 @@ const ProductDetailPage = ({ match, ...props }) => {
                   <Form.Item
                     label="Đánh giá"
                     name="rating"
-                    rules={[{ required: true, message: 'Required !' }]}
+                    rules={[{ required: true, message: "Required !" }]}
                   >
                     <Rate allowHalf style={{ fontSize: 18 }} />
                   </Form.Item>
@@ -527,7 +531,7 @@ const ProductDetailPage = ({ match, ...props }) => {
                     label="Bình luận"
                     name="content"
                     rules={[
-                      { required: true, message: 'Bạn cần viết bình luận!' },
+                      { required: true, message: "Bạn cần viết bình luận!" },
                     ]}
                   >
                     <Input.TextArea
@@ -546,7 +550,7 @@ const ProductDetailPage = ({ match, ...props }) => {
                 header={`${commentList.data.length} Bình luận`}
                 itemLayout="horizontal"
                 dataSource={commentList.data}
-                renderItem={item => (
+                renderItem={(item) => (
                   <li>
                     <Comment
                       author={<h2>{item.user?.fullName}</h2>}
@@ -598,10 +602,10 @@ const ProductDetailPage = ({ match, ...props }) => {
   ]);
 
   const renderRelatedProduct = useMemo(() => {
-    return categoryDetail.data?.map(cake => {
+    return categoryDetail.data?.map((cake) => {
       return (
         <div key={cake.id}>
-          <div style={{ maxWidth: '205px', width: '100%' }}>
+          <div style={{ maxWidth: "205px", width: "100%" }}>
             <S.ProductItemWrapper>
               <S.Card>
                 {cake.isNew && <S.New>Mới</S.New>}
@@ -615,8 +619,8 @@ const ProductDetailPage = ({ match, ...props }) => {
                       style={{
                         borderTopLeftRadius: 4,
                         borderTopRightRadius: 4,
-                        height: 'auto',
-                        width: '100%',
+                        height: "auto",
+                        width: "100%",
                       }}
                       preview={false}
                       fallback={fallbackImg}
@@ -648,7 +652,7 @@ const ProductDetailPage = ({ match, ...props }) => {
                   <Row justify="center">
                     <Col>
                       <div
-                        style={{ color: 'red' }}
+                        style={{ color: "red" }}
                       >{`${cake.price.toLocaleString()}₫`}</div>
                     </Col>
                   </Row>
@@ -663,7 +667,7 @@ const ProductDetailPage = ({ match, ...props }) => {
                     </Col>
                     <Col>
                       <S.Span>
-                        {cake.balance ? `Còn: ${cake.balance}` : 'Hết'}
+                        {cake.balance ? `Còn: ${cake.balance}` : "Hết"}
                       </S.Span>
                     </Col>
                   </Row>

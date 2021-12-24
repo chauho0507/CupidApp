@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const BlogsContainer = styled.div`
   max-width: 1280px;
@@ -43,12 +43,12 @@ export const Card = styled.div`
   padding: 20px;
 
   border-radius: 4px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   background-color: white;
 
   &:hover {
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
     transition: all 0.3s;
   }
 `;
