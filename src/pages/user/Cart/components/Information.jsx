@@ -148,15 +148,16 @@ const Information = ({ setCheckoutStep, userInfo }) => {
         layout="vertical"
         onFinish={values => handleConfirmInformation(values)}
       >
-        <Form.Item
-          label={<S.H4>Họ và tên</S.H4>}
-          name="fullName"
-          rules={[{ required: true, message: 'Bạn cần nhập họ và tên' }]}
-        >
-          <Input />
-        </Form.Item>
-
         <Row gutter={24}>
+          <Col span={12}>
+            <Form.Item
+              label={<S.H4>Họ và tên</S.H4>}
+              name="fullName"
+              rules={[{ required: true, message: 'Bạn cần nhập họ và tên' }]}
+            >
+              <Input />
+            </Form.Item>
+          </Col>
           <Col span={12}>
             <Form.Item
               label={<S.H4>Email</S.H4>}
@@ -166,12 +167,26 @@ const Information = ({ setCheckoutStep, userInfo }) => {
               <Input />
             </Form.Item>
           </Col>
+        </Row>
+
+        <Row gutter={24}>
           <Col span={12}>
             <Form.Item
               label={<S.H4>Số điện thoại</S.H4>}
               name="phoneNumber"
               rules={[
                 { required: true, message: 'Bạn cần nhập số điện thoại' },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+          </Col>
+          <Col span={12}>
+            <Form.Item
+              label={<S.H4>Địa chỉ</S.H4>}
+              name="address"
+              rules={[
+                { required: true, message: 'Bạn cần nhập địa chỉ nhận hàng' },
               ]}
             >
               <Input />
@@ -226,16 +241,6 @@ const Information = ({ setCheckoutStep, userInfo }) => {
             </Form.Item>
           </Col>
         </Row>
-
-        <Form.Item
-          label={<S.H4>Địa chỉ</S.H4>}
-          name="address"
-          rules={[
-            { required: true, message: 'Bạn cần nhập địa chỉ nhận hàng' },
-          ]}
-        >
-          <Input />
-        </Form.Item>
 
         <Form.Item label={<S.H4>Ghi chú</S.H4>} name="note">
           <Input.TextArea

@@ -65,7 +65,7 @@ const WishList = ({ userInfo }) => {
 
               <S.ProductDetailWrapper>
                 <S.H1>{cake.product.name}</S.H1>
-                <S.P>{cake.product.price.toLocaleString()} ₫</S.P>
+                <S.Price>{cake.product.price.toLocaleString()} ₫</S.Price>
                 <Rate
                   disabled
                   allowHalf
@@ -112,7 +112,7 @@ const WishList = ({ userInfo }) => {
 
               <S.ProductDetailWrapper>
                 <S.H3>{drink.product.name}</S.H3>
-                <S.P>{drink.product.price.toLocaleString()} ₫</S.P>
+                <S.Price>{drink.product.price.toLocaleString()} ₫</S.Price>
                 <Rate
                   disabled
                   allowHalf

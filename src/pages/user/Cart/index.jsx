@@ -42,19 +42,19 @@ const CartPage = () => {
       <S.StepContainer>
         <Steps current={checkoutStep} type="navigation">
           <Steps.Step
-            description="Giỏ hàng"
+            title="Giỏ hàng"
             icon={<ShoppingCartOutlined style={{ fontSize: 32 }} />}
           />
           <Steps.Step
-            description="Thông tin"
+            title="Thông tin"
             icon={<InfoCircleOutlined style={{ fontSize: 32 }} />}
           />
           <Steps.Step
-            description="Thanh toán"
+            title="Thanh toán"
             icon={<CreditCardOutlined style={{ fontSize: 32 }} />}
           />
           <Steps.Step
-            description="Hoàn tất"
+            title="Hoàn tất"
             icon={<CheckCircleOutlined style={{ fontSize: 32 }} />}
           />
         </Steps>

@@ -12,6 +12,8 @@ function* getCartListSaga(action) {
       {
         params: {
           userId,
+          _sort: 'createdAt',
+          _order: 'desc',
         },
       }
     );

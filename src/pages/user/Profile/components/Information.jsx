@@ -62,19 +62,30 @@ const Information = ({ userInfo }) => {
               >
                 <Row>
                   <Col span={12}>
-                    <S.H3>Họ và tên:</S.H3>
-                    {userInfo.data.fullName}
+                    <Row align="middle">
+                      <S.Span>Họ và tên:</S.Span>&nbsp;&nbsp;&nbsp;
+                      {userInfo.data.fullName}
+                    </Row>
                   </Col>
                   <Col span={12}>
-                    <S.H3>Email:</S.H3> {userInfo.data.email}
+                    <Row align="middle">
+                      <S.Span>Email:</S.Span>&nbsp;&nbsp;&nbsp;
+                      {userInfo.data.email}
+                    </Row>
                   </Col>
                 </Row>
-                <Row>
+                <Row style={{ padding: '14px 0' }}>
                   <Col span={12}>
-                    <S.H3>Số điện thoại:</S.H3> {userInfo.data.phoneNumber}
+                    <Row align="middle">
+                      <S.Span>Số điện thoại:</S.Span>&nbsp;&nbsp;&nbsp;
+                      {userInfo.data.phoneNumber}
+                    </Row>
                   </Col>
                   <Col span={12}>
-                    <S.H3>Địa chỉ:</S.H3> {userInfo.data.address}
+                    <Row align="middle">
+                      <S.Span>Địa chỉ:</S.Span>&nbsp;&nbsp;&nbsp;
+                      {userInfo.data.address}
+                    </Row>
                   </Col>
                 </Row>
                 <Row justify="end" align="middle">
@@ -82,6 +93,7 @@ const Information = ({ userInfo }) => {
                     Cập nhật thông tin
                   </Button>
                 </Row>
+
                 <Modal
                   visible={showModal}
                   okText="Xác nhận"

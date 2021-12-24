@@ -339,7 +339,13 @@ const HomePage = () => {
         key={blog.id}
       >
         <S.BlogItemWrapper>
-          <S.CardBlog>
+          <S.CardBlog
+            onClick={() =>
+              history.push(
+                generatePath(ROUTER.USER.BLOG_DETAIL, { id: blog.id })
+              )
+            }
+          >
             <S.CardImages>
               {blogList.loading ? (
                 <S.SkeletonImage>
@@ -367,16 +373,7 @@ const HomePage = () => {
               </Title>
 
               <Row justify="end">
-                <Button
-                  type="primary"
-                  onClick={() =>
-                    history.push(
-                      generatePath(ROUTER.USER.BLOG_DETAIL, { id: blog.id })
-                    )
-                  }
-                >
-                  Chi tiết
-                </Button>
+                <Button type="primary">Xem thêm</Button>
               </Row>
             </S.CardDetails>
           </S.CardBlog>

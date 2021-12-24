@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory, generatePath } from 'react-router-dom';
+import { useHistory, useRouteMatch, generatePath } from 'react-router-dom';
 import TopWrapper from '../../../components/TopWrapper';
 import Slider from 'react-slick';
 import moment from 'moment';
@@ -54,19 +54,20 @@ import * as S from './styles';
 import Avatar from 'antd/lib/avatar/avatar';
 
 const ProductDetailPage = ({ match, ...props }) => {
+  const { params } = useRouteMatch();
+  const { id } = params;
   const history = useHistory();
   const dispatch = useDispatch();
-  const id = match.params?.id;
   const [commentForm] = Form.useForm();
   const { categoryId } = props.location.state;
-  const [productQuantity, setProductQuantity] = useState(1);
-  const [selectedOption, setSelectedOption] = useState(null);
   const { userInfo } = useSelector(state => state.authReducer);
   const { wishLists } = useSelector(state => state.wishListsReducer);
   const { commentList } = useSelector(state => state.commentReducer);
   const { productDetail } = useSelector(state => state.productReducer);
   const { categoryDetail } = useSelector(state => state.categoryReducer);
   const { cartList, actionLoading } = useSelector(state => state.cartReducer);
+  const [productQuantity, setProductQuantity] = useState(1);
+  const [selectedOption, setSelectedOption] = useState(null);
   const isLike =
     wishLists.data.findIndex(item => item.productId === parseInt(id)) !== -1;
 
@@ -143,16 +144,8 @@ const ProductDetailPage = ({ match, ...props }) => {
     }
   }, [id]);
 
-  const renderProductRate = () => {
-    let total = 0;
-    commentList.data.forEach(item => {
-      total = total + item.rating;
-    });
-    return (total / commentList.data.length).toFixed(1);
-  };
-
   const getProductOptions = useMemo(() => {
-    if (productDetail.data.productOptions?.length) {
+    if (productDetail.data.productOptions?.length > 1) {
       return productDetail.data.productOptions.map(option => {
         return (
           <Radio.Button key={option.id} value={option}>
@@ -269,7 +262,6 @@ const ProductDetailPage = ({ match, ...props }) => {
         const wish = wishLists.data.find(
           item => item.productId === parseInt(id)
         );
-        console.log(wish);
         dispatch(
           removeFromWishListAction({ id: wish.id, userId: userInfo.data.id })
         );
@@ -328,10 +320,9 @@ const ProductDetailPage = ({ match, ...props }) => {
                     <Rate
                       disabled
                       style={{ fontSize: 18, paddingBottom: 10 }}
-                      // character={<HeartFilled style={{ fontSize: 18 }} />}
-                      value={renderProductRate()}
+                      value={data.rating}
                     ></Rate>
-                    &nbsp;&nbsp;&nbsp; {commentList.data.length} đánh giá
+                    &nbsp;&nbsp;&nbsp; {commentList.data.length} Nhận xét
                     <p
                       style={{
                         borderBottom: `1px solid ${COLOR.PRIMARY}`,
@@ -380,7 +371,7 @@ const ProductDetailPage = ({ match, ...props }) => {
                     <h2 style={{ color: 'red', fontWeight: 700 }}>
                       {selectedOption
                         ? `${(
-                            selectedOption.price + data.price || 0
+                            selectedOption?.price + data.price || 0
                           ).toLocaleString()} ₫`
                         : `${data.price?.toLocaleString()} ₫`}
                     </h2>
@@ -564,11 +555,11 @@ const ProductDetailPage = ({ match, ...props }) => {
                           <S.CommentAvatar>
                             <Avatar
                               size={{
-                                xs: 70,
-                                sm: 80,
-                                md: 100,
-                                lg: 120,
-                                xl: 120,
+                                xs: 60,
+                                sm: 70,
+                                md: 80,
+                                lg: 90,
+                                xl: 90,
                               }}
                               src={item.user.avatar}
                             />

@@ -41,7 +41,13 @@ const BlogsPage = () => {
     return blogList.data.map(blog => (
       <Col xs={24} sm={12} md={12} lg={8} key={blog.id}>
         <S.BlogItemWrapper>
-          <S.Card>
+          <S.Card
+            onClick={() =>
+              history.push(
+                generatePath(ROUTER.USER.BLOG_DETAIL, { id: blog.id })
+              )
+            }
+          >
             <S.CardImage>
               {blogList.loading ? (
                 <S.SkeletonImage>
@@ -69,16 +75,7 @@ const BlogsPage = () => {
                 {blog.description}
               </Title>
               <Row justify="end">
-                <Button
-                  type="primary"
-                  onClick={() =>
-                    history.push(
-                      generatePath(ROUTER.USER.BLOG_DETAIL, { id: blog.id })
-                    )
-                  }
-                >
-                  Chi tiết
-                </Button>
+                <Button type="primary">Xem thêm</Button>
               </Row>
             </S.CardDetail>
           </S.Card>

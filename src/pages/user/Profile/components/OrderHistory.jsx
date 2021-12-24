@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, generatePath } from 'react-router-dom';
@@ -25,21 +25,21 @@ const OrderHistory = () => {
 
   const orderColumns = [
     {
-      title: 'Mã đơn hàng',
+      title: <S.H3>Mã đơn hàng</S.H3>,
       dataIndex: 'orderCode',
       key: 'orderCode',
       render: item => <b>{item}</b>,
       width: '15%',
     },
     {
-      title: 'Ngày mua',
+      title: <S.H3>Ngày mua</S.H3>,
       dataIndex: 'createdAt',
       key: 'createdAt',
       render: item => moment(item).format('DD/MM/YYYY HH:mm'),
       width: '16%',
     },
     {
-      title: 'Tên sản phẩm',
+      title: <S.H3>Danh sách sản phẩm</S.H3>,
       dataIndex: 'productCount',
       key: 'productCount',
       render: (_, record) =>
@@ -50,17 +50,17 @@ const OrderHistory = () => {
       width: '39%',
     },
     {
-      title: 'Tổng tiền',
+      title: <S.H3>Tổng tiền</S.H3>,
       dataIndex: 'totalPrice',
       key: 'totalPrice',
-      render: item => <S.P>{item.toLocaleString()}₫</S.P>,
+      render: item => <S.Price>{item.toLocaleString()}₫</S.Price>,
       width: '18%',
     },
     {
-      title: 'Tình trạng đơn hàng',
+      title: <S.H3>Tình trạng</S.H3>,
       dataIndex: 'status',
       key: 'status',
-      // render: item => <Tag color="green">{renderStatusOrder}</Tag>,
+
       render: item => renderStatusOrder(item),
       width: '12%',
     },
@@ -70,6 +70,47 @@ const OrderHistory = () => {
     ...item,
     key: item.id,
   }));
+
+  const recordColumns = [
+    {
+      title: <S.H3>Tên sản phẩm</S.H3>,
+      dataIndex: 'name',
+      key: 'name',
+      render: (_, record) => (
+        <S.Span
+          onClick={() =>
+            history.push({
+              pathname: generatePath(ROUTER.USER.PRODUCT_DETAIL, {
+                id: record.id,
+              }),
+              state: record,
+            })
+          }
+        >
+          {record.name}
+          {record.productOption?.name !== ''
+            ? `(${record.productOption?.name})`
+            : ''}
+        </S.Span>
+      ),
+      width: '37%',
+    },
+    {
+      title: <S.H3>Số lượng</S.H3>,
+      dataIndex: 'quantity',
+      key: 'quantity',
+      render: item => <S.Quantity>{item}</S.Quantity>,
+      width: '10%',
+    },
+    {
+      title: <S.H3>Đơn giá</S.H3>,
+      dataIndex: 'price',
+      key: 'price',
+      render: item => <S.Price>{item.toLocaleString()}₫</S.Price>,
+      ellipsis: true,
+      width: '20%',
+    },
+  ];
 
   return (
     <>
@@ -86,56 +127,21 @@ const OrderHistory = () => {
         <Table
           columns={orderColumns}
           dataSource={orderTableData}
-          pagination={{ defaultPageSize: 5 }}
+          pagination={{ defaultPageSize: 10 }}
           expandable={{
             expandedRowRender: record => {
-              return record.products.map(item => (
-                <Card
+              return (
+                <Table
                   size="small"
-                  bordered={false}
-                  key={item.id}
-                  onClick={() =>
-                    history.push({
-                      pathname: generatePath(ROUTER.USER.PRODUCT_DETAIL, {
-                        id: item.id,
-                      }),
-                      state: item,
-                    })
-                  }
-                  style={{ cursor: 'pointer' }}
-                >
-                  <Descriptions>
-                    <Row>
-                      <Col span={14}>
-                        <Descriptions.Item label="Sản phẩm">
-                          <S.H3>
-                            {item.name}
-                            {item.productOption?.name
-                              ? `(${item.productOption?.name})`
-                              : ''}
-                          </S.H3>
-                        </Descriptions.Item>
-                      </Col>
-                      <Col span={3}>
-                        <Descriptions.Item label="Số lượng">
-                          <S.H3>{item.quantity}</S.H3>
-                        </Descriptions.Item>
-                      </Col>
-                      <Col span={7}>
-                        <Descriptions.Item label="Thành tiền">
-                          <S.P>{`${(
-                            (item.productOption?.price
-                              ? item.price + item.productOption.price
-                              : item.price) * item.quantity
-                          ).toLocaleString()} ₫`}</S.P>
-                        </Descriptions.Item>
-                      </Col>
-                    </Row>
-                  </Descriptions>
-                </Card>
-              ));
+                  columns={recordColumns}
+                  dataSource={record.products}
+                  tableLayout="fixed"
+                  pagination={false}
+                />
+              );
             },
           }}
+          tableLayout="fixed"
         />
       </Card>
     </>

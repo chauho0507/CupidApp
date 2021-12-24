@@ -93,14 +93,20 @@ export const H4 = styled.h4`
   color: ${COLOR.TERTIARY};
 `;
 
-export const P = styled.p`
+export const Price = styled.span`
   font-size: 16px;
   color: red;
   font-weight: 500;
 `;
 
+export const Quantity = styled.span`
+  color: ${COLOR.TERTIARY};
+`;
+
 export const Span = styled.span`
-  color: ${COLOR.PRIMARY_LIGHT};
+  color: ${COLOR.TERTIARY};
+  font-size: 14px;
+  font-weight: 500;
 `;
 
 export const TabsContainer = styled.div`

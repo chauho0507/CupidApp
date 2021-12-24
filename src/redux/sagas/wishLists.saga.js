@@ -46,10 +46,6 @@ function* addToWishListSaga(action) {
         data: result.data,
       },
     });
-    yield notification.success({
-      message: 'Đã yêu thích',
-      placement: 'bottomRight',
-    });
   } catch (error) {
     yield put({
       type: FAIL(WISHLISTS_ACTION.ADD_TO_WIST_LIST),
