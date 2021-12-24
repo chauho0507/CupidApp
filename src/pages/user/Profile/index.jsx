@@ -1,33 +1,33 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import TopWrapper from '../../../components/TopWrapper';
-import OrderHistory from './components/OrderHistory';
-import Information from './components/Information';
-import WishList from './components/WishList';
+import TopWrapper from "../../../components/TopWrapper";
+import OrderHistory from "./components/OrderHistory";
+import Information from "./components/Information";
+import WishList from "./components/WishList";
 
-import { Col, Row, Avatar, Space, Button } from 'antd';
-import { UserOutlined, LogoutOutlined } from '@ant-design/icons';
-import { getOrderListAction, logoutAction } from '../../../redux/actions';
+import { Col, Row, Avatar, Space, Button } from "antd";
+import { UserOutlined, LogoutOutlined } from "@ant-design/icons";
+import { getOrderListAction, logoutAction } from "../../../redux/actions";
 
-import { PROFILE_TABS } from './constants';
-import { BREADCRUMB } from './constants';
+import { PROFILE_TABS } from "./constants";
+import { BREADCRUMB } from "./constants";
 
-import * as S from './styles';
-import OrderLocation from './components/OrderLocation';
+import * as S from "./styles";
+import OrderLocation from "./components/OrderLocation";
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
   const [activeTab, setActiveTab] = useState(0);
 
-  const { userInfo } = useSelector(state => state.authReducer);
+  const { userInfo } = useSelector((state) => state.authReducer);
 
   useEffect(() => {
     dispatch(getOrderListAction({ userId: userInfo.data.id }));
   }, [userInfo.data.id, dispatch]);
 
   const handleLogout = () => {
-    localStorage.removeItem('userInfo');
+    localStorage.removeItem("userInfo");
     dispatch(logoutAction());
   };
 
@@ -51,8 +51,8 @@ const ProfilePage = () => {
       <TopWrapper titlePage="Cá nhân" breadcrumb={BREADCRUMB} height={150} />
       <S.ProfileWrapper>
         <S.ProfileContainer>
-          <Row gutter={16}>
-            <Col span={5}>
+          <Row gutter={[16, 16]}>
+            <Col lg={6} md={8} xs={24}>
               <S.LeftContainer>
                 <S.AvatarContainer>
                   <Avatar
@@ -73,7 +73,7 @@ const ProfilePage = () => {
                 </Button>
               </S.LeftContainer>
             </Col>
-            <Col span={19}>
+            <Col lg={18} md={16} xs={24}>
               <S.RightContainer>
                 {activeTab === 0 && <Information userInfo={userInfo} />}
                 {activeTab === 1 && <OrderHistory />}

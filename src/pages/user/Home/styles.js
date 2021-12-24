@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { COLOR } from '../../../constants/theme';
+import { COLOR } from "../../../constants/theme";
 
-import recipeSection from '../../../assets/img/recipeSection.jpg';
+import recipeSection from "../../../assets/img/recipeSection.jpg";
 
 export const MainContainer = styled.div`
   max-width: 1280px;
@@ -72,7 +72,7 @@ export const H1 = styled.h1`
   margin-bottom: 40px;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -166,12 +166,12 @@ export const Card = styled.div`
   width: 100%;
 
   border-radius: 4px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   background-color: white;
 
   &:hover {
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
     transition: all 0.3s;
   }
 `;
@@ -214,7 +214,7 @@ export const CardContent = styled.div`
 `;
 
 export const RecipeSection = styled.section`
-  height: 60vh;
+  height: 440px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -304,7 +304,7 @@ export const ReviewSection = styled.section`
   justify-content: center;
   align-items: center;
 
-  height: 35vh;
+  height: 280px;
   width: 100%;
 
   background-color: ${COLOR.PRIMARY};
@@ -315,7 +315,7 @@ export const ReviewContent = styled.div`
   width: 60%;
 
   & .ant-row {
-    color: ${COLOR.SECONDARY};
+    color: ${COLOR.TERTIARY};
     font-size: 20px;
     line-height: 1.6;
   }
@@ -349,7 +349,7 @@ export const ReviewTitle = styled.h1`
   color: ${COLOR.TERTIARY};
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -428,12 +428,12 @@ export const CardBlog = styled.div`
   padding: 20px;
 
   border-radius: 4px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16);
   cursor: pointer;
   background-color: white;
 
   &:hover {
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.32);
     transition: all 0.3s;
   }
 `;

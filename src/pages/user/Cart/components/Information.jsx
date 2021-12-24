@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Card, Form, Button, Row, Col, Input, Select, Tag } from 'antd';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Card, Form, Button, Row, Col, Input, Select, Tag } from "antd";
 
 import {
   setOrderInfoAction,
   getCityListAction,
   getDistrictListAction,
   getWardListAction,
-} from '../../../../redux/actions';
-import * as S from '../styles';
+} from "../../../../redux/actions";
+import * as S from "../styles";
 
 const Information = ({ setCheckoutStep, userInfo }) => {
   const [informationForm] = Form.useForm();
@@ -16,18 +16,18 @@ const Information = ({ setCheckoutStep, userInfo }) => {
   const dispatch = useDispatch();
   const { orderLocations } = userInfo.data;
   const defaultOrderLocation =
-    orderLocations?.find(location => location.defaultLocation === true) || {};
+    orderLocations?.find((location) => location.defaultLocation === true) || {};
   const [wardOptions, setWardOptions] = useState([]);
   const [districtOptions, setDistrictOptions] = useState([]);
   const [orderLocationForm, setOrderLocationForm] =
     useState(defaultOrderLocation);
 
   const { cityList, districtList, wardList } = useSelector(
-    state => state.commonReducer
+    (state) => state.commonReducer
   );
 
-  const { selectedCarts } = useSelector(state => state.cartReducer);
-  const { orderCheckout } = useSelector(state => state.orderReducer);
+  const { selectedCarts } = useSelector((state) => state.cartReducer);
+  const { orderCheckout } = useSelector((state) => state.orderReducer);
 
   useEffect(() => {
     dispatch(getCityListAction());
@@ -35,13 +35,13 @@ const Information = ({ setCheckoutStep, userInfo }) => {
     dispatch(getWardListAction());
   }, [dispatch]);
 
-  const handleConfirmInformation = values => {
-    const city = cityList.data.find(city => city.code === values.city);
+  const handleConfirmInformation = (values) => {
+    const city = cityList.data.find((city) => city.code === values.city);
     const district = districtOptions.find(
-      district => district.code === values.district
+      (district) => district.code === values.district
     );
 
-    const ward = wardOptions.find(ward => ward.code === values.ward);
+    const ward = wardOptions.find((ward) => ward.code === values.ward);
     const newValues = {
       ...values,
       city: city?.name || values.city,
@@ -54,7 +54,7 @@ const Information = ({ setCheckoutStep, userInfo }) => {
   };
 
   const renderOrderLocations = () => {
-    return userInfo.data.orderLocations?.map(location => {
+    return userInfo.data.orderLocations?.map((location) => {
       return (
         <Col span={12} key={location.id}>
           <S.LocationCard
@@ -110,7 +110,7 @@ const Information = ({ setCheckoutStep, userInfo }) => {
   };
 
   const renderCityOption = () => {
-    return cityList.data.map(city => {
+    return cityList.data.map((city) => {
       return (
         <Select.Option key={city.id} value={city.code}>
           {city.name}
@@ -120,7 +120,7 @@ const Information = ({ setCheckoutStep, userInfo }) => {
   };
 
   const renderDistrictOption = () => {
-    return districtOptions.map(district => {
+    return districtOptions.map((district) => {
       return (
         <Select.Option key={district.id} value={district.code}>
           {district.name}
@@ -130,7 +130,7 @@ const Information = ({ setCheckoutStep, userInfo }) => {
   };
 
   const renderWardOption = () => {
-    return wardOptions.map(ward => {
+    return wardOptions.map((ward) => {
       return (
         <Select.Option key={ward.id} value={ward.code}>
           {ward.name}
@@ -146,14 +146,14 @@ const Information = ({ setCheckoutStep, userInfo }) => {
         form={informationForm}
         name="informationForm"
         layout="vertical"
-        onFinish={values => handleConfirmInformation(values)}
+        onFinish={(values) => handleConfirmInformation(values)}
       >
         <Row gutter={24}>
           <Col span={12}>
             <Form.Item
               label={<S.H4>Họ và tên</S.H4>}
               name="fullName"
-              rules={[{ required: true, message: 'Bạn cần nhập họ và tên' }]}
+              rules={[{ required: true, message: "Bạn cần nhập họ và tên" }]}
             >
               <Input />
             </Form.Item>
@@ -162,7 +162,7 @@ const Information = ({ setCheckoutStep, userInfo }) => {
             <Form.Item
               label={<S.H4>Email</S.H4>}
               name="email"
-              rules={[{ required: true, message: 'Bạn cần nhập email' }]}
+              rules={[{ required: true, message: "Bạn cần nhập email" }]}
             >
               <Input />
             </Form.Item>
@@ -175,7 +175,7 @@ const Information = ({ setCheckoutStep, userInfo }) => {
               label={<S.H4>Số điện thoại</S.H4>}
               name="phoneNumber"
               rules={[
-                { required: true, message: 'Bạn cần nhập số điện thoại' },
+                { required: true, message: "Bạn cần nhập số điện thoại" },
               ]}
             >
               <Input />
@@ -186,7 +186,7 @@ const Information = ({ setCheckoutStep, userInfo }) => {
               label={<S.H4>Địa chỉ</S.H4>}
               name="address"
               rules={[
-                { required: true, message: 'Bạn cần nhập địa chỉ nhận hàng' },
+                { required: true, message: "Bạn cần nhập địa chỉ nhận hàng" },
               ]}
             >
               <Input />
@@ -199,12 +199,12 @@ const Information = ({ setCheckoutStep, userInfo }) => {
             <Form.Item
               label={<S.H4>Tỉnh/Thành</S.H4>}
               name="city"
-              rules={[{ required: true, message: 'Bạn cần nhập tỉnh/thành!' }]}
+              rules={[{ required: true, message: "Bạn cần nhập tỉnh/thành!" }]}
             >
               <Select
-                onChange={value => {
+                onChange={(value) => {
                   const curDistrictList = districtList.data.filter(
-                    district => district.parentcode === value
+                    (district) => district.parentcode === value
                   );
                   setDistrictOptions(curDistrictList);
                 }}
@@ -217,12 +217,12 @@ const Information = ({ setCheckoutStep, userInfo }) => {
             <Form.Item
               label={<S.H4>Quận/Huyện</S.H4>}
               name="district"
-              rules={[{ required: true, message: 'Bạn cần nhập quận/huyện!' }]}
+              rules={[{ required: true, message: "Bạn cần nhập quận/huyện!" }]}
             >
               <Select
-                onChange={value => {
+                onChange={(value) => {
                   const curWardList = wardList.data.filter(
-                    ward => ward.parentcode === value
+                    (ward) => ward.parentcode === value
                   );
                   setWardOptions(curWardList);
                 }}
@@ -235,7 +235,7 @@ const Information = ({ setCheckoutStep, userInfo }) => {
             <Form.Item
               label={<S.H4>Phường/Xã</S.H4>}
               name="ward"
-              rules={[{ required: true, message: 'Bạn cần nhập phường/xã!' }]}
+              rules={[{ required: true, message: "Bạn cần nhập phường/xã!" }]}
             >
               <Select>{renderWardOption()}</Select>
             </Form.Item>
@@ -258,10 +258,10 @@ const Information = ({ setCheckoutStep, userInfo }) => {
         <Row gutter={[16, 16]}>{renderOrderLocations()}</Row>
       )}
       <Row gutter={[16, 16]} style={{ marginTop: 16 }}>
-        <Col span={16}>
+        <Col md={16} xs={24}>
           <Card size="small">{renderInformationForm()}</Card>
         </Col>
-        <Col span={8}>
+        <Col md={8} xs={24}>
           <Card size="small" style={{ marginBottom: 16 }}>
             {renderSelectedCarts()}
             <Row justify="space-between">
@@ -269,7 +269,7 @@ const Information = ({ setCheckoutStep, userInfo }) => {
               <S.P>{`${orderCheckout.discountPrice.toLocaleString()} ₫`}</S.P>
             </Row>
             <Row
-              style={{ borderTop: '1px solid grey', paddingTop: 5 }}
+              style={{ borderTop: "1px solid grey", paddingTop: 5 }}
               justify="space-between"
             >
               <Col>

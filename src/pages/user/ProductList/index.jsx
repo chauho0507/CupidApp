@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import { useHistory, generatePath } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import debounce from 'lodash.debounce';
-import TopWrapper from '../../../components/TopWrapper';
+import React, { useState, useEffect, useCallback, useMemo } from "react";
+import { useHistory, generatePath } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import debounce from "lodash.debounce";
+import TopWrapper from "../../../components/TopWrapper";
 import {
   Col,
   Row,
@@ -19,7 +19,7 @@ import {
   Checkbox,
   Slider,
   Spin,
-} from 'antd';
+} from "antd";
 import {
   SearchOutlined,
   HeartOutlined,
@@ -27,37 +27,37 @@ import {
   ArrowsAltOutlined,
   ArrowDownOutlined,
   ArrowUpOutlined,
-} from '@ant-design/icons';
+} from "@ant-design/icons";
 
 import {
   getProductListAction,
   getCategoryListAction,
   getTopSaleListAction,
-} from '../../../redux/actions';
+} from "../../../redux/actions";
 
-import { ROUTER } from '../../../constants/router';
-import { PAGE_SIZE } from '../../../constants/pagination';
-import { COLOR } from '../../../constants/theme';
-import { BREADCRUMB, DEFAULT_PRICE_FILTER } from './constants';
+import { ROUTER } from "../../../constants/router";
+import { PAGE_SIZE } from "../../../constants/pagination";
+import { COLOR } from "../../../constants/theme";
+import { BREADCRUMB, DEFAULT_PRICE_FILTER } from "./constants";
 
-import fallbackImg from '../../../assets/img/fallback.png';
-import * as S from './styles';
+import fallbackImg from "../../../assets/img/fallback.png";
+import * as S from "./styles";
 
 const ProductListPage = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const [keywordFilter, setKeywordFilter] = useState('');
-  const [sortFilter, setSortFilter] = useState('');
+  const [keywordFilter, setKeywordFilter] = useState("");
+  const [sortFilter, setSortFilter] = useState("");
   const [priceFilter, setPriceFilter] = useState(DEFAULT_PRICE_FILTER);
   const [categoryFilter, setCategoryFilter] = useState([]);
 
   const { productList, topSaleList } = useSelector(
-    state => state.productReducer
+    (state) => state.productReducer
   );
-  const { categoryList } = useSelector(state => state.categoryReducer);
-  const { userInfo } = useSelector(state => state.authReducer);
-  const { cartList, actionLoading } = useSelector(state => state.cartReducer);
+  const { categoryList } = useSelector((state) => state.categoryReducer);
+  const { userInfo } = useSelector((state) => state.authReducer);
+  const { cartList, actionLoading } = useSelector((state) => state.cartReducer);
 
   const { data, meta, loading } = productList;
   const { Title } = Typography;
@@ -66,19 +66,19 @@ const ProductListPage = () => {
       style: {
         color: COLOR.SECONDARY,
       },
-      label: <strong>{'0₫'}</strong>,
+      label: <strong>{"0₫"}</strong>,
     },
     400000: {
       style: {
         color: COLOR.SECONDARY,
       },
-      label: <strong>{'400k'}</strong>,
+      label: <strong>{"400k"}</strong>,
     },
     800000: {
       style: {
         color: COLOR.SECONDARY,
       },
-      label: <strong>{'800k'}</strong>,
+      label: <strong>{"800k"}</strong>,
     },
   };
 
@@ -95,11 +95,11 @@ const ProductListPage = () => {
     );
   }, []);
 
-  const handleSelectCategoryFilter = e => {
+  const handleSelectCategoryFilter = (e) => {
     const { value, checked } = e.target;
     const newCategoryFilter = checked
       ? [...categoryFilter, value]
-      : categoryFilter.filter(filterItem => filterItem.id !== value.id);
+      : categoryFilter.filter((filterItem) => filterItem.id !== value.id);
     setCategoryFilter(newCategoryFilter);
 
     dispatch(
@@ -114,9 +114,9 @@ const ProductListPage = () => {
     );
   };
 
-  const handleClearCategoryFilter = categoryFilterItem => {
+  const handleClearCategoryFilter = (categoryFilterItem) => {
     const newCategoryFilter = categoryFilter.filter(
-      filterItem => filterItem.id !== categoryFilterItem.id
+      (filterItem) => filterItem.id !== categoryFilterItem.id
     );
     setCategoryFilter(newCategoryFilter);
     dispatch(
@@ -133,7 +133,7 @@ const ProductListPage = () => {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncePriceFilter = useCallback(
-    debounce(value => {
+    debounce((value) => {
       dispatch(
         getProductListAction({
           limit: PAGE_SIZE.USER_PRODUCT,
@@ -148,7 +148,7 @@ const ProductListPage = () => {
     [categoryFilter, keywordFilter, sortFilter]
   );
 
-  const handleChangePriceFilter = value => {
+  const handleChangePriceFilter = (value) => {
     setPriceFilter(value);
     debouncePriceFilter(value);
   };
@@ -170,7 +170,7 @@ const ProductListPage = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const debounceKeyword = useCallback(
     debounce(
-      value =>
+      (value) =>
         dispatch(
           getProductListAction({
             limit: PAGE_SIZE.USER_PRODUCT,
@@ -186,26 +186,26 @@ const ProductListPage = () => {
     [categoryFilter, priceFilter, sortFilter]
   );
 
-  const handleSearchKeyword = value => {
+  const handleSearchKeyword = (value) => {
     setKeywordFilter(value);
     debounceKeyword(value);
   };
 
   const handleClearKeyword = () => {
-    setKeywordFilter('');
+    setKeywordFilter("");
     dispatch(
       getProductListAction({
         limit: PAGE_SIZE.USER_PRODUCT,
         page: 1,
         categoryFilter,
         priceFilter,
-        keyword: '',
+        keyword: "",
         sortFilter,
       })
     );
   };
 
-  const handleChangeSort = value => {
+  const handleChangeSort = (value) => {
     setSortFilter(value);
     dispatch(
       getProductListAction({
@@ -228,12 +228,12 @@ const ProductListPage = () => {
         categoryFilter,
         priceFilter,
         keyword: keywordFilter,
-        sortFilter: '',
+        sortFilter: "",
       })
     );
   };
 
-  const handleLoadMore = e => {
+  const handleLoadMore = (e) => {
     dispatch(
       getProductListAction({
         limit: PAGE_SIZE.USER_PRODUCT,
@@ -248,10 +248,10 @@ const ProductListPage = () => {
   };
 
   const handleClearAll = () => {
-    setKeywordFilter('');
+    setKeywordFilter("");
     setCategoryFilter([]);
     setPriceFilter(DEFAULT_PRICE_FILTER);
-    setSortFilter('');
+    setSortFilter("");
 
     dispatch(
       getProductListAction({
@@ -265,14 +265,14 @@ const ProductListPage = () => {
     return categoryList.data.map((categoryItem, categoryIndex) => {
       const checked =
         categoryFilter.findIndex(
-          filterItem => filterItem.id === categoryItem.id
+          (filterItem) => filterItem.id === categoryItem.id
         ) !== -1;
       return (
         <S.FilterItem key={categoryItem.id}>
           <Checkbox
             value={categoryItem}
             checked={checked}
-            onChange={e => handleSelectCategoryFilter(e)}
+            onChange={(e) => handleSelectCategoryFilter(e)}
           >
             <S.H4>{categoryItem.name}</S.H4>
           </Checkbox>
@@ -294,12 +294,16 @@ const ProductListPage = () => {
   }, [categoryFilter]);
 
   const renderTopSaleList = useMemo(() => {
-    return topSaleList.data.map(cake => (
+    return topSaleList.data.map((cake) => (
       <Card
         key={cake.id}
-        hoverable
-        bordered={false}
-        style={{ borderRadius: '4px', overflow: 'hidden', marginBottom: 3 }}
+        bordered
+        style={{
+          borderRadius: "4px",
+          overflow: "hidden",
+          marginBottom: 12,
+          cursor: "pointer",
+        }}
         size="small"
         onClick={() =>
           history.push({
@@ -326,7 +330,7 @@ const ProductListPage = () => {
               {cake.name}
             </Title>
             <S.Span
-              style={{ color: 'red' }}
+              style={{ color: "red" }}
             >{`${cake.price.toLocaleString()} ₫`}</S.Span>
             <Rate
               disabled
@@ -341,8 +345,8 @@ const ProductListPage = () => {
   }, [topSaleList.data]);
 
   const renderProductList = useMemo(() => {
-    return productList.data?.map(cake => (
-      <Col xs={24} sm={12} md={12} lg={8} xl={6} key={cake.id}>
+    return productList.data?.map((cake) => (
+      <Col xs={12} lg={8} xl={6} key={cake.id}>
         <S.ProductItemWrapper>
           <S.Card
             size="small"
@@ -366,8 +370,8 @@ const ProductListPage = () => {
                   style={{
                     borderTopLeftRadius: 4,
                     borderTopRightRadius: 4,
-                    height: 'auto',
-                    width: '100%',
+                    height: "auto",
+                    width: "100%",
                   }}
                   preview={false}
                   fallback={fallbackImg}
@@ -391,7 +395,7 @@ const ProductListPage = () => {
               <Row justify="center">
                 <Col>
                   <div
-                    style={{ color: 'red', fontWeight: 500, fontSize: 16 }}
+                    style={{ color: "red", fontWeight: 500, fontSize: 16 }}
                   >{`${cake.price?.toLocaleString()}₫`}</div>
                 </Col>
               </Row>
@@ -402,7 +406,7 @@ const ProductListPage = () => {
 
                 <Col>
                   <S.Span>
-                    {cake.balance ? `Còn: ${cake.balance}` : 'Hết'}
+                    {cake.balance ? `Còn: ${cake.balance}` : "Hết"}
                   </S.Span>
                 </Col>
               </Row>
@@ -421,12 +425,12 @@ const ProductListPage = () => {
         height={180}
       />
       <S.Container>
-        <Row>
-          <Col span={6}>
+        <Row gutter={[0, 16]}>
+          <Col md={6} xs={24}>
             <Input
               placeholder="Tìm kiếm..."
               value={keywordFilter}
-              onChange={e => {
+              onChange={(e) => {
                 handleSearchKeyword(e.target.value);
               }}
               suffix={
@@ -436,40 +440,46 @@ const ProductListPage = () => {
               }
             />
           </Col>
-          <Col span={12} offset={1}>
-            <div
-              style={{
-                backgroundColor: 'white',
-                borderRadius: 4,
-                padding: '3px 10px',
-                height: '32px',
-              }}
-            >
-              <S.NumberProduct>{data.length}</S.NumberProduct> /
-              <S.NumberProduct>{meta?.total}</S.NumberProduct> sản phẩm ...
-            </div>
-          </Col>
-          <Col offset={1} span={4}>
-            <Select
-              style={{ width: '100%' }}
-              placeholder="Sắp xếp theo..."
-              allowClear
-              onChange={value => handleChangeSort(value)}
-              onClear={() => handleClearSort()}
-            >
-              <Select.Option value="asc">
-                <ArrowUpOutlined
-                  style={{ marginRight: 4, color: COLOR.PRIMARY_DARK }}
-                />
-                Giá tăng dần
-              </Select.Option>
-              <Select.Option value="desc">
-                <ArrowDownOutlined
-                  style={{ marginRight: 4, color: COLOR.PRIMARY_DARK }}
-                />
-                Giá giảm dần
-              </Select.Option>
-            </Select>
+          <Col md={{ span: 17, offset: 1 }} xs={{ span: 24 }}>
+            <Row gutter={16}>
+              <Col md={18} xs={12}>
+                <div
+                  style={{
+                    backgroundColor: "white",
+                    borderRadius: 4,
+                    padding: "3px 10px",
+                    height: "32px",
+                    border: "1px solid #d9d9d9",
+                    width: "100%",
+                  }}
+                >
+                  <S.NumberProduct>{data.length}</S.NumberProduct> /
+                  <S.NumberProduct>{meta?.total}</S.NumberProduct> sản phẩm ...
+                </div>
+              </Col>
+              <Col md={6} xs={12}>
+                <Select
+                  style={{ width: "100%" }}
+                  placeholder="Sắp xếp theo..."
+                  allowClear
+                  onChange={(value) => handleChangeSort(value)}
+                  onClear={() => handleClearSort()}
+                >
+                  <Select.Option value="asc">
+                    <ArrowUpOutlined
+                      style={{ marginRight: 4, color: COLOR.PRIMARY_DARK }}
+                    />
+                    Giá tăng dần
+                  </Select.Option>
+                  <Select.Option value="desc">
+                    <ArrowDownOutlined
+                      style={{ marginRight: 4, color: COLOR.PRIMARY_DARK }}
+                    />
+                    Giá giảm dần
+                  </Select.Option>
+                </Select>
+              </Col>
+            </Row>
           </Col>
         </Row>
         <Row style={{ height: 35 }} align="middle">
@@ -494,8 +504,8 @@ const ProductListPage = () => {
                 <Tag
                   style={{
                     backgroundColor: COLOR.PRIMARY_DARK,
-                    border: 'none',
-                    cursor: 'pointer',
+                    border: "none",
+                    cursor: "pointer",
                   }}
                   onClick={() => handleClearAll()}
                 >
@@ -527,16 +537,17 @@ const ProductListPage = () => {
                   title={
                     <>
                       <UnorderedListOutlined
-                        style={{ marginRight: 20, color: '#fff' }}
+                        style={{ marginRight: 20, color: "#fff" }}
                       />
                       Sản phẩm
                     </>
                   }
                   headStyle={{
                     fontSize: 18,
-                    color: 'white',
+                    color: "white",
                     backgroundColor: COLOR.PRIMARY_DARK,
                   }}
+                  style={{ boxShadow: "0 1px 4px rgba(0, 0, 0, 0.12)" }}
                 >
                   {renderCategoryList}
                 </Card>
@@ -552,18 +563,21 @@ const ProductListPage = () => {
               >
                 <Card
                   size="small"
-                  style={{ marginTop: 16 }}
+                  style={{
+                    marginTop: 16,
+                    boxShadow: "0 1px 4px rgba(0, 0, 0, 0.12)",
+                  }}
                   title={
                     <>
                       <ArrowsAltOutlined
-                        style={{ marginRight: 20, color: '#fff' }}
+                        style={{ marginRight: 20, color: "#fff" }}
                       />
                       Khoảng giá
                     </>
                   }
                   headStyle={{
                     fontSize: 18,
-                    color: 'white',
+                    color: "white",
                     backgroundColor: COLOR.PRIMARY_DARK,
                   }}
                 >
@@ -575,8 +589,8 @@ const ProductListPage = () => {
                     max={DEFAULT_PRICE_FILTER[1]}
                     step={50000}
                     value={priceFilter}
-                    tipFormatter={value => value.toLocaleString()}
-                    onChange={value => {
+                    tipFormatter={(value) => value.toLocaleString()}
+                    onChange={(value) => {
                       handleChangePriceFilter(value);
                     }}
                   />
@@ -593,7 +607,10 @@ const ProductListPage = () => {
               >
                 <Card
                   size="small"
-                  style={{ marginTop: 16 }}
+                  style={{
+                    margin: "16px 0",
+                    boxShadow: "0 1px 4px rgba(0, 0, 0, 0.12)",
+                  }}
                   title={
                     <>
                       <HeartOutlined
@@ -608,7 +625,7 @@ const ProductListPage = () => {
                     backgroundColor: COLOR.PRIMARY_DARK,
                   }}
                 >
-                  <div style={{ width: '100%' }}>{renderTopSaleList}</div>
+                  <div style={{ width: "100%" }}>{renderTopSaleList}</div>
                 </Card>
               </Col>
             </Row>

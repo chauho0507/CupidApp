@@ -1,11 +1,11 @@
-import styled, { css } from 'styled-components';
-import { Image } from 'antd';
-import { COLOR } from '../../../constants/theme';
+import styled, { css } from "styled-components";
+import { Image } from "antd";
+import { COLOR } from "../../../constants/theme";
 
 export const Container = styled.div`
   max-width: 1280px;
   width: 100%;
-  padding-bottom: 20px;
+  padding: 0 16px 20px;
   margin: 0 auto;
   overflow: hidden;
 
@@ -107,12 +107,12 @@ export const Card = styled.div`
   width: 100%;
 
   border-radius: 4px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16);
   cursor: pointer;
   background-color: white;
 
   &:hover {
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.32);
     transition: all 0.3s;
   }
 `;

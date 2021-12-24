@@ -1,32 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import { Steps, Row, Col } from 'antd';
-import jwtDecode from 'jwt-decode';
+import React, { useState, useEffect } from "react";
+import { Steps, Row, Col } from "antd";
+import jwtDecode from "jwt-decode";
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   ShoppingCartOutlined,
   InfoCircleOutlined,
   CreditCardOutlined,
   CheckCircleOutlined,
-} from '@ant-design/icons';
+} from "@ant-design/icons";
 
-import TopWrapper from '../../../components/TopWrapper';
-import Checkout from './components/Checkout';
-import Information from './components/Information';
-import Payment from './components/Payment';
-import Success from './components/Success';
+import TopWrapper from "../../../components/TopWrapper";
+import Checkout from "./components/Checkout";
+import Information from "./components/Information";
+import Payment from "./components/Payment";
+import Success from "./components/Success";
 
-import { getUserInfoAction } from '../../../redux/actions';
-import { BREADCRUMB } from './constants';
+import { getUserInfoAction } from "../../../redux/actions";
+import { BREADCRUMB } from "./constants";
 
-import * as S from './styles';
+import * as S from "./styles";
 
 const CartPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     if (userInfo) {
       const decodedUserData = jwtDecode(userInfo.accessToken);
       dispatch(getUserInfoAction({ id: decodedUserData.sub }));
@@ -34,30 +34,32 @@ const CartPage = () => {
   }, []);
 
   const [checkoutStep, setCheckoutStep] = useState(0);
-  const { userInfo } = useSelector(state => state.authReducer);
+  const { userInfo } = useSelector((state) => state.authReducer);
 
   return (
     <>
       <TopWrapper titlePage="Giỏ hàng" breadcrumb={BREADCRUMB} height={180} />
       <S.StepContainer>
-        <Steps current={checkoutStep} type="navigation">
-          <Steps.Step
-            title="Giỏ hàng"
-            icon={<ShoppingCartOutlined style={{ fontSize: 32 }} />}
-          />
-          <Steps.Step
-            title="Thông tin"
-            icon={<InfoCircleOutlined style={{ fontSize: 32 }} />}
-          />
-          <Steps.Step
-            title="Thanh toán"
-            icon={<CreditCardOutlined style={{ fontSize: 32 }} />}
-          />
-          <Steps.Step
-            title="Hoàn tất"
-            icon={<CheckCircleOutlined style={{ fontSize: 32 }} />}
-          />
-        </Steps>
+        <S.StepContent>
+          <Steps current={checkoutStep} type="navigation">
+            <Steps.Step
+              title="Giỏ hàng"
+              icon={<ShoppingCartOutlined style={{ fontSize: 32 }} />}
+            />
+            <Steps.Step
+              title="Thông tin"
+              icon={<InfoCircleOutlined style={{ fontSize: 32 }} />}
+            />
+            <Steps.Step
+              title="Thanh toán"
+              icon={<CreditCardOutlined style={{ fontSize: 32 }} />}
+            />
+            <Steps.Step
+              title="Hoàn tất"
+              icon={<CheckCircleOutlined style={{ fontSize: 32 }} />}
+            />
+          </Steps>
+        </S.StepContent>
       </S.StepContainer>
       <S.CartContainer>
         <Row gutter={32}>

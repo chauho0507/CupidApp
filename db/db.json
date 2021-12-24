@@ -127,6 +127,22 @@
       "createdAt": 1640245512431,
       "updatedAt": 1640265636608,
       "id": 6
+    },
+    {
+      "userId": 1,
+      "info": {
+        "fullName": "Tuấn Lê",
+        "email": "lebathanhtuan@gmail.com",
+        "phoneNumber": "+84849954060",
+        "address": "34 Cao Xuân Dục",
+        "city": "Thành phố Hồ Chí Minh",
+        "district": "Quận 10",
+        "ward": "Phường 02"
+      },
+      "defaultLocation": true,
+      "createdAt": 1640369479065,
+      "updatedAt": 1640369479065,
+      "id": 7
     }
   ],
   "products": [
@@ -2232,27 +2248,27 @@
   "categories": [
     {
       "id": 1,
-      "name": "Bánh Kem"
+      "name": "BÁNH KEM"
     },
     {
       "id": 2,
-      "name": "Bánh Cupcake"
+      "name": "BÁNH CUPCAKE"
     },
     {
       "id": 3,
-      "name": "Bánh Cookies"
+      "name": "BÁNH COOKIES"
     },
     {
       "id": 4,
-      "name": "Bánh Pudding"
+      "name": "BÁNH PUDDING"
     },
     {
       "id": 5,
-      "name": "Bánh Vòng"
+      "name": "BÁNH VÒNG"
     },
     {
       "id": 6,
-      "name": "Nước uống"
+      "name": "NƯỚC UỐNG"
     }
   ],
   "orders": [
@@ -2899,6 +2915,33 @@
       "createdAt": 1640326830106,
       "updatedAt": 1640326830106,
       "id": 17
+    },
+    {
+      "fullName": "Tuấn Lê",
+      "email": "lebathanhtuan@gmail.com",
+      "phoneNumber": "+84849954060",
+      "address": "34 Cao Xuân Dục",
+      "city": "Thành phố Hồ Chí Minh",
+      "district": "Quận 10",
+      "ward": "Phường 02",
+      "shipper": "giaohangnhanh",
+      "paymentType": "cod",
+      "userId": 1,
+      "products": [
+        {
+          "id": 1,
+          "cartId": 25,
+          "name": "Cookie Giáng Sinh",
+          "price": 59000,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 68000,
+      "orderCode": 147363,
+      "status": "pending",
+      "createdAt": 1640369318497,
+      "updatedAt": 1640369318497,
+      "id": 18
     }
   ],
   "comments": [
@@ -3527,6 +3570,13 @@
       "createdAt": 1640320097014,
       "updatedAt": 1640320097014,
       "id": 53
+    },
+    {
+      "userId": 1,
+      "productId": 1,
+      "createdAt": 1640369445756,
+      "updatedAt": 1640369445756,
+      "id": 54
     }
   ],
   "cities": [
