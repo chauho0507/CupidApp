@@ -150,7 +150,7 @@ const Header = () => {
             type="text"
             icon={
               <MenuUnfoldOutlined
-                style={{ fontSize: 24, color: COLOR.PRIMARY }}
+                style={{ fontSize: 24, color: COLOR.PRIMARY_DARK }}
               />
             }
             onClick={() => dispatch(toggleSidebarAction())}
@@ -188,7 +188,12 @@ const Header = () => {
                         }}
                       />
                     }
-                    onClick={() => history.push(ROUTER.USER.CART)}
+                    onClick={() =>
+                      history.push({
+                        pathname: ROUTER.USER.CART,
+                        state: { checkoutStep: 0 },
+                      })
+                    }
                   ></Button>
                 </Badge>
               </S.HeaderUserCart>
@@ -205,7 +210,12 @@ const Header = () => {
 
                     <Menu.Item
                       key="1"
-                      onClick={() => history.push(ROUTER.USER.CART)}
+                      onClick={() =>
+                        history.push({
+                          pathname: ROUTER.USER.CART,
+                          state: { checkoutStep: 0 },
+                        })
+                      }
                       icon={<ShoppingOutlined />}
                     >
                       Giỏ hàng

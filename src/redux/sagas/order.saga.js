@@ -7,13 +7,16 @@ import { notification } from 'antd';
 function* getOrderListSaga(action) {
   try {
     const { userId } = action.payload;
-    const result = yield axios.get(`http://localhost:4000/orders`, {
-      params: {
-        _sort: 'id',
-        _order: 'desc',
-        userId,
-      },
-    });
+    const result = yield axios.get(
+      `https://cupid-bakery-api.herokuapp.com/orders`,
+      {
+        params: {
+          _sort: 'id',
+          _order: 'desc',
+          userId,
+        },
+      }
+    );
     yield put({
       type: SUCCESS(ORDER_ACTION.GET_ORDER_LIST),
       payload: {
@@ -31,10 +34,12 @@ function* getOrderListSaga(action) {
 function* orderCartSaga(action) {
   const { data, callback } = action.payload;
   try {
-    yield axios.post('http://localhost:4000/orders', data);
+    yield axios.post('https://cupid-bakery-api.herokuapp.com/orders', data);
 
     yield data.products.forEach(productItem => {
-      axios.delete(`http://localhost:4000/carts/${productItem.cartId}`);
+      axios.delete(
+        `https://cupid-bakery-api.herokuapp.com/carts/${productItem.cartId}`
+      );
     });
     yield notification.success({
       message: 'Đặt hàng thành công!',

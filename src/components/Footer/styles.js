@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
 import { COLOR } from '../../constants/theme';
-import footerBg from '../../assets/img/footerBackground.jpg';
+import footerBg from '../../assets/img/footerBackground.png';
 
 export const Footer = styled.div`
   padding: 3rem 0;
   background: url(${footerBg});
-  /* background-attachment: fixed; */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

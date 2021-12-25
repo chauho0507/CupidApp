@@ -6,12 +6,15 @@ import { BLOG_ACTION, REQUEST, SUCCESS, FAIL } from '../constants';
 function* getBlogListSaga(action) {
   const { limit, page, more } = action.payload;
   try {
-    const result = yield axios.get('http://localhost:4000/blogs', {
-      params: {
-        _limit: limit,
-        _page: page,
-      },
-    });
+    const result = yield axios.get(
+      'https://cupid-bakery-api.herokuapp.com/blogs',
+      {
+        params: {
+          _limit: limit,
+          _page: page,
+        },
+      }
+    );
     yield put({
       type: SUCCESS(BLOG_ACTION.GET_BLOG_LIST),
       payload: {
@@ -34,7 +37,9 @@ function* getBlogListSaga(action) {
 function* getBlogDetailSaga(action) {
   const { id } = action.payload;
   try {
-    const result = yield axios.get(`http://localhost:4000/blogs/${id}`);
+    const result = yield axios.get(
+      `https://cupid-bakery-api.herokuapp.com/blogs/${id}`
+    );
     yield put({
       type: SUCCESS(BLOG_ACTION.GET_BLOG_DETAIL),
       payload: {

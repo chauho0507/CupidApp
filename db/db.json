@@ -79,7 +79,7 @@
       "id": 6
     }
   ],
-  "orderLocations": [
+  "orderlocations": [
     {
       "userId": 2,
       "info": {
@@ -91,9 +91,9 @@
         "district": "Quận Hải Châu",
         "ward": "Phường Bình Thuận"
       },
-      "defaultLocation": false,
+      "defaultLocation": true,
       "createdAt": 1640058930431,
-      "updatedAt": 1640265636605,
+      "updatedAt": 1640402460548,
       "id": 4
     },
     {
@@ -109,7 +109,7 @@
       },
       "defaultLocation": false,
       "createdAt": 1640187372533,
-      "updatedAt": 1640265636606,
+      "updatedAt": 1640402460546,
       "id": 5
     },
     {
@@ -123,9 +123,9 @@
         "district": "Quận Sơn Trà",
         "ward": "Phường An Hải Bắc"
       },
-      "defaultLocation": true,
+      "defaultLocation": false,
       "createdAt": 1640245512431,
-      "updatedAt": 1640265636608,
+      "updatedAt": 1640402460549,
       "id": 6
     },
     {
@@ -2942,6 +2942,52 @@
       "createdAt": 1640369318497,
       "updatedAt": 1640369318497,
       "id": 18
+    },
+    {
+      "fullName": "Sam Linh",
+      "email": "linhmylove@gmail.com",
+      "phoneNumber": "0905011408",
+      "address": "29 Nguyễn Chí Diễu",
+      "city": "Thành phố Đà Nẵng",
+      "district": "Quận Sơn Trà",
+      "ward": "Phường An Hải Bắc",
+      "shipper": "giaohangtietkiem",
+      "paymentType": "momo",
+      "userId": 2,
+      "products": [
+        {
+          "id": 106,
+          "cartId": 12,
+          "name": "Bánh vòng Sâu Róm",
+          "price": 129000,
+          "quantity": 1,
+          "productOption": {
+            "id": 169,
+            "productId": 106,
+            "name": "",
+            "price": 0
+          }
+        },
+        {
+          "id": 1,
+          "cartId": 1,
+          "name": "Cookie Giáng Sinh",
+          "price": 59000,
+          "quantity": 1,
+          "productOption": {
+            "id": 2,
+            "productId": 1,
+            "name": "Size M",
+            "price": 9000
+          }
+        }
+      ],
+      "totalPrice": 197000,
+      "orderCode": 171371,
+      "status": "pending",
+      "createdAt": 1640372317362,
+      "updatedAt": 1640372317362,
+      "id": 19
     }
   ],
   "comments": [
@@ -3030,15 +3076,6 @@
   "carts": [
     {
       "quantity": 1,
-      "productId": 1,
-      "userId": 2,
-      "productOptionId": 2,
-      "createdAt": 1640173365505,
-      "updatedAt": 1640173365506,
-      "id": 1
-    },
-    {
-      "quantity": 1,
       "productId": 14,
       "userId": 2,
       "productOptionId": 28,
@@ -3099,15 +3136,6 @@
       "createdAt": 1640235355988,
       "updatedAt": 1640235355988,
       "id": 10
-    },
-    {
-      "quantity": 1,
-      "productId": 106,
-      "userId": 2,
-      "productOptionId": 169,
-      "createdAt": 1640235383398,
-      "updatedAt": 1640235383398,
-      "id": 12
     },
     {
       "quantity": 1,

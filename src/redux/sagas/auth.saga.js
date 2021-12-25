@@ -8,11 +8,14 @@ import { AUTH_ACTION, REQUEST, SUCCESS, FAIL } from '../constants';
 function* getUserInfoSaga(action) {
   const { id } = action.payload;
   try {
-    const result = yield axios.get(`http://localhost:4000/users/${id}`, {
-      params: {
-        _embed: 'orderLocations',
-      },
-    });
+    const result = yield axios.get(
+      `https://cupid-bakery-api.herokuapp.com/users/${id}`,
+      {
+        params: {
+          _embed: 'orderLocations',
+        },
+      }
+    );
     yield put({
       type: SUCCESS(AUTH_ACTION.GET_USER_INFO),
       payload: {
@@ -31,7 +34,10 @@ function* getUserInfoSaga(action) {
 function* loginSaga(action) {
   const { data, callback } = action.payload;
   try {
-    const result = yield axios.post('http://localhost:4000/login', data);
+    const result = yield axios.post(
+      'https://cupid-bakery-api.herokuapp.com/login',
+      data
+    );
     yield localStorage.setItem(
       'userInfo',
       JSON.stringify({
@@ -67,7 +73,7 @@ function* loginSaga(action) {
 function* registerSaga(action) {
   const { data, callback } = action.payload;
   try {
-    yield axios.post('http://localhost:4000/register', data);
+    yield axios.post('https://cupid-bakery-api.herokuapp.com/register', data);
     yield put({
       type: SUCCESS(AUTH_ACTION.REGISTER),
     });
@@ -92,8 +98,13 @@ function* registerSaga(action) {
 function* updateInfoSaga(action) {
   const { id, data, callback } = action.payload;
   try {
-    yield axios.patch(`http://localhost:4000/users/${id}`, data);
-    const result = yield axios.get(`http://localhost:4000/users/${id}`);
+    yield axios.patch(
+      `https://cupid-bakery-api.herokuapp.com/users/${id}`,
+      data
+    );
+    const result = yield axios.get(
+      `https://cupid-bakery-api.herokuapp.com/users/${id}`
+    );
     yield put({
       type: SUCCESS(AUTH_ACTION.GET_USER_INFO),
       payload: {
@@ -115,11 +126,11 @@ function* updateInfoSaga(action) {
 function* changePasswordSaga(action) {
   try {
     const { id, data, callback } = action.payload;
-    yield axios.post('http://localhost:4000/login', {
+    yield axios.post('https://cupid-bakery-api.herokuapp.com/login', {
       email: data.email,
       password: data.oldPassword,
     });
-    yield axios.patch(`http://localhost:4000/users/${id}`, {
+    yield axios.patch(`https://cupid-bakery-api.herokuapp.com/users/${id}`, {
       password: data.newPassword,
     });
     yield notification.success({

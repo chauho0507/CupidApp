@@ -7,12 +7,15 @@ import { WISHLISTS_ACTION, REQUEST, SUCCESS, FAIL } from '../constants';
 function* getWishListSaga(action) {
   try {
     const { userId } = action.payload;
-    const result = yield axios.get('http://localhost:4000/wishlists', {
-      params: {
-        userId,
-        _expand: 'product',
-      },
-    });
+    const result = yield axios.get(
+      'https://cupid-bakery-api.herokuapp.com/wishlists',
+      {
+        params: {
+          userId,
+          _expand: 'product',
+        },
+      }
+    );
     yield put({
       type: SUCCESS(WISHLISTS_ACTION.GET_WISH_LIST),
       payload: {
@@ -30,10 +33,13 @@ function* getWishListSaga(action) {
 function* addToWishListSaga(action) {
   try {
     const { userId, productId } = action.payload;
-    const result = yield axios.post(`http://localhost:4000/wishlists`, {
-      userId,
-      productId,
-    });
+    const result = yield axios.post(
+      `https://cupid-bakery-api.herokuapp.com/wishlists`,
+      {
+        userId,
+        productId,
+      }
+    );
     yield put({
       type: REQUEST(WISHLISTS_ACTION.GET_WISH_LIST),
       payload: {
@@ -57,7 +63,9 @@ function* addToWishListSaga(action) {
 function* removeFromWishListSaga(action) {
   try {
     const { id, userId } = action.payload;
-    yield axios.delete(`http://localhost:4000/wishlists/${id}`);
+    yield axios.delete(
+      `https://cupid-bakery-api.herokuapp.com/wishlists/${id}`
+    );
     yield put({
       type: REQUEST(WISHLISTS_ACTION.GET_WISH_LIST),
       payload: {

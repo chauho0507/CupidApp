@@ -7,11 +7,14 @@ import { ORDER_LOCATION_ACTION, REQUEST, SUCCESS, FAIL } from '../constants';
 function* getOrderLocationListSaga(action) {
   try {
     const { userId } = action.payload;
-    const result = yield axios.get('http://localhost:4000/orderLocations', {
-      params: {
-        userId,
-      },
-    });
+    const result = yield axios.get(
+      'https://cupid-bakery-api.herokuapp.com/orderLocations',
+      {
+        params: {
+          userId,
+        },
+      }
+    );
     yield put({
       type: SUCCESS(ORDER_LOCATION_ACTION.GET_ORDER_LOCATION_LIST),
       payload: {
@@ -32,12 +35,15 @@ function* createOrderLocation(action) {
       action.payload;
     if (defaultLocation) {
       yield locationIds.forEach(id => {
-        axios.patch(`http://localhost:4000/orderLocations/${id}`, {
-          defaultLocation: false,
-        });
+        axios.patch(
+          `https://cupid-bakery-api.herokuapp.com/orderLocations/${id}`,
+          {
+            defaultLocation: false,
+          }
+        );
       });
     }
-    yield axios.post(`http://localhost:4000/orderLocations`, {
+    yield axios.post(`https://cupid-bakery-api.herokuapp.com/orderLocations`, {
       userId,
       info,
       defaultLocation,
@@ -69,15 +75,21 @@ function* updateOrderLocation(action) {
     const newLocationIds = locationIds.filter(id => id !== locationId);
 
     yield newLocationIds.forEach(id => {
-      axios.patch(`http://localhost:4000/orderLocations/${id}`, {
-        defaultLocation: false,
-      });
+      axios.patch(
+        `https://cupid-bakery-api.herokuapp.com/orderLocations/${id}`,
+        {
+          defaultLocation: false,
+        }
+      );
     });
 
-    yield axios.patch(`http://localhost:4000/orderLocations/${locationId}`, {
-      info,
-      defaultLocation,
-    });
+    yield axios.patch(
+      `https://cupid-bakery-api.herokuapp.com/orderLocations/${locationId}`,
+      {
+        info,
+        defaultLocation,
+      }
+    );
 
     yield put({
       type: REQUEST(ORDER_LOCATION_ACTION.GET_ORDER_LOCATION_LIST),
@@ -105,7 +117,9 @@ function* deleteOrderLocation(action) {
   try {
     const { locationId, userId } = action.payload;
     console.log(locationId, userId);
-    yield axios.delete(`http://localhost:4000/orderLocations/${locationId}`);
+    yield axios.delete(
+      `https://cupid-bakery-api.herokuapp.com/orderLocations/${locationId}`
+    );
 
     yield put({
       type: REQUEST(ORDER_LOCATION_ACTION.GET_ORDER_LOCATION_LIST),

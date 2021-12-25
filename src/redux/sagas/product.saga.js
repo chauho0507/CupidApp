@@ -26,7 +26,7 @@ function* getProductListSaga(action) {
     }
 
     const result = yield axios.get(
-      `http://localhost:4000/products?${categoryParam}`,
+      `https://cupid-bakery-api.herokuapp.com/products?${categoryParam}`,
       {
         params: {
           _limit: limit,
@@ -65,12 +65,15 @@ function* getProductListSaga(action) {
 function* getProductDetailSaga(action) {
   try {
     const { id } = action.payload;
-    const result = yield axios.get(`http://localhost:4000/products/${id}`, {
-      params: {
-        _expand: 'category',
-        _embed: 'productOptions',
-      },
-    });
+    const result = yield axios.get(
+      `https://cupid-bakery-api.herokuapp.com/products/${id}`,
+      {
+        params: {
+          _expand: 'category',
+          _embed: 'productOptions',
+        },
+      }
+    );
 
     yield put({
       type: SUCCESS(PRODUCT_ACTION.GET_PRODUCT_DETAIL),
@@ -90,7 +93,7 @@ function* createProductSaga(action) {
   try {
     const { data, callback } = action.payload;
     console.log(data);
-    yield axios.post('http://localhost:4000/products', data);
+    yield axios.post('https://cupid-bakery-api.herokuapp.com/products', data);
     yield put({
       type: SUCCESS(PRODUCT_ACTION.CREATE_PRODUCT),
     });
@@ -111,7 +114,10 @@ function* createProductSaga(action) {
 function* updateProductSaga(action) {
   const { id, data, callback } = action.payload;
   try {
-    yield axios.patch(`http://localhost:4000/products/${id}`, data);
+    yield axios.patch(
+      `https://cupid-bakery-api.herokuapp.com/products/${id}`,
+      data
+    );
     yield put({
       type: SUCCESS(PRODUCT_ACTION.UPDATE_PRODUCT),
     });
@@ -132,7 +138,7 @@ function* updateProductSaga(action) {
 function* deleteProductSaga(action) {
   try {
     const { id } = action.payload;
-    yield axios.delete(`http://localhost:4000/products/${id}`);
+    yield axios.delete(`https://cupid-bakery-api.herokuapp.com/products/${id}`);
     yield put({
       type: SUCCESS(PRODUCT_ACTION.DELETE_PRODUCT),
     });
@@ -151,14 +157,17 @@ function* deleteProductSaga(action) {
 function* getTopSaleListSaga(action) {
   const { limit, page } = action.payload;
   try {
-    const result = yield axios.get('http://localhost:4000/products', {
-      params: {
-        _limit: limit,
-        _page: page,
-        _sort: 'rating',
-        _order: 'desc',
-      },
-    });
+    const result = yield axios.get(
+      'https://cupid-bakery-api.herokuapp.com/products',
+      {
+        params: {
+          _limit: limit,
+          _page: page,
+          _sort: 'rating',
+          _order: 'desc',
+        },
+      }
+    );
 
     yield put({
       type: SUCCESS(PRODUCT_ACTION.GET_TOP_SALE_LIST),
